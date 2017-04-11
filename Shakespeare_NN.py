@@ -1,9 +1,12 @@
-# Shakespeare Neural Network (start Jan. 17, 2017)
-# Train a Hidden Markov Model with a collection of Shakespeare Sonnets and Plays
-# Generate a monolouge in any genre (Tragedy, History, Comedy) 75 words long
-# Determine the sentimnt state of a character based on their speech
-# Generation is based on a parsed argument --type (t, h, c)
+###########################################################################
+# Shakespeare Sentiment Anaylsis
 
+# Date: Jan. 2017
+
+# Train a Hidden Markov Model with a collection of Shakespeare Sonnets and Plays
+# Determine the sentiment state of a character based on their speech
+
+###########################################################################
 import random
 import re
 import string
@@ -51,26 +54,9 @@ def percentFreq(filename, freq_dict, total_words):
 	#printDict(probDict)
 	return probDict
 
-'''
-def markov_next(current, probDict):
-    if current not in probDict:
-        return random.choice(list(probDict.keys()))
-    else:
-        succProbs = probDict[current]
-        randProb = random.random()
-        currentProb = 0.0
-        for succ in succProbs:
-            currentProb += succProbs[succ]
-            if randProb <= currentProb:
-                return succ
-        return random.choice(list(probDict.keys()))
-
-def makePlay(current, probDict, length=75):
-    play = [current]
-    for words in range(length):
-        play.append(markov_next(play[-1], probDict))
-    new_word = ' '.join(str(p) for p in play)
-    return new_word'''
+def basicNN():
+	# basic nueral network trained for sentiment
+	pass
 
 if __name__ == '__main__':
 	filename = 'hamlet_2bee.txt'
@@ -92,3 +78,6 @@ if __name__ == '__main__':
 	print(text.tags)
 	print(text.words)
 	print(text.sentiment)
+
+	# iterate through all tokens for each speech (50 or 100 tokens in size max)
+	# store sentiment in list for each character to graph
