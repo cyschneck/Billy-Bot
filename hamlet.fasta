@@ -1417,27 +1417,21 @@ The time is out of joint:--O cursed spite,
 That ever I was born to set it right!--
 Nay, come, let's go together.
 
-Act II.
-
-Scene I. A room in Polonius's house.
-
-[Enter Polonius and Reynaldo.]
-
-Pol.
+>polonius21_1
 Give him this money and these notes, Reynaldo.
 
-Rey.
+>reynaldo21_1
 I will, my lord.
 
-Pol.
+>polonius21_2
 You shall do marvellous wisely, good Reynaldo,
 Before You visit him, to make inquiry
 Of his behaviour.
 
-Rey.
+>reynaldo21_2
 My lord, I did intend it.
 
-Pol.
+>polonius21_3
 Marry, well said; very well said. Look you, sir,
 Enquire me first what Danskers are in Paris;
 And how, and who, what means, and where they keep,
@@ -1449,10 +1443,10 @@ Take you, as 'twere, some distant knowledge of him;
 As thus, 'I know his father and his friends,
 And in part him;--do you mark this, Reynaldo?
 
-Rey.
+>reynaldo21_3
 Ay, very well, my lord.
 
-Pol.
+>polonius21_4
 'And in part him;--but,' you may say, 'not well:
 But if't be he I mean, he's very wild;
 Addicted so and so;' and there put on him
@@ -1462,17 +1456,17 @@ But, sir, such wanton, wild, and usual slips
 As are companions noted and most known
 To youth and liberty.
 
-Rey.
+>reynaldo21_4
 As gaming, my lord.
 
-Pol.
+>polonius21_5
 Ay, or drinking, fencing, swearing, quarrelling,
 Drabbing:--you may go so far.
 
-Rey.
+>reynaldo21_5
 My lord, that would dishonour him.
 
-Pol.
+>polonius21_6
 Faith, no; as you may season it in the charge.
 You must not put another scandal on him,
 That he is open to incontinency;
@@ -1482,17 +1476,17 @@ The flash and outbreak of a fiery mind;
 A savageness in unreclaimed blood,
 Of general assault.
 
-Rey.
+>reynaldo21_6
 But, my good lord,--
 
-Pol.
+>polonius21_7
 Wherefore should you do this?
 
-Rey.
+>reynaldo21_7
 Ay, my lord,
 I would know that.
 
-Pol.
+>polonius21_8
 Marry, sir, here's my drift;
 And I believe it is a fetch of warrant:
 You laying these slight sullies on my son
@@ -1506,18 +1500,18 @@ He closes with you in this consequence;
 According to the phrase or the addition
 Of man and country.
 
-Rey.
+>reynaldo21_8
 Very good, my lord.
 
-Pol.
+>polonius21_9
 And then, sir, does he this,--he does--What was I about to say?--
 By the mass, I was about to say something:--Where did I leave?
 
-Rey.
+>reynaldo21_9
 At 'closes in the consequence,' at 'friend or so,' and
 gentleman.'
 
-Pol.
+>polonius21_10
 At--closes in the consequence'--ay, marry!
 He closes with you thus:--'I know the gentleman;
 I saw him yesterday, or t'other day,
@@ -1534,43 +1528,38 @@ By indirections find directions out:
 So, by my former lecture and advice,
 Shall you my son. You have me, have you not?
 
-Rey.
+>reynaldo21_10
 My lord, I have.
 
-Pol.
+>polonius21_11
 God b' wi' you, fare you well.
 
-Rey.
+>reynaldo21_11
 Good my lord!
 
-Pol.
+>polonius21_12
 Observe his inclination in yourself.
 
-Rey.
+>reynaldo21_12
 I shall, my lord.
 
-Pol.
+>polonius21_13
 And let him ply his music.
 
-Rey.
+>reynaldo21_13
 Well, my lord.
 
-Pol.
+>polonius21_14
 Farewell!
-
-[Exit Reynaldo.]
-
-[Enter Ophelia.]
-
 How now, Ophelia! what's the matter?
 
-Oph.
+>ophelia21_1
 Alas, my lord, I have been so affrighted!
 
-Pol.
+>polonius21_15
 With what, i' the name of God?
 
-Oph.
+>ophelia21_2
 My lord, as I was sewing in my chamber,
 Lord Hamlet,--with his doublet all unbrac'd;
 No hat upon his head; his stockings foul'd,
@@ -1580,17 +1569,17 @@ And with a look so piteous in purport
 As if he had been loosed out of hell
 To speak of horrors,--he comes before me.
 
-Pol.
+>polonius21_16
 Mad for thy love?
 
-Oph.
+>ophelia21_3
 My lord, I do not know;
 But truly I do fear it.
 
-Pol.
+>polonius21_17
 What said he?
 
-Oph.
+>ophelia21_4
 He took me by the wrist, and held me hard;
 Then goes he to the length of all his arm;
 And with his other hand thus o'er his brow,
@@ -1606,7 +1595,7 @@ He seem'd to find his way without his eyes;
 For out o' doors he went without their help,
 And to the last bended their light on me.
 
-Pol.
+>polonius21_18
 Come, go with me: I will go seek the king.
 This is the very ecstasy of love;
 Whose violent property fordoes itself,
@@ -1615,12 +1604,12 @@ As oft as any passion under heaven
 That does afflict our natures. I am sorry,--
 What, have you given him any hard words of late?
 
-Oph.
+>ophelia21_5
 No, my good lord; but, as you did command,
 I did repel his letters and denied
 His access to me.
 
-Pol.
+>polonius21_19
 That hath made him mad.
 I am sorry that with better heed and judgment
 I had not quoted him: I fear'd he did but trifle,
@@ -1632,15 +1621,7 @@ To lack discretion. Come, go we to the king:
 This must be known; which, being kept close, might move
 More grief to hide than hate to utter love.
 
-[Exeunt.]
-
-
-
-Scene II. A room in the Castle.
-
-[Enter King, Rosencrantz, Guildenstern, and Attendants.]
-
-King.
+>claudius22_1
 Welcome, dear Rosencrantz and Guildenstern!
 Moreover that we much did long to see you,
 The need we have to use you did provoke
@@ -1660,7 +1641,7 @@ So much as from occasion you may glean,
 Whether aught, to us unknown, afflicts him thus,
 That, open'd, lies within our remedy.
 
-Queen.
+>gertrude22_1
 Good gentlemen, he hath much talk'd of you,
 And sure I am two men there are not living
 To whom he more adheres. If it will please you
@@ -1670,46 +1651,42 @@ For the supply and profit of our hope,
 Your visitation shall receive such thanks
 As fits a king's remembrance.
 
-Ros.
+>rosencrantz22_1
 Both your majesties
 Might, by the sovereign power you have of us,
 Put your dread pleasures more into command
 Than to entreaty.
 
-Guil.
+>guildenstern22_1
 We both obey,
 And here give up ourselves, in the full bent,
 To lay our service freely at your feet,
 To be commanded.
 
-King.
+>claudius22_2
 Thanks, Rosencrantz and gentle Guildenstern.
 
-Queen.
+>gertrude22_2
 Thanks, Guildenstern and gentle Rosencrantz:
 And I beseech you instantly to visit
 My too-much-changed son.--Go, some of you,
 And bring these gentlemen where Hamlet is.
 
-Guil.
+>guildenstern22_2
 Heavens make our presence and our practices
 Pleasant and helpful to him!
 
-Queen.
+>gertrude22_3
 Ay, amen!
 
-[Exeunt Rosencrantz, Guildenstern, and some Attendants].
-
-[Enter Polonius.]
-
-Pol.
+>polonius22_1
 Th' ambassadors from Norway, my good lord,
 Are joyfully return'd.
 
-King.
+>claudius22_2
 Thou still hast been the father of good news.
 
-Pol.
+>polonius22_2
 Have I, my lord? Assure you, my good liege,
 I hold my duty, as I hold my soul,
 Both to my God and to my gracious king:
@@ -1718,34 +1695,28 @@ Hunts not the trail of policy so sure
 As it hath us'd to do,--that I have found
 The very cause of Hamlet's lunacy.
 
-King.
+>claudius22_3
 O, speak of that; that do I long to hear.
 
-Pol.
+>polonius22_3
 Give first admittance to the ambassadors;
 My news shall be the fruit to that great feast.
 
-King.
+>claudius22_4
 Thyself do grace to them, and bring them in.
-
-[Exit Polonius.]
-
 He tells me, my sweet queen, he hath found
 The head and source of all your son's distemper.
 
-Queen.
+>gertrude22_4
 I doubt it is no other but the main,--
 His father's death and our o'erhasty marriage.
 
-King.
+>claudius22_5
 Well, we shall sift him.
-
-[Enter Polonius, with Voltimand and Cornelius.]
-
 Welcome, my good friends!
 Say, Voltimand, what from our brother Norway?
 
-Volt.
+>voltimand22_1
 Most fair return of greetings and desires.
 Upon our first, he sent out to suppress
 His nephew's levies; which to him appear'd
@@ -1769,7 +1740,7 @@ Through your dominions for this enterprise,
 On such regards of safety and allowance
 As therein are set down.
 
-King.
+>claudius22_6
 It likes us well;
 And at our more consider'd time we'll read,
 Answer, and think upon this business.
@@ -1777,9 +1748,7 @@ Meantime we thank you for your well-took labour:
 Go to your rest; at night we'll feast together:
 Most welcome home!
 
-[Exeunt Voltimand and Cornelius.]
-
-Pol.
+>polonius22_4
 This business is well ended.--
 My liege, and madam,--to expostulate
 What majesty should be, what duty is,
@@ -1792,10 +1761,10 @@ Mad call I it; for to define true madness,
 What is't but to be nothing else but mad?
 But let that go.
 
-Queen.
+>gertrude22_5
 More matter, with less art.
 
-Pol.
+>polonius22_5
 Madam, I swear I use no art at all.
 That he is mad, 'tis true: 'tis true 'tis pity;
 And pity 'tis 'tis true: a foolish figure;
@@ -1809,45 +1778,42 @@ Perpend.
 I have a daughter,--have whilst she is mine,--
 Who, in her duty and obedience, mark,
 Hath given me this: now gather, and surmise.
-[Reads.]
 'To the celestial, and my soul's idol, the most beautified
 Ophelia,'--
 That's an ill phrase, a vile phrase; 'beautified' is a vile
 phrase: but you shall hear. Thus:
-[Reads.]
 'In her excellent white bosom, these, &c.'
 
-Queen.
+>gertrude22_6
 Came this from Hamlet to her?
 
-Pol.
+>polonius22_6
 Good madam, stay awhile; I will be faithful.
-[Reads.]
-  'Doubt thou the stars are fire;
-     Doubt that the sun doth move;
-   Doubt truth to be a liar;
-     But never doubt I love.
+'Doubt thou the stars are fire;
+Doubt that the sun doth move;
+Doubt truth to be a liar;
+But never doubt I love.
 'O dear Ophelia, I am ill at these numbers; I have not art to
 reckon my groans: but that I love thee best, O most best, believe
 it. Adieu.
-  'Thine evermore, most dear lady, whilst this machine is to him,
-     HAMLET.'
+'Thine evermore, most dear lady, whilst this machine is to him,
+HAMLET.'
 This, in obedience, hath my daughter show'd me;
 And more above, hath his solicitings,
 As they fell out by time, by means, and place,
 All given to mine ear.
 
-King.
+>claudius22_7
 But how hath she
 Receiv'd his love?
 
-Pol.
+>polonius22_7
 What do you think of me?
 
-King.
+>claudius22_8
 As of a man faithful and honourable.
 
-Pol.
+>polonius22_8
 I would fain prove so. But what might you think,
 When I had seen this hot love on the wing,--
 As I perceiv'd it, I must tell you that,
@@ -1870,38 +1836,37 @@ Thence to a lightness; and, by this declension,
 Into the madness wherein now he raves,
 And all we wail for.
 
-King.
+>claudius22_9
 Do you think 'tis this?
 
-Queen.
+>gertrude22_7
 It may be, very likely.
 
-Pol.
+>polonius22_9
 Hath there been such a time,--I'd fain know that--
 That I have positively said ''Tis so,'
 When it prov'd otherwise?
 
-King.
+>claudius22_10
 Not that I know.
 
-Pol.
+>polonius22_10
 Take this from this, if this be otherwise:
-[Points to his head and shoulder.]
 If circumstances lead me, I will find
 Where truth is hid, though it were hid indeed
 Within the centre.
 
-King.
+>claudius22_11
 How may we try it further?
 
-Pol.
+>polonius22_11
 You know sometimes he walks for hours together
 Here in the lobby.
 
-Queen.
+>gertrude22_8
 So he does indeed.
 
-Pol.
+>polonius22_12
 At such a time I'll loose my daughter to him:
 Be you and I behind an arras then;
 Mark the encounter: if he love her not,
@@ -1909,78 +1874,73 @@ And he not from his reason fall'n thereon
 Let me be no assistant for a state,
 But keep a farm and carters.
 
-King.
+>claudius22_12
 We will try it.
 
-Queen.
+>gertrude22_9
 But look where sadly the poor wretch comes reading.
 
-Pol.
+>polonius22_13
 Away, I do beseech you, both away
 I'll board him presently:--O, give me leave.
-
-[Exeunt King, Queen, and Attendants.]
-
-[Enter Hamlet, reading.]
-
 How does my good Lord Hamlet?
 
-Ham.
+>hamlet22_1
 Well, God-a-mercy.
 
-Pol.
+>polonius22_14
 Do you know me, my lord?
 
-Ham.
+>hamlet22_2
 Excellent well; you're a fishmonger.
 
-Pol.
+>polonius22_15
 Not I, my lord.
 
-Ham.
+>hamlet22_3
 Then I would you were so honest a man.
 
-Pol.
+>polonius22_16
 Honest, my lord!
 
-Ham.
+>hamlet22_4
 Ay, sir; to be honest, as this world goes, is to be one man
 picked out of ten thousand.
 
-Pol.
+>polonius22_17
 That's very true, my lord.
 
-Ham.
+>hamlet22_5
 For if the sun breed maggots in a dead dog, being a god-kissing
 carrion,--Have you a daughter?
 
-Pol.
+>polonius22_18
 I have, my lord.
 
-Ham.
+>hamlet22_6
 Let her not walk i' the sun: conception is a blessing, but not
 as your daughter may conceive:--friend, look to't.
 
-Pol.
-How say you by that?--[Aside.] Still harping on my daughter:--yet
+>polonius22_19
+How say you by that?--Still harping on my daughter:--yet
 he knew me not at first; he said I was a fishmonger: he is far
 gone, far gone: and truly in my youth I suffered much extremity
 for love; very near this. I'll speak to him again.--What do you
 read, my lord?
 
-Ham.
+>hamlet22_7
 Words, words, words.
 
-Pol.
+>polonius22_20
 What is the matter, my lord?
 
-Ham.
+>hamlet22_8
 Between who?
 
-Pol.
+>polonius22_21
 I mean, the matter that you read, my lord.
 
-Ham.
+>hamlet22_9
 Slanders, sir: for the satirical slave says here that old men
 have grey beards; that their faces are wrinkled; their eyes
 purging thick amber and plum-tree gum; and that they have a
@@ -1989,177 +1949,173 @@ sir, though I most powerfully and potently believe, yet I hold it
 not honesty to have it thus set down; for you yourself, sir,
 should be old as I am, if, like a crab, you could go backward.
 
-Pol.
-[Aside.] Though this be madness, yet there is a method in't.--
+>polonius22_22
+Though this be madness, yet there is a method in't.--
 Will you walk out of the air, my lord?
 
-Ham.
+>hamlet22_10
 Into my grave?
 
-Pol.
-Indeed, that is out o' the air. [Aside.] How pregnant sometimes
+>polonius22_23
+Indeed, that is out o' the air. How pregnant sometimes
 his replies are! a happiness that often madness hits on, which
 reason and sanity could not so prosperously be delivered of. I
 will leave him and suddenly contrive the means of meeting between
 him and my daughter.--My honourable lord, I will most humbly take
 my leave of you.
 
-Ham.
+>hamlet22_11
 You cannot, sir, take from me anything that I will more
 willingly part withal,--except my life, except my life, except my
 life.
 
-Pol.
+>polonius22_24
 Fare you well, my lord.
 
-Ham.
+>hamlet22_12
 These tedious old fools!
 
-[Enter Rosencrantz and Guildenstern.]
-
-Pol.
+>polonius22_24
 You go to seek the Lord Hamlet; there he is.
 
-Ros.
-[To Polonius.] God save you, sir!
+>rosencrantz22_2
+God save you, sir!
 
-[Exit Polonius.]
-
-Guil.
+>guildenstern22_3
 My honoured lord!
 
-Ros.
+>rosencrantz22_3
 My most dear lord!
 
-Ham.
+>hamlet22_13
 My excellent good friends! How dost thou, Guildenstern? Ah,
 Rosencrantz! Good lads, how do ye both?
 
-Ros.
+>rosencrantz22_4
 As the indifferent children of the earth.
 
-Guil.
+>guildenstern22_4
 Happy in that we are not over-happy;
 On fortune's cap we are not the very button.
 
-Ham.
+>hamlet22_14
 Nor the soles of her shoe?
 
-Ros.
+>rosencrantz22_5
 Neither, my lord.
 
-Ham.
+>hamlet22_15
 Then you live about her waist, or in the middle of her
 favours?
 
-Guil.
+>guildenstern22_5
 Faith, her privates we.
 
-Ham.
+>hamlet22_16
 In the secret parts of fortune? O, most true; she is a
 strumpet. What's the news?
 
-Ros.
+>rosencrantz22_6
 None, my lord, but that the world's grown honest.
 
-Ham.
+>hamlet22_17
 Then is doomsday near; but your news is not true. Let me
 question more in particular: what have you, my good friends,
 deserved at the hands of fortune, that she sends you to prison
 hither?
 
-Guil.
+>guildenstern22_6
 Prison, my lord!
 
-Ham.
+>hamlet22_18
 Denmark's a prison.
 
-Ros.
+>rosencrantz22_7
 Then is the world one.
 
-Ham.
+>hamlet22_19
 A goodly one; in which there are many confines, wards, and
 dungeons, Denmark being one o' the worst.
 
-Ros.
+>rosencrantz22_8
 We think not so, my lord.
 
-Ham.
+>hamlet22_20
 Why, then 'tis none to you; for there is nothing either good
 or bad but thinking makes it so: to me it is a prison.
 
-Ros.
+>rosencrantz22_9
 Why, then, your ambition makes it one; 'tis too narrow for your
 mind.
 
-Ham.
+>hamlet22_21
 O God, I could be bounded in a nutshell, and count myself a
 king of infinite space, were it not that I have bad dreams.
 
-Guil.
+>guildenstern22_7
 Which dreams, indeed, are ambition; for the very substance of
 the ambitious is merely the shadow of a dream.
 
-Ham.
+>hamlet22_22
 A dream itself is but a shadow.
 
-Ros.
+>rosencrantz22_10
 Truly, and I hold ambition of so airy and light a quality that
 it is but a shadow's shadow.
 
-Ham.
+>hamlet22_23
 Then are our beggars bodies, and our monarchs and outstretch'd
 heroes the beggars' shadows. Shall we to the court? for, by my
 fay, I cannot reason.
 
-Ros. and Guild.
+>guildenstern22_8
 We'll wait upon you.
 
-Ham.
+>hamlet22_24
 No such matter: I will not sort you with the rest of my
 servants; for, to speak to you like an honest man, I am most
 dreadfully attended. But, in the beaten way of friendship, what
 make you at Elsinore?
 
-Ros.
+>rosencrantz22_11
 To visit you, my lord; no other occasion.
 
-Ham.
+>hamlet22_25
 Beggar that I am, I am even poor in thanks; but I thank you:
 and sure, dear friends, my thanks are too dear a halfpenny. Were
 you not sent for? Is it your own inclining? Is it a free
 visitation? Come, deal justly with me: come, come; nay, speak.
 
-Guil.
+>guildenstern22_9
 What should we say, my lord?
 
-Ham.
+>hamlet22_26
 Why, anything--but to the purpose. You were sent for; and
 there is a kind of confession in your looks, which your modesties
 have not craft enough to colour: I know the good king and queen
 have sent for you.
 
-Ros.
+>rosencrantz22_12
 To what end, my lord?
 
-Ham.
+>hamlet22_27
 That you must teach me. But let me conjure you, by the rights
 of our fellowship, by the consonancy of our youth, by the
 obligation of our ever-preserved love, and by what more dear a
 better proposer could charge you withal, be even and direct with
 me, whether you were sent for or no.
 
-Ros.
-[To Guildenstern.] What say you?
+>rosencrantz22_13
+What say you?
 
-Ham.
-[Aside.] Nay, then, I have an eye of you.--If you love me, hold
+>hamlet22_28
+Nay, then, I have an eye of you.--If you love me, hold
 not off.
 
-Guil.
+>guildenstern22_10
 My lord, we were sent for.
 
-Ham.
+>hamlet22_29
 I will tell you why; so shall my anticipation prevent your
 discovery, and your secrecy to the king and queen moult no
 feather. I have of late,--but wherefore I know not,--lost all my
@@ -2176,18 +2132,18 @@ beauty of the world! the paragon of animals! And yet, to me, what
 is this quintessence of dust? Man delights not me; no, nor woman
 neither, though by your smiling you seem to say so.
 
-Ros.
+>rosencrantz22_14
 My lord, there was no such stuff in my thoughts.
 
-Ham.
+>hamlet22_30
 Why did you laugh then, when I said 'Man delights not me'?
 
-Ros.
+>rosencrantz22_15
 To think, my lord, if you delight not in man, what lenten
 entertainment the players shall receive from you: we coted them
 on the way; and hither are they coming to offer you service.
 
-Ham.
+>hamlet22_31
 He that plays the king shall be welcome,--his majesty shall
 have tribute of me; the adventurous knight shall use his foil and
 target; the lover shall not sigh gratis; the humorous man shall
@@ -2196,29 +2152,29 @@ lungs are tickle o' the sere; and the lady shall say her mind
 freely, or the blank verse shall halt for't. What players are
 they?
 
-Ros.
+>rosencrantz22_16
 Even those you were wont to take such delight in,--the
 tragedians of the city.
 
-Ham.
+>hamlet22_32
 How chances it they travel? their residence, both in
 reputation and profit, was better both ways.
 
-Ros.
+>rosencrantz22_17
 I think their inhibition comes by the means of the late
 innovation.
 
-Ham.
+>hamlet22_33
 Do they hold the same estimation they did when I was in the
 city? Are they so followed?
 
-Ros.
+>rosencrantz22_18
 No, indeed, are they not.
 
-Ham.
+>hamlet22_34
 How comes it? do they grow rusty?
 
-Ros.
+>rosencrantz22_19
 Nay, their endeavour keeps in the wonted pace: but there is,
 sir, an aery of children, little eyases, that cry out on the top
 of question, and are most tyrannically clapped for't: these are
@@ -2226,7 +2182,7 @@ now the fashion; and so berattle the common stages,--so they call
 them,--that many wearing rapiers are afraid of goose-quills and
 dare scarce come thither.
 
-Ham.
+>hamlet22_35
 What, are they children? who maintains 'em? How are they
 escoted? Will they pursue the quality no longer than they can
 sing? will they not say afterwards, if they should grow
@@ -2234,37 +2190,35 @@ themselves to common players,--as it is most like, if their means
 are no better,--their writers do them wrong to make them exclaim
 against their own succession?
 
-Ros.
+>rosencrantz22_20
 Faith, there has been much to do on both sides; and the nation
 holds it no sin to tarre them to controversy: there was, for
 awhile, no money bid for argument unless the poet and the player
 went to cuffs in the question.
 
-Ham.
+>hamlet22_36
 Is't possible?
 
-Guil.
+>guildenstern22_11
 O, there has been much throwing about of brains.
 
-Ham.
+>hamlet22_37
 Do the boys carry it away?
 
-Ros.
+>rosencrantz22_21
 Ay, that they do, my lord; Hercules and his load too.
 
-Ham.
+>hamlet22_38
 It is not very strange; for my uncle is king of Denmark, and
 those that would make mouths at him while my father lived, give
 twenty, forty, fifty, a hundred ducats a-piece for his picture in
 little. 'Sblood, there is something in this more than natural, if
 philosophy could find it out.
 
-[Flourish of trumpets within.]
-
-Guil.
+>guildenstern22_12
 There are the players.
 
-Ham.
+>hamlet22_39
 Gentlemen, you are welcome to Elsinore. Your hands, come: the
 appurtenance of welcome is fashion and ceremony: let me comply
 with you in this garb; lest my extent to the players, which I
@@ -2272,50 +2226,48 @@ tell you must show fairly outward, should more appear like
 entertainment than yours. You are welcome: but my uncle-father
 and aunt-mother are deceived.
 
-Guil.
+>guildenstern22_13
 In what, my dear lord?
 
-Ham.
+>hamlet22_40
 I am but mad north-north-west: when the wind is southerly I
 know a hawk from a handsaw.
 
-[Enter Polonius.]
-
-Pol.
+>polonius22_25
 Well be with you, gentlemen!
 
-Ham.
+>hamlet22_41
 Hark you, Guildenstern;--and you too;--at each ear a hearer: that
 great baby you see there is not yet out of his swaddling clouts.
 
-Ros.
+>rosencrantz22_22
 Happily he's the second time come to them; for they say an old
 man is twice a child.
 
-Ham.
+>hamlet22_42
 I will prophesy he comes to tell me of the players; mark it.--You
 say right, sir: o' Monday morning; 'twas so indeed.
 
-Pol.
+>polonius22_26
 My lord, I have news to tell you.
 
-Ham.
+>hamlet22_43
 My lord, I have news to tell you. When Roscius was an actor in
 Rome,--
 
-Pol.
+>polonius22_27
 The actors are come hither, my lord.
 
-Ham.
+>hamlet22_44
 Buzz, buzz!
 
-Pol.
+>polonius22_28
 Upon my honour,--
 
-Ham.
+>hamlet22_45
 Then came each actor on his ass,--
 
-Pol.
+>polonius22_29
 The best actors in the world, either for tragedy, comedy,
 history, pastoral, pastoral-comical, historical-pastoral,
 tragical-historical, tragical-comical-historical-pastoral, scene
@@ -2323,44 +2275,40 @@ individable, or poem unlimited: Seneca cannot be too heavy nor
 Plautus too light. For the law of writ and the liberty, these are
 the only men.
 
-Ham.
+>hamlet22_46
 O Jephthah, judge of Israel, what a treasure hadst thou!
 
-Pol.
+>polonius22_30
 What treasure had he, my lord?
 
-Ham.
+>hamlet22_47
 Why--
-   'One fair daughter, and no more,
-   The which he loved passing well.'
+'One fair daughter, and no more,
+The which he loved passing well.'
 
+>polonius22_30
+Still on my daughter.
 
-Pol.
-[Aside.] Still on my daughter.
-
-Ham.
+>hamlet22_48
 Am I not i' the right, old Jephthah?
 
-Pol.
+>polonius22_31
 If you call me Jephthah, my lord, I have a daughter that I
 love passing well.
 
-Ham.
+>hamlet22_49
 Nay, that follows not.
 
-Pol.
+>polonius22_32
 What follows, then, my lord?
 
-Ham.
+>hamlet22_50
 Why--
-   'As by lot, God wot,'
+'As by lot, God wot,'
 and then, you know,
-   'It came to pass, as most like it was--'
+'It came to pass, as most like it was--'
 The first row of the pious chanson will show you more; for look
 where my abridgment comes.
-
-[Enter four or five Players.]
-
 You are welcome, masters; welcome, all:--I am glad to see thee
 well.--welcome, good friends.--O, my old friend! Thy face is
 valanc'd since I saw thee last; comest thou to beard me in
@@ -2372,10 +2320,10 @@ all welcome. We'll e'en to't like French falconers, fly at
 anything we see: we'll have a speech straight: come, give us a
 taste of your quality: come, a passionate speech.
 
-I Play.
+>players22_1
 What speech, my lord?
 
-Ham.
+>hamlet22_52
 I heard thee speak me a speech once,--but it was never acted;
 or if it was, not above once; for the play, I remember, pleased
 not the million, 'twas caviare to the general; but it was,--as I
@@ -2389,152 +2337,140 @@ sweet, and by very much more handsome than fine. One speech in it
 I chiefly loved: 'twas AEneas' tale to Dido, and thereabout of it
 especially where he speaks of Priam's slaughter: if it live in
 your memory, begin at this line;--let me see, let me see:--
-
 The rugged Pyrrhus, like th' Hyrcanian beast,--
-
 it is not so:-- it begins with Pyrrhus:--
-
-  'The rugged Pyrrhus,--he whose sable arms,
-   Black as his purpose, did the night resemble
-   When he lay couched in the ominous horse,--
-   Hath now this dread and black complexion smear'd
-   With heraldry more dismal; head to foot
-   Now is he total gules; horridly trick'd
-   With blood of fathers, mothers, daughters, sons,
-   Bak'd and impasted with the parching streets,
-   That lend a tyrannous and a damned light
-   To their vile murders: roasted in wrath and fire,
-   And thus o'ersized with coagulate gore,
-   With eyes like carbuncles, the hellish Pyrrhus
-   Old grandsire Priam seeks.'
-
+'The rugged Pyrrhus,--he whose sable arms,
+Black as his purpose, did the night resemble
+When he lay couched in the ominous horse,--
+Hath now this dread and black complexion smear'd
+With heraldry more dismal; head to foot
+Now is he total gules; horridly trick'd
+With blood of fathers, mothers, daughters, sons,
+Bak'd and impasted with the parching streets,
+That lend a tyrannous and a damned light
+To their vile murders: roasted in wrath and fire,
+And thus o'ersized with coagulate gore,
+With eyes like carbuncles, the hellish Pyrrhus
+Old grandsire Priam seeks.'
 So, proceed you.
 
-Pol.
+>polonius22_31
 'Fore God, my lord, well spoken, with good accent and good
 discretion.
 
-I Play.
-   Anon he finds him,
-   Striking too short at Greeks: his antique sword,
-   Rebellious to his arm, lies where it falls,
-   Repugnant to command: unequal match'd,
-   Pyrrhus at Priam drives; in rage strikes wide;
-   But with the whiff and wind of his fell sword
-   The unnerved father falls. Then senseless Ilium,
-   Seeming to feel this blow, with flaming top
-   Stoops to his base; and with a hideous crash
-   Takes prisoner Pyrrhus' ear: for lo! his sword,
-   Which was declining on the milky head
-   Of reverend Priam, seem'd i' the air to stick:
-   So, as a painted tyrant, Pyrrhus stood;
-   And, like a neutral to his will and matter,
-   Did nothing.
-   But as we often see, against some storm,
-   A silence in the heavens, the rack stand still,
-   The bold winds speechless, and the orb below
-   As hush as death, anon the dreadful thunder
-   Doth rend the region; so, after Pyrrhus' pause,
-   A roused vengeance sets him new a-work;
-   And never did the Cyclops' hammers fall
-   On Mars's armour, forg'd for proof eterne,
-   With less remorse than Pyrrhus' bleeding sword
-   Now falls on Priam.--
-   Out, out, thou strumpet, Fortune! All you gods,
-   In general synod, take away her power;
-   Break all the spokes and fellies from her wheel,
-   And bowl the round nave down the hill of heaven,
-   As low as to the fiends!
+>players22_2
+Anon he finds him,
+Striking too short at Greeks: his antique sword,
+Rebellious to his arm, lies where it falls,
+Repugnant to command: unequal match'd,
+Pyrrhus at Priam drives; in rage strikes wide;
+But with the whiff and wind of his fell sword
+The unnerved father falls. Then senseless Ilium,
+Seeming to feel this blow, with flaming top
+Stoops to his base; and with a hideous crash
+Takes prisoner Pyrrhus' ear: for lo! his sword,
+Which was declining on the milky head
+Of reverend Priam, seem'd i' the air to stick:
+So, as a painted tyrant, Pyrrhus stood;
+And, like a neutral to his will and matter,
+Did nothing.
+But as we often see, against some storm,
+A silence in the heavens, the rack stand still,
+The bold winds speechless, and the orb below
+As hush as death, anon the dreadful thunder
+Doth rend the region; so, after Pyrrhus' pause,
+A roused vengeance sets him new a-work;
+And never did the Cyclops' hammers fall
+On Mars's armour, forg'd for proof eterne,
+With less remorse than Pyrrhus' bleeding sword
+Now falls on Priam.--
+Out, out, thou strumpet, Fortune! All you gods,
+In general synod, take away her power;
+Break all the spokes and fellies from her wheel,
+And bowl the round nave down the hill of heaven,
+As low as to the fiends!
 
-Pol.
+>polonius22_32
 This is too long.
 
-Ham.
+>hamlet22_53
 It shall to the barber's, with your beard.--Pr'ythee say on.--
 He's for a jig or a tale of bawdry, or he sleeps:--say on; come
 to Hecuba.
 
-I Play.
-   But who, O who, had seen the mobled queen,--
+>players22_3
+But who, O who, had seen the mobled queen,--
 
-Ham.
+>hamlet22_54
 'The mobled queen'?
 
-Pol.
+>polonius22_33
 That's good! 'Mobled queen' is good.
 
-I Play.
-   Run barefoot up and down, threatening the flames
-   With bisson rheum; a clout upon that head
-   Where late the diadem stood, and for a robe,
-   About her lank and all o'erteemed loins,
-   A blanket, in the alarm of fear caught up;--
-   Who this had seen, with tongue in venom steep'd,
-   'Gainst Fortune's state would treason have pronounc'd:
-   But if the gods themselves did see her then,
-   When she saw Pyrrhus make malicious sport
-   In mincing with his sword her husband's limbs,
-   The instant burst of clamour that she made,--
-   Unless things mortal move them not at all,--
-   Would have made milch the burning eyes of heaven,
-   And passion in the gods.
+>players22_4
+Run barefoot up and down, threatening the flames
+With bisson rheum; a clout upon that head
+Where late the diadem stood, and for a robe,
+About her lank and all o'erteemed loins,
+A blanket, in the alarm of fear caught up;--
+Who this had seen, with tongue in venom steep'd,
+'Gainst Fortune's state would treason have pronounc'd:
+But if the gods themselves did see her then,
+When she saw Pyrrhus make malicious sport
+In mincing with his sword her husband's limbs,
+The instant burst of clamour that she made,--
+Unless things mortal move them not at all,--
+Would have made milch the burning eyes of heaven,
+And passion in the gods.
 
-Pol.
+>polonius22_34
 Look, whether he has not turn'd his colour, and has tears in's
 eyes.--Pray you, no more!
 
-Ham.
+>hamlet22_55
 'Tis well. I'll have thee speak out the rest of this soon.--
 Good my lord, will you see the players well bestowed? Do you
 hear? Let them be well used; for they are the abstracts and brief
 chronicles of the time; after your death you were better have a
 bad epitaph than their ill report while you live.
 
-Pol.
+>polonius22_35
 My lord, I will use them according to their desert.
 
-Ham.
+>hamlet22_56
 Odd's bodikin, man, better: use every man after his
 desert, and who should scape whipping? Use them after your own
 honour and dignity: the less they deserve, the more merit is in
 your bounty. Take them in.
 
-Pol.
+>polonius22_36
 Come, sirs.
 
-Ham.
+>hamlet22_57
 Follow him, friends: we'll hear a play to-morrow.
-
-[Exeunt Polonius with all the Players but the First.]
-
 Dost thou hear me, old friend? Can you play 'The Murder of
 Gonzago'?
 
-I Play.
+>players22_5
 Ay, my lord.
 
-Ham.
+>hamlet22_58
 We'll ha't to-morrow night. You could, for a need, study a
 speech of some dozen or sixteen lines which I would set down and
 insert in't? could you not?
 
-I Play.
+>players22_6
 Ay, my lord.
 
-Ham.
+>hamlet22_59
 Very well.--Follow that lord; and look you mock him not.
-
-[Exit First Player.]
-
 --My good friends [to Ros. and Guild.], I'll leave you till
 night: you are welcome to Elsinore.
 
-Ros.
+>rosencrantz22_22
 Good my lord!
 
-[Exeunt Rosencrantz and Guildenstern.]
-
-Ham.
+>hamlet22_60
 Ay, so, God b' wi' ye!
 Now I am alone.
 O, what a rogue and peasant slave am I!
@@ -2595,11 +2531,6 @@ As he is very potent with such spirits,--
 Abuses me to damn me: I'll have grounds
 More relative than this.--the play's the thing
 Wherein I'll catch the conscience of the king.
-
-[Exit.]
-
-
-
 
 ACT III.
 
