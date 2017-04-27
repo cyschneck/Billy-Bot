@@ -3,6 +3,11 @@ Danger, Danger Will Shakespeare
 
 *A sentiment analysis to track the emotional arcs of Shakespeare's plays*
 
+## Text
+Fasta files are edited files from gutenberg files. Edits made for readable for tokenization and not meant to infringe on any rights. For full license information look into the gutenberg file. Fasta file reads as follows: 
+```
+>charcter<ACT><SCENCE>_<# of times they have spoken this act/scene>
+```
 ## How it works
 Each speaking role that a character is given is treated as a token. Speeches longer than
 200 words are broken apart into smaller tokens with a max length of 200 words. In order to
