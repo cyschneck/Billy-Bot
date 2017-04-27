@@ -3,8 +3,8 @@
 
 # Date: Jan. 2017
 
-# Train a Hidden Markov Model with a collection of Shakespeare Sonnets and Plays
 # Determine the sentiment state of a character based on their speech
+# Compare the local emotion states of each character to the overall play's arc
 
 ###########################################################################
 import random
@@ -14,13 +14,16 @@ from collections import Counter
 
 from textblob import TextBlob
 
-# TODO: remove character names, locations
 punc = ['!', ',', '.', ':', '\'', ';', '*', '--']
-character_names = ['claudius', 'hamlet', 'polonius', 'horatio', 'laertes',
-					'voltimand', 'cornelius', 'rosencrantz', 'guildenstern',
-					'osric', 'gentleman', 'priest', 'marcellus', 'bernardo',
-					'francisco', 'reynaldo', 'players', 'clownone', 'clowntwo',
-					'gertrude', 'ophelia', 'fortinbras', 'captain', 'ambassadors', 'ghost', 'other']
+character_names = ['claudius', 'hamlet', 'polonius', 
+		   'horatio', 'laertes', 'voltimand',
+		   'cornelius', 'rosencrantz', 'guildenstern',
+		   'osric', 'gentleman', 'priest',
+		   'marcellus', 'bernardo', 'francisco',
+		   'reynaldo', 'players', 'clownone',
+		   'clowntwo', 'gertrude', 'ophelia',
+		   'fortinbras', 'captain', 'ambassadors',
+		   'ghost', 'other']
 ########################################################################
 ## SETTING UP THE DICTIONARIES FROM THE GIVEN FILES
 
@@ -115,6 +118,7 @@ if __name__ == '__main__':
 	import argparse
 	parser = argparse.ArgumentParser(description="flag format given as: -F <filename>")
 	parser.add_argument('-F', '-filename', help="filename, given as .fasta")
+	#parser.add_argument('-C', '-character', help="character to analysis")
 
 	args = parser.parse_args()
 	filename = args.F
