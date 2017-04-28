@@ -123,11 +123,23 @@ def percentFreq(filename, freq_dict, total_words):
 	#printDict(probDict)
 	return probDict
 
-def partsCharacter(character_name):
-	# break apart dictionary into sub-dictionaries for each character
+def partsCharacter(character_name, char_speech_dict):
+	# break apart entire (unparsed) dictionary into sub-dictionaries for each character
 	character_name_parts = { k:v for k, v in char_speech_dict.items() if character_name in k }
 	#print("{0} = {1}".format(character_name, len(character_name_parts)))
 	return character_name_parts
+
+def partAct(act_num, char_speech_dict):
+	# break apart entire (unparsed) dictionary into sub-dictionaries for each act
+	regex_act = re.compile(r'{0}\d_\d'.format(act_num))
+	act_parts = { k:v for k, v in char_speech_dict.items() if bool(re.search(regex_act, k)) }
+	return act_parts
+
+def partScene(scene_num, act_dict):
+	# break apart act dictionary into sub-dictionaries for each scene
+	regex_scene = re.compile(r'\d{0}_\d'.format(scene_num))
+	scene_parts = { k:v for k, v in act_dict.items() if bool(re.search(regex_scene, k)) }
+	return scene_parts
 
 def findMissingName(list_character, char_dict):
 	# find headers that are not being included
@@ -164,31 +176,31 @@ if __name__ == '__main__':
 	char_speech_dict = readingFileDict(filename)
 
 	# TO DO: go through and remove characters that are not being used as headers
-	hamlet_parts = partsCharacter('hamlet')
-	claudius_parts = partsCharacter('claudius')
-	polonius_parts = partsCharacter('polonius')
-	horatio_parts = partsCharacter('horatio')
-	laertes_parts = partsCharacter('laertes')
-	voltimand_parts = partsCharacter('voltimand')
-	cornelius_parts = partsCharacter('cornelius')
-	rosencrantz_parts = partsCharacter('rosencrantz')
-	guildenstern_parts = partsCharacter('guildenstern')
-	osric_parts = partsCharacter('osric')
-	gentleman_parts = partsCharacter('gentleman')
-	marcellus_parts = partsCharacter('marcellus')
-	bernardo_parts = partsCharacter('bernardo')
-	francisco_parts = partsCharacter('francisco')
-	reynaldo_parts = partsCharacter('reynaldo')
-	players_parts = partsCharacter('players')
-	clownone_parts = partsCharacter('clownone')
-	gertrude_parts = partsCharacter('gertrude')
-	clowntwo_parts = partsCharacter('clowntwo')
-	ophelia_parts = partsCharacter('ophelia')
-	fortinbras_parts = partsCharacter('fortinbras')
-	captain_parts = partsCharacter('captain')
-	ambassadors_parts = partsCharacter('ambassadors')
-	ghost_parts = partsCharacter('ghost')
-	other_parts = partsCharacter('other')
+	hamlet_parts = partsCharacter('hamlet', char_speech_dict)
+	claudius_parts = partsCharacter('claudius', char_speech_dict)
+	polonius_parts = partsCharacter('polonius', char_speech_dict)
+	horatio_parts = partsCharacter('horatio', char_speech_dict)
+	laertes_parts = partsCharacter('laertes', char_speech_dict)
+	voltimand_parts = partsCharacter('voltimand', char_speech_dict)
+	cornelius_parts = partsCharacter('cornelius', char_speech_dict)
+	rosencrantz_parts = partsCharacter('rosencrantz', char_speech_dict)
+	guildenstern_parts = partsCharacter('guildenstern', char_speech_dict)
+	osric_parts = partsCharacter('osric', char_speech_dict)
+	gentleman_parts = partsCharacter('gentleman', char_speech_dict)
+	marcellus_parts = partsCharacter('marcellus', char_speech_dict)
+	bernardo_parts = partsCharacter('bernardo', char_speech_dict)
+	francisco_parts = partsCharacter('francisco', char_speech_dict)
+	reynaldo_parts = partsCharacter('reynaldo', char_speech_dict)
+	players_parts = partsCharacter('players', char_speech_dict)
+	clownone_parts = partsCharacter('clownone', char_speech_dict)
+	gertrude_parts = partsCharacter('gertrude', char_speech_dict)
+	clowntwo_parts = partsCharacter('clowntwo', char_speech_dict)
+	ophelia_parts = partsCharacter('ophelia', char_speech_dict)
+	fortinbras_parts = partsCharacter('fortinbras', char_speech_dict)
+	captain_parts = partsCharacter('captain', char_speech_dict)
+	ambassadors_parts = partsCharacter('ambassadors', char_speech_dict)
+	ghost_parts = partsCharacter('ghost', char_speech_dict)
+	other_parts = partsCharacter('other', char_speech_dict)
 	
 	'''
 	total = len(hamlet_parts) + len(claudius_parts) + len(polonius_parts) + len(horatio_parts)
@@ -206,6 +218,43 @@ if __name__ == '__main__':
 	'''
 	#for key in sorted(char_speech_dict)[:50]:
 	#	print("{0}:{1}".format(key, char_speech_dict[key]))
+
+
+	act_one = partAct(1, char_speech_dict)
+	act_one_scene_one = partScene(1, act_one)
+	act_one_scene_two = partScene(2, act_one)
+	act_one_scene_three = partScene(3, act_one)
+	act_one_scene_four = partScene(4, act_one)
+	act_one_scene_five= partScene(5, act_one)
+	'''
+	total = len(act_one_scene_one) + len(act_one_scene_two) + len(act_one_scene_three) + len(act_one_scene_four) + len(act_one_scene_five)
+	print("total: {0}".format(total))
+	print("Found All: {0}".format(total == len(act_one)))
+	'''
+	
+	act_two = partAct(2, char_speech_dict)
+	act_three = partAct(3, char_speech_dict)
+	act_four = partAct(4, char_speech_dict)
+	act_five = partAct(5, char_speech_dict)
+
+	'''
+	print(len(act_one))
+	print(len(act_two))
+	print(len(act_three))
+	print(len(act_four))
+	print(len(act_five))
+	total = len(act_one) + len(act_two) + len(act_three) + len(act_four) + len(act_five)
+	print("total: {0}".format(total))
+	print("Found All: {0}".format(total == len(char_speech_dict)))
+	'''
+
+
+
+
+
+
+
+
 
 	'''
 	words = "thus conscience does make cowards of us all"
