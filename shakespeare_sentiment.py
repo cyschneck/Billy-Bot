@@ -16,14 +16,14 @@ from textblob import TextBlob
 
 punc = ['!', ',', '.', ':', '\'', ';', '*', '--']
 character_names = ['claudius', 'hamlet', 'polonius', 
-		   'horatio', 'laertes', 'voltimand',
-		   'cornelius', 'rosencrantz', 'guildenstern',
-		   'osric', 'gentleman', 'priest',
-		   'marcellus', 'bernardo', 'francisco',
-		   'reynaldo', 'players', 'clownone',
-		   'clowntwo', 'gertrude', 'ophelia',
-		   'fortinbras', 'captain', 'ambassadors',
-		   'ghost', 'other']
+					'horatio', 'laertes', 'voltimand',
+					'cornelius', 'rosencrantz', 'guildenstern',
+					'osric', 'gentleman', 'priest',
+					'marcellus', 'bernardo', 'francisco',
+					'reynaldo', 'players', 'clownone',
+					'clowntwo', 'gertrude', 'ophelia',
+					'fortinbras', 'captain', 'ambassadors',
+					'ghost', 'other']
 ########################################################################
 ## SETTING UP THE DICTIONARIES FROM THE GIVEN FILES
 
@@ -38,7 +38,7 @@ def readingFileDict(filename):
 	with open(filename, "r") as given_file:
 		seq = ''
 		for line in given_file:
-			line = line.rstrip('\n').replace("\t", "@").replace("\r", "@") # replace spaces with known character and replace tabs
+			line = line.rstrip('\n').replace(" ", "#").replace("\t", "@").replace("\r", "@") # replace spaces with known character and replace tabs
 			if line.startswith('>'):
 				line = line + ' '
 				line = line.replace('>', ' >')
@@ -55,7 +55,7 @@ def readingFileDict(filename):
 				element = element.replace("@", "")
 				element = element.strip(">") # assumes all header/sequences starts with >
 				append(element) # returns a list of  headers ['chrI', 'chrII', etc...]
-
+		#print(char_list)
 		speech_list =  [x for x in characterList if '>' not in x] # returns a list of sequence ['ATC', 'TGGC', etc..]
 		speech_list = map(str.lower, speech_list) # convert all sequences to upper case for consitency
 
@@ -63,8 +63,13 @@ def readingFileDict(filename):
 			if '@' in speech_list[i]:
 				new_value = speech_list[i].replace("@", "")
 				speech_list[i] = new_value
-		seq_dict = seqDictPairs(char_list, speech_list) # tuples of a pair's list and a dictionary {seq:gen}
-	return seq_dict
+		#print(speech_list)
+		# check that no duplicates in keys occur
+		#duplicates = [x for n, x in enumerate(char_list) if x in char_list[:n]]
+		char_speech_dict = seqDictPairs(char_list, speech_list) # tuples of a pair's list and a dictionary {seq:gen}
+		final_with_spaces_dict = addSpacestoSpeech(char_speech_dict)
+	return final_with_spaces_dict
+
 
 def seqDictPairs(header_list, sequence_list):
 	# creates a dictionary between the sequence (header) and the associated genome {seq:genome} dictionary
@@ -74,6 +79,14 @@ def seqDictPairs(header_list, sequence_list):
 	seq_gen_dict = zip(header_list, sequence_list) # combine the two lists
 	seq_gen_dict = dict(seq_gen_dict) # create new dictionary from the lists
 	return seq_gen_dict
+
+def addSpacestoSpeech(char_speech_dict):
+	# removes spaces to parse correct, but adds them back here
+	for key in char_speech_dict:
+		if "#" in char_speech_dict[key]:
+			with_spaces = char_speech_dict[key].replace("#", " ")
+			char_speech_dict[key] = with_spaces
+	return char_speech_dict
 
 def printDict(dictionary):
 	#print from largest to smallest frequency in order
@@ -110,10 +123,6 @@ def percentFreq(filename, freq_dict, total_words):
 	#printDict(probDict)
 	return probDict
 
-def basicNN():
-	# basic nueral network trained for sentiment
-	pass
-
 if __name__ == '__main__':
 	import argparse
 	parser = argparse.ArgumentParser(description="flag format given as: -F <filename>")
@@ -130,7 +139,8 @@ if __name__ == '__main__':
 			exit()
 	
 	char_speech_dict = readingFileDict(filename)
-	print(char_speech_dict)
+	for key in sorted(char_speech_dict)[:50]:
+		print("{0}:{1}".format(key, char_speech_dict[key]))
 	'''
 	words = "thus conscience does make cowards of us all"
 	text = TextBlob(words)
