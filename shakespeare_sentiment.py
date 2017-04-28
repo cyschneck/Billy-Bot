@@ -24,6 +24,7 @@ character_names = ['claudius', 'hamlet', 'polonius',
 					'clowntwo', 'gertrude', 'ophelia',
 					'fortinbras', 'captain', 'ambassadors',
 					'ghost', 'other']
+
 ########################################################################
 ## SETTING UP THE DICTIONARIES FROM THE GIVEN FILES
 
@@ -70,7 +71,6 @@ def readingFileDict(filename):
 		final_with_spaces_dict = addSpacestoSpeech(char_speech_dict)
 	return final_with_spaces_dict
 
-
 def seqDictPairs(header_list, sequence_list):
 	# creates a dictionary between the sequence (header) and the associated genome {seq:genome} dictionary
 	# takes in the header list and the sequence list to combine into a single diectionary that can be searched
@@ -87,41 +87,6 @@ def addSpacestoSpeech(char_speech_dict):
 			with_spaces = char_speech_dict[key].replace("#", " ")
 			char_speech_dict[key] = with_spaces
 	return char_speech_dict
-
-def printDict(dictionary):
-	#print from largest to smallest frequency in order
-	tmp = dictionary # print full dictionary in order from largest to smallest
-	while(any(tmp)): #while tmp dictionary is not empty
-		max_el = min(tmp, key=lambda key: tmp[key]) # return the largest dict value
-		print("{0} = {1}".format(max_el, tmp[max_el])) #formating for print
-		del tmp[max_el] # remove the largest element (for each round until none remain)
-
-def translateFreqText(filename):
-	#remove all characters and puncutation from text
-	full_dictionary = []
-	with open(filename, 'r') as given_file:
-		words = given_file.read().lower() # translate text to lowercase
-		words = words.translate(None, string.punctuation) # remove all puncation that is not part of a word (I'll)
-		words = words.rsplit() # split into individual elements per word
-	for word in words:
-		full_dictionary.append(word) # populate the list
-	
-	freqDict = Counter(full_dictionary) # count the frequency of each word {word:#freq}
-	
-	#printDict(freqDict)
-	return freqDict
-
-def percentFreq(filename, freq_dict, total_words):
-	## compute percentages
-	probDict = {} # probabilty of each word appearing in the text
-
-	for element in freq_dict.keys():
-		frequency = (float(freq_dict[element]) / float(total_words))
-		#print("%.6f" % frequency)
-		probDict[element]=frequency
-	
-	#printDict(probDict)
-	return probDict
 
 def partsCharacter(character_name, char_speech_dict):
 	# break apart entire (unparsed) dictionary into sub-dictionaries for each character
@@ -142,7 +107,7 @@ def partScene(scene_num, act_dict):
 	return scene_parts
 
 def findMissingName(list_character, char_dict):
-	# find headers that are not being included
+	# find headers that are not being included (debugging)
 	missing_ch = []
 	for key in char_dict:
 		found = False
@@ -157,12 +122,14 @@ def findMissingName(list_character, char_dict):
 		for ch in missing_ch:
 			print("not found: {0}".format(ch))
 
-	
 if __name__ == '__main__':
 	import argparse
 	parser = argparse.ArgumentParser(description="flag format given as: -F <filename>")
 	parser.add_argument('-F', '-filename', help="filename, given as .fasta")
-	#parser.add_argument('-C', '-character', help="character to analysis")
+	#parser.add_argument('-A', '-act', help="act to analysis")
+	#parser.add_argument('-AS', '-act_scene', help="act and specific scene")
+	#parser.add_argument('-P', '-play_to_breakdown', help="default set to hamlet")
+
 
 	args = parser.parse_args()
 	filename = args.F
@@ -231,7 +198,7 @@ if __name__ == '__main__':
 	print("total: {0}".format(total))
 	print("Found All: {0}".format(total == len(act_one)))
 	'''
-	
+	#TODO: break apart other acts for scenes and test that length of combined is the act
 	act_two = partAct(2, char_speech_dict)
 	act_three = partAct(3, char_speech_dict)
 	act_four = partAct(4, char_speech_dict)
@@ -247,14 +214,6 @@ if __name__ == '__main__':
 	print("total: {0}".format(total))
 	print("Found All: {0}".format(total == len(char_speech_dict)))
 	'''
-
-
-
-
-
-
-
-
 
 	'''
 	words = "thus conscience does make cowards of us all"
