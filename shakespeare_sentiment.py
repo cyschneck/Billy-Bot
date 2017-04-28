@@ -43,7 +43,7 @@ def readingFileDict(filename):
 				line = line + ' '
 				line = line.replace('>', ' >')
 			append(line)
-		seq = ''.join(fullList).upper()
+		seq = ''.join(fullList).lower()
 		characterList = seq.split()
 		# Pulls out the sequences and genomes
 		# By removing any extranous puncutation with predicatble characters to be spliced
@@ -123,6 +123,29 @@ def percentFreq(filename, freq_dict, total_words):
 	#printDict(probDict)
 	return probDict
 
+def partsCharacter(character_name):
+	# break apart dictionary into sub-dictionaries for each character
+	character_name_parts = { k:v for k, v in char_speech_dict.items() if character_name in k }
+	#print("{0} = {1}".format(character_name, len(character_name_parts)))
+	return character_name_parts
+
+def findMissingName(list_character, char_dict):
+	# find headers that are not being included
+	missing_ch = []
+	for key in char_dict:
+		found = False
+		for character_type in list_character:
+			if character_type in key:
+				found = True
+				#print("found: {0} in {1}".format(key, character_type))
+		if not found:
+			missing_ch.append(key)
+	if len(missing_ch) > 0:
+		print("\nmissing")
+		for ch in missing_ch:
+			print("not found: {0}".format(ch))
+
+	
 if __name__ == '__main__':
 	import argparse
 	parser = argparse.ArgumentParser(description="flag format given as: -F <filename>")
@@ -139,8 +162,51 @@ if __name__ == '__main__':
 			exit()
 	
 	char_speech_dict = readingFileDict(filename)
-	for key in sorted(char_speech_dict)[:50]:
-		print("{0}:{1}".format(key, char_speech_dict[key]))
+
+	# TO DO: go through and remove characters that are not being used as headers
+	hamlet_parts = partsCharacter('hamlet')
+	claudius_parts = partsCharacter('claudius')
+	polonius_parts = partsCharacter('polonius')
+	horatio_parts = partsCharacter('horatio')
+	laertes_parts = partsCharacter('laertes')
+	voltimand_parts = partsCharacter('voltimand')
+	cornelius_parts = partsCharacter('cornelius')
+	rosencrantz_parts = partsCharacter('rosencrantz')
+	guildenstern_parts = partsCharacter('guildenstern')
+	osric_parts = partsCharacter('osric')
+	gentleman_parts = partsCharacter('gentleman')
+	marcellus_parts = partsCharacter('marcellus')
+	bernardo_parts = partsCharacter('bernardo')
+	francisco_parts = partsCharacter('francisco')
+	reynaldo_parts = partsCharacter('reynaldo')
+	players_parts = partsCharacter('players')
+	clownone_parts = partsCharacter('clownone')
+	gertrude_parts = partsCharacter('gertrude')
+	clowntwo_parts = partsCharacter('clowntwo')
+	ophelia_parts = partsCharacter('ophelia')
+	fortinbras_parts = partsCharacter('fortinbras')
+	captain_parts = partsCharacter('captain')
+	ambassadors_parts = partsCharacter('ambassadors')
+	ghost_parts = partsCharacter('ghost')
+	other_parts = partsCharacter('other')
+	
+	'''
+	total = len(hamlet_parts) + len(claudius_parts) + len(polonius_parts) + len(horatio_parts)
+	total = total + len(laertes_parts) + len(voltimand_parts) + len(cornelius_parts)
+	total = total + len(rosencrantz_parts) + len(guildenstern_parts) + len(osric_parts)
+	total = total + len(gentleman_parts) + len(marcellus_parts) + len(bernardo_parts)
+	total = total + len(francisco_parts) + len(reynaldo_parts) + len(players_parts)
+	total = total + len(clownone_parts) + len(gertrude_parts) + len(clowntwo_parts)
+	total = total + len(ophelia_parts) + len(fortinbras_parts) + len(captain_parts)
+	total = total + len(ambassadors_parts) + len(ghost_parts) + len(other_parts)
+	print(len(char_speech_dict))
+	print("total: {0}".format(total))
+	print("Found All: {0}".format(total == len(char_speech_dict)))
+	findMissingName(character_names, char_speech_dict)
+	'''
+	#for key in sorted(char_speech_dict)[:50]:
+	#	print("{0}:{1}".format(key, char_speech_dict[key]))
+
 	'''
 	words = "thus conscience does make cowards of us all"
 	text = TextBlob(words)
@@ -148,6 +214,6 @@ if __name__ == '__main__':
 	print(text.words)
 	print(text.sentiment)
 	'''
-
+########################################
 	# iterate through all tokens for each speech (50 or 100 tokens in size max)
 	# store sentiment in list for each character to graph

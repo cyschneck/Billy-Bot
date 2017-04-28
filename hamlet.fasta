@@ -1734,7 +1734,6 @@ Gives him three thousand crowns in annual fee;
 And his commission to employ those soldiers,
 So levied as before, against the Polack:
 With an entreaty, herein further shown,
-[Gives a paper.]
 That it might please you to give quiet pass
 Through your dominions for this enterprise,
 On such regards of safety and allowance
@@ -2830,7 +2829,7 @@ for the most part, are capable of nothing but inexplicable dumb
 shows and noise: I would have such a fellow whipped for o'erdoing
 Termagant; it out-herods Herod: pray you avoid it.
 
->players32.1
+>players32_1
 I warrant your honour.
 
 >hamlet32_2
@@ -2852,7 +2851,7 @@ strutted and bellowed that I have thought some of nature's
 journeymen had made men, and not made them well, they imitated
 humanity so abominably.
 
->players32.2
+>players32_2
 I hope we have reform'd that indifferently with us, sir.
 
 >hamlet32_3
@@ -3047,7 +3046,7 @@ show, he'll not shame to tell you what it means.
 >ophelia32_11
 You are naught, you are naught: I'll mark the play.
 
->players32.3
+>players32_3
 For us, and for our tragedy,
 Here stooping to your clemency,
 We beg your hearing patiently.
@@ -3061,7 +3060,7 @@ Is this a prologue, or the posy of a ring?
 >hamlet32_26
 As woman's love.
 
->players32.4
+>players32_4
 Full thirty times hath Phoebus' cart gone round
 Neptune's salt wash and Tellus' orbed ground,
 And thirty dozen moons with borrow'd sheen
@@ -3069,7 +3068,7 @@ About the world have times twelve thirties been,
 Since love our hearts, and Hymen did our hands,
 Unite commutual in most sacred bands.
 
->players32.5
+>players32_5
 So many journeys may the sun and moon
 Make us again count o'er ere love be done!
 But, woe is me, you are so sick of late,
@@ -3083,14 +3082,14 @@ And as my love is siz'd, my fear is so:
 Where love is great, the littlest doubts are fear;
 Where little fears grow great, great love grows there.
 
->players32.6
+>players32_6
 Faith, I must leave thee, love, and shortly too;
 My operant powers their functions leave to do:
 And thou shalt live in this fair world behind,
 Honour'd, belov'd, and haply one as kind
 For husband shalt thou,--
 
->players32.7
+>players32_7
 O, confound the rest!
 Such love must needs be treason in my breast:
 In second husband let me be accurst!
@@ -3099,13 +3098,13 @@ None wed the second but who kill'd the first.
 >hamlet32_27
 Wormwood, wormwood!
 
->players32.8
+>players32_8
 The instances that second marriage move
 Are base respects of thrift, but none of love.
 A second time I kill my husband dead
 When second husband kisses me in bed.
 
->players32.9
+>players32_9
 I do believe you think what now you speak;
 But what we do determine oft we break.
 Purpose is but the slave to memory;
@@ -3137,7 +3136,7 @@ Our thoughts are ours, their ends none of our own:
 So think thou wilt no second husband wed;
 But die thy thoughts when thy first lord is dead.
 
->players32.10
+>players32_10
 Nor earth to me give food, nor heaven light!
 Sport and repose lock from me day and night!
 To desperation turn my trust and hope!
@@ -3150,12 +3149,12 @@ If, once a widow, ever I be wife!
 >hamlet32_28
 If she should break it now!
 
->players32.11
+>players32_11
 'Tis deeply sworn. Sweet, leave me here awhile;
 My spirits grow dull, and fain I would beguile
 The tedious day with sleep.
 
->players32.12
+>players32_12
 Sleep rock thy brain,
 And never come mischance between us twain!
 
@@ -4185,7 +4184,7 @@ If that his majesty would aught with us,
 We shall express our duty in his eye;
 And let him know so.
 
->captian44_1
+>captain44_1
 I will do't, my lord.
 
 >fortinbras44_2
@@ -4194,26 +4193,26 @@ Go softly on.
 >hamlet44_1
 Good sir, whose powers are these?
 
->captian44_2
+>captain44_2
 They are of Norway, sir.
 
 >hamlet44_2
 How purpos'd, sir, I pray you?
 
->captian44_3
+>captain44_3
 Against some part of Poland.
 
 >hamlet44_3
 Who commands them, sir?
 
->captian44_4
+>captain44_4
 The nephew to old Norway, Fortinbras.
 
 >hamlet44_4
 Goes it against the main of Poland, sir,
 Or for some frontier?
 
->captian44_5
+>captain44_5
 Truly to speak, and with no addition,
 We go to gain a little patch of ground
 That hath in it no profit but the name.
@@ -4224,7 +4223,7 @@ A ranker rate, should it be sold in fee.
 >hamlet44_5
 Why, then the Polack never will defend it.
 
->captian44_6
+>captain44_6
 Yes, it is already garrison'd.
 
 >hamlet44_6
@@ -4234,7 +4233,7 @@ This is the imposthume of much wealth and peace,
 That inward breaks, and shows no cause without
 Why the man dies.--I humbly thank you, sir.
 
->captian44_7
+>captain44_7
 God b' wi' you, sir.
 
 >rosencrantz44_1
@@ -5364,7 +5363,6 @@ What, the fair Ophelia?
 
 >gertrude51_1
 Sweets to the sweet: farewell.
-[Scattering flowers.]
 I hop'd thou shouldst have been my Hamlet's wife;
 I thought thy bride-bed to have deck'd, sweet maid,
 And not have strew'd thy grave.
@@ -5375,7 +5373,6 @@ Fall ten times treble on that cursed head
 Whose wicked deed thy most ingenious sense
 Depriv'd thee of!--Hold off the earth awhile,
 Till I have caught her once more in mine arms:
-[Leaps into the grave.]
 Now pile your dust upon the quick and dead,
 Till of this flat a mountain you have made,
 To o'ertop old Pelion or the skyish head
