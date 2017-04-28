@@ -141,7 +141,7 @@ Stay! speak, speak! I charge thee speak!
 >marcellus11_10
 'Tis gone, and will not answer.
 
->bernardo11_15
+>bernardo11_16
 How now, Horatio! You tremble and look pale:
 Is not this something more than fantasy?
 What think you on't?
@@ -214,7 +214,7 @@ Is the main motive of our preparations,
 The source of this our watch, and the chief head
 Of this post-haste and romage in the land.
 
->bernardo11_16
+>bernardo11_17
 I think it be no other but e'en so:
 Well may it sort, that this portentous figure
 Comes armed through our watch; so like the king
@@ -256,7 +256,7 @@ Shall I strike at it with my partisan?
 >horatio11_13
 Do, if it will not stand.
 
->bernardo11_17
+>bernardo11_18
 'Tis here!
 
 >horatio11_14
@@ -269,7 +269,7 @@ To offer it the show of violence;
 For it is, as the air, invulnerable,
 And our vain blows malicious mockery.
 
->bernardo11_18
+>bernardo11_19
 It was about to speak, when the cock crew.
 
 >horatio11_15
@@ -557,32 +557,32 @@ Would I had met my dearest foe in heaven
 Or ever I had seen that day, Horatio!--
 My father,--methinks I see my father.
 
->horatio12_5
+>horatio12_6
 Where, my lord?
 
 >hamlet12_13
 In my mind's eye, Horatio.
 
->horatio12_6
+>horatio12_7
 I saw him once; he was a goodly king.
 
 >hamlet12_14
 He was a man, take him for all in all,
 I shall not look upon his like again.
 
->horatio12_7
+>horatio12_8
 My lord, I think I saw him yesternight.
 
 >hamlet12_15
 Saw who?
 
->horatio12_8
+>horatio12_9
 My lord, the king your father.
 
 >hamlet12_16
 The King my father!
 
->horatio12_9
+>horatio12_10
 Season your admiration for awhile
 With an attent ear, till I may deliver,
 Upon the witness of these gentlemen,
@@ -591,7 +591,7 @@ This marvel to you.
 >hamlet12_17
 For God's love let me hear.
 
->horatio12_10
+>horatio12_11
 Two nights together had these gentlemen,
 Marcellus and Bernardo, on their watch
 In the dead vast and middle of the night,
@@ -619,7 +619,7 @@ My lord, upon the platform where we watch'd.
 >hamlet12_19
 Did you not speak to it?
 
->horatio12_11
+>horatio12_12
 My lord, I did;
 But answer made it none: yet once methought
 It lifted up it head, and did address
@@ -631,7 +631,7 @@ And vanish'd from our sight.
 >hamlet12_20
 'Tis very strange.
 
->horatio12_12
+>horatio12_13
 As I do live, my honour'd lord, 'tis true;
 And we did think it writ down in our duty
 To let you know of it.
@@ -658,49 +658,49 @@ My lord, from head to foot.
 >hamlet12_24
 Then saw you not his face?
 
->horatio12_13
+>horatio12_14
 O, yes, my lord: he wore his beaver up.
 
 >hamlet12_25
 What, look'd he frowningly?
 
->horatio12_14
+>horatio12_15
 A countenance more in sorrow than in anger.
 
 >hamlet12_26
 Pale or red?
 
->horatio12_15
+>horatio12_16
 Nay, very pale.
 
 >hamlet12_27
 And fix'd his eyes upon you?
 
->horatio12_16
+>horatio12_17
 Most constantly.
 
 >hamlet12_28
 I would I had been there.
 
->horatio12_17
+>horatio12_18
 It would have much amaz'd you.
 
 >hamlet12_29
 Very like, very like. Stay'd it long?
 
->horatio12_18
+>horatio12_19
 While one with moderate haste might tell a hundred.
 
 >marcellus12_6
 Longer, longer.
 
->horatio12_19
+>horatio12_20
 Not when I saw't.
 
 >hamlet12_30
 His beard was grizzled,--no?
 
->horatio12_20
+>horatio12_21
 It was, as I have seen it in his life,
 A sable silver'd.
 
@@ -708,7 +708,7 @@ A sable silver'd.
 I will watch to-night;
 Perchance 'twill walk again.
 
->horatio12_21
+>horatio12_22
 I warr'nt it will.
 
 >hamlet12_32
@@ -1051,13 +1051,13 @@ Go on; I'll follow thee.
 >marcellus14_3
 You shall not go, my lord.
 
->hamlet14_8
+>hamlet14_9
 Hold off your hands.
 
 >horatio14_10
 Be rul'd; you shall not go.
 
->hamlet14_9
+>hamlet14_10
 My fate cries out,
 And makes each petty artery in this body
 As hardy as the Nemean lion's nerve.--
@@ -1077,7 +1077,7 @@ Have after.--To what issue will this come?
 >marcellus14_5
 Something is rotten in the state of Denmark.
 
->horatio14_12
+>horatio14_13
 Heaven will direct it.
 
 >marcellus14_6
@@ -1107,13 +1107,13 @@ To what I shall unfold.
 >hamlet15_4
 Speak; I am bound to hear.
 
->ghost15_3
+>ghost15_4
 So art thou to revenge, when thou shalt hear.
 
 >hamlet15_5
 What?
 
->ghost15_4
+>ghost15_5
 I am thy father's spirit;
 Doom'd for a certain term to walk the night,
 And for the day confin'd to wastein fires,
@@ -1133,13 +1133,13 @@ If thou didst ever thy dear father love--
 >hamlet15_6
 O God!
 
->ghost15_5
+>ghost15_6
 Revenge his foul and most unnatural murder.
 
 >hamlet15_7
 Murder!
 
->ghost15_6
+>ghost15_7
 Murder most foul, as in the best it is;
 But this most foul, strange, and unnatural.
 
@@ -1148,7 +1148,7 @@ Haste me to know't, that I, with wings as swift
 As meditation or the thoughts of love,
 May sweep to my revenge.
 
->ghost15_7
+>ghost15_8
 I find thee apt;
 And duller shouldst thou be than the fat weed
 That rots itself in ease on Lethe wharf,
@@ -1164,7 +1164,7 @@ Now wears his crown.
 O my prophetic soul!
 Mine uncle!
 
->ghost15_8
+>ghost15_9
 Ay, that incestuous, that adulterate beast,
 With witchcraft of his wit, with traitorous gifts,--
 O wicked wit and gifts, that have the power
@@ -1349,7 +1349,7 @@ We have sworn, my lord, already.
 >hamlet15_23
 Indeed, upon my sword, indeed.
 
->ghost15_9
+>ghost15_10
 Swear.
 
 >hamlet15_24
@@ -1364,7 +1364,7 @@ Propose the oath, my lord.
 Never to speak of this that you have seen,
 Swear by my sword.
 
->ghost15_10
+>ghost15_11
 Swear.
 
 >hamlet15_26
@@ -1374,7 +1374,7 @@ And lay your hands again upon my sword:
 Never to speak of this that you have heard,
 Swear by my sword.
 
->ghost15_11
+>ghost15_12
 Swear.
 
 >hamlet15_27
@@ -1403,7 +1403,7 @@ That you know aught of me:--this is not to do,
 So grace and mercy at your most need help you,
 Swear.
 
->ghost15_12
+>ghost15_13
 Swear.
 
 >hamlet15_29
@@ -1683,7 +1683,7 @@ Ay, amen!
 Th' ambassadors from Norway, my good lord,
 Are joyfully return'd.
 
->claudius22_2
+>claudius22_3
 Thou still hast been the father of good news.
 
 >polonius22_2
@@ -1695,14 +1695,14 @@ Hunts not the trail of policy so sure
 As it hath us'd to do,--that I have found
 The very cause of Hamlet's lunacy.
 
->claudius22_3
+>claudius22_4
 O, speak of that; that do I long to hear.
 
 >polonius22_3
 Give first admittance to the ambassadors;
 My news shall be the fruit to that great feast.
 
->claudius22_4
+>claudius22_5
 Thyself do grace to them, and bring them in.
 He tells me, my sweet queen, he hath found
 The head and source of all your son's distemper.
@@ -1711,7 +1711,7 @@ The head and source of all your son's distemper.
 I doubt it is no other but the main,--
 His father's death and our o'erhasty marriage.
 
->claudius22_5
+>claudius22_6
 Well, we shall sift him.
 Welcome, my good friends!
 Say, Voltimand, what from our brother Norway?
@@ -1740,7 +1740,7 @@ Through your dominions for this enterprise,
 On such regards of safety and allowance
 As therein are set down.
 
->claudius22_6
+>claudius22_7
 It likes us well;
 And at our more consider'd time we'll read,
 Answer, and think upon this business.
@@ -1803,14 +1803,14 @@ And more above, hath his solicitings,
 As they fell out by time, by means, and place,
 All given to mine ear.
 
->claudius22_7
+>claudius22_8
 But how hath she
 Receiv'd his love?
 
 >polonius22_7
 What do you think of me?
 
->claudius22_8
+>claudius22_9
 As of a man faithful and honourable.
 
 >polonius22_8
@@ -1836,7 +1836,7 @@ Thence to a lightness; and, by this declension,
 Into the madness wherein now he raves,
 And all we wail for.
 
->claudius22_9
+>claudius22_10
 Do you think 'tis this?
 
 >gertrude22_7
@@ -1847,7 +1847,7 @@ Hath there been such a time,--I'd fain know that--
 That I have positively said ''Tis so,'
 When it prov'd otherwise?
 
->claudius22_10
+>claudius22_11
 Not that I know.
 
 >polonius22_10
@@ -1856,7 +1856,7 @@ If circumstances lead me, I will find
 Where truth is hid, though it were hid indeed
 Within the centre.
 
->claudius22_11
+>claudius22_12
 How may we try it further?
 
 >polonius22_11
@@ -1874,7 +1874,7 @@ And he not from his reason fall'n thereon
 Let me be no assistant for a state,
 But keep a farm and carters.
 
->claudius22_12
+>claudius22_13
 We will try it.
 
 >gertrude22_9
@@ -1975,7 +1975,7 @@ Fare you well, my lord.
 >hamlet22_12
 These tedious old fools!
 
->polonius22_24
+>polonius22_25
 You go to seek the Lord Hamlet; there he is.
 
 >rosencrantz22_2
@@ -2233,7 +2233,7 @@ In what, my dear lord?
 I am but mad north-north-west: when the wind is southerly I
 know a hawk from a handsaw.
 
->polonius22_25
+>polonius22_26
 Well be with you, gentlemen!
 
 >hamlet22_41
@@ -2248,26 +2248,26 @@ man is twice a child.
 I will prophesy he comes to tell me of the players; mark it.--You
 say right, sir: o' Monday morning; 'twas so indeed.
 
->polonius22_26
+>polonius22_27
 My lord, I have news to tell you.
 
 >hamlet22_43
 My lord, I have news to tell you. When Roscius was an actor in
 Rome,--
 
->polonius22_27
+>polonius22_28
 The actors are come hither, my lord.
 
 >hamlet22_44
 Buzz, buzz!
 
->polonius22_28
+>polonius22_29
 Upon my honour,--
 
 >hamlet22_45
 Then came each actor on his ass,--
 
->polonius22_29
+>polonius22_30
 The best actors in the world, either for tragedy, comedy,
 history, pastoral, pastoral-comical, historical-pastoral,
 tragical-historical, tragical-comical-historical-pastoral, scene
@@ -2278,7 +2278,7 @@ the only men.
 >hamlet22_46
 O Jephthah, judge of Israel, what a treasure hadst thou!
 
->polonius22_30
+>polonius22_31
 What treasure had he, my lord?
 
 >hamlet22_47
@@ -2286,20 +2286,20 @@ Why--
 'One fair daughter, and no more,
 The which he loved passing well.'
 
->polonius22_30
+>polonius22_32
 Still on my daughter.
 
 >hamlet22_48
 Am I not i' the right, old Jephthah?
 
->polonius22_31
+>polonius22_33
 If you call me Jephthah, my lord, I have a daughter that I
 love passing well.
 
 >hamlet22_49
 Nay, that follows not.
 
->polonius22_32
+>polonius22_34
 What follows, then, my lord?
 
 >hamlet22_50
@@ -2354,7 +2354,7 @@ With eyes like carbuncles, the hellish Pyrrhus
 Old grandsire Priam seeks.'
 So, proceed you.
 
->polonius22_31
+>polonius22_35
 'Fore God, my lord, well spoken, with good accent and good
 discretion.
 
@@ -2390,7 +2390,7 @@ Break all the spokes and fellies from her wheel,
 And bowl the round nave down the hill of heaven,
 As low as to the fiends!
 
->polonius22_32
+>polonius22_36
 This is too long.
 
 >hamlet22_53
@@ -2404,7 +2404,7 @@ But who, O who, had seen the mobled queen,--
 >hamlet22_54
 'The mobled queen'?
 
->polonius22_33
+>polonius22_37
 That's good! 'Mobled queen' is good.
 
 >players22_4
@@ -2423,7 +2423,7 @@ Unless things mortal move them not at all,--
 Would have made milch the burning eyes of heaven,
 And passion in the gods.
 
->polonius22_34
+>polonius22_38
 Look, whether he has not turn'd his colour, and has tears in's
 eyes.--Pray you, no more!
 
@@ -2434,7 +2434,7 @@ hear? Let them be well used; for they are the abstracts and brief
 chronicles of the time; after your death you were better have a
 bad epitaph than their ill report while you live.
 
->polonius22_35
+>polonius22_39
 My lord, I will use them according to their desert.
 
 >hamlet22_56
@@ -2443,7 +2443,7 @@ desert, and who should scape whipping? Use them after your own
 honour and dignity: the less they deserve, the more merit is in
 your bounty. Take them in.
 
->polonius22_36
+>polonius22_40
 Come, sirs.
 
 >hamlet22_57
@@ -2467,7 +2467,7 @@ Very well.--Follow that lord; and look you mock him not.
 --My good friends, I'll leave you till
 night: you are welcome to Elsinore.
 
->rosencrantz22_22
+>rosencrantz22_23
 Good my lord!
 
 >hamlet22_60
@@ -2599,7 +2599,7 @@ And gather by him, as he is behav'd,
 If't be the affliction of his love or no
 That thus he suffers for.
 
->gertrude31_2
+>gertrude31_3
 I shall obey you:--
 And for your part, Ophelia, I do wish
 That your good beauties be the happy cause
@@ -2946,13 +2946,13 @@ mine.
 No, nor mine now. My lord, you play'd once i' the university, you
 say?
 
->polonius32_1
+>polonius32_2
 That did I, my lord, and was accounted a good actor.
 
 >hamlet32_11
 What did you enact?
 
->polonius32_2
+>polonius32_3
 I did enact Julius Caesar; I was kill'd i' the Capitol; Brutus
 killed me.
 
@@ -2969,7 +2969,7 @@ Come hither, my dear Hamlet, sit by me.
 >hamlet32_13
 No, good mother, here's metal more attractive.
 
->polonius32_3
+>polonius32_4
 O, ho! do you mark that?
 
 >hamlet32_14
@@ -3033,14 +3033,14 @@ Marry, this is miching mallecho; it means mischief.
 >ophelia32_9
 Belike this show imports the argument of the play.
 
->hamlet32_21
+>hamlet32_23
 We shall know by this fellow: the players cannot keep counsel;
 they'll tell all.
 
 >ophelia32_10
 Will he tell us what this show meant?
 
->hamlet32_22
+>hamlet32_24
 Ay, or any show that you'll show him: be not you ashamed to
 show, he'll not shame to tell you what it means.
 
@@ -3052,13 +3052,13 @@ For us, and for our tragedy,
 Here stooping to your clemency,
 We beg your hearing patiently.
 
->hamlet32_23
+>hamlet32_25
 Is this a prologue, or the posy of a ring?
 
 >ophelia32_12
 'Tis brief, my lord.
 
->hamlet32_24
+>hamlet32_26
 As woman's love.
 
 >players32.4
@@ -3096,7 +3096,7 @@ Such love must needs be treason in my breast:
 In second husband let me be accurst!
 None wed the second but who kill'd the first.
 
->hamlet32_25
+>hamlet32_27
 Wormwood, wormwood!
 
 >players32.8
@@ -3147,8 +3147,8 @@ Meet what I would have well, and it destroy!
 Both here and hence pursue me lasting strife,
 If, once a widow, ever I be wife!
 
->hamlet32_26
-If she should break it now! [To Ophelia.]
+>hamlet32_28
+If she should break it now!
 
 >players32.11
 'Tis deeply sworn. Sweet, leave me here awhile;
@@ -3159,26 +3159,26 @@ The tedious day with sleep.
 Sleep rock thy brain,
 And never come mischance between us twain!
 
->hamlet32_27
+>hamlet32_29
 Madam, how like you this play?
 
 >gertrude32_2
 The lady protests too much, methinks.
 
->hamlet32_28
+>hamlet32_30
 O, but she'll keep her word.
 
 >claudius32_3
 Have you heard the argument? Is there no offence in't?
 
->hamlet32_29
+>hamlet32_31
 No, no! They do but jest, poison in jest; no offence i' the
 world.
 
 >claudius32_4
 What do you call the play?
 
->hamlet32_30
+>hamlet32_32
 The Mouse-trap. Marry, how? Tropically. This play is the
 image of a murder done in Vienna: Gonzago is the duke's name;
 his wife, Baptista: you shall see anon; 'tis a knavish piece of
@@ -3187,28 +3187,28 @@ souls, it touches us not: let the gall'd jade wince; our withers
 are unwrung.
 This is one Lucianus, nephew to the King.
 
->ophelia32_12
+>ophelia32_13
 You are a good chorus, my lord.
 
->hamlet32_31
+>hamlet32_33
 I could interpret between you and your love, if I could see
 the puppets dallying.
 
->ophelia32_13
+>ophelia32_14
 You are keen, my lord, you are keen.
 
->hamlet32_32
+>hamlet32_34
 It would cost you a groaning to take off my edge.
 
->ophelia32_14
+>ophelia32_15
 Still better, and worse.
 
->hamlet32_33
+>hamlet32_35
 So you must take your husbands.--Begin, murderer; pox, leave
 thy damnable faces, and begin. Come:--'The croaking raven doth
 bellow for revenge.'
 
->players32.12
+>players32_12
 Thoughts black, hands apt, drugs fit, and time agreeing;
 Confederate season, else no creature seeing;
 Thou mixture rank, of midnight weeds collected,
@@ -3216,21 +3216,21 @@ With Hecate's ban thrice blasted, thrice infected,
 Thy natural magic and dire property
 On wholesome life usurp immediately.
 
->hamlet32_34
+>hamlet32_36
 He poisons him i' the garden for's estate. His name's Gonzago:
 The story is extant, and written in very choice Italian; you
 shall see anon how the murderer gets the love of Gonzago's wife.
 
->ophelia32_15
+>ophelia32_16
 The King rises.
 
->hamlet32_35
+>hamlet32_37
 What, frighted with false fire!
 
 >gertrude32_3
 How fares my lord?
 
->polonius32_4
+>polonius32_5
 Give o'er the play.
 
 >claudius32_5
@@ -3239,7 +3239,7 @@ Give me some light:--away!
 >other32_1
 Lights, lights, lights!
 
->hamlet32_36
+>hamlet32_38
 Why, let the strucken deer go weep,
 The hart ungalled play;
 For some must watch, while some must sleep:
@@ -3251,7 +3251,7 @@ razed shoes, get me a fellowship in a cry of players, sir?
 >horatio32_4
 Half a share.
 
->hamlet32_37
+>hamlet32_39
 A whole one, I.
 For thou dost know, O Damon dear,
 This realm dismantled was
@@ -3261,20 +3261,20 @@ A very, very--pajock.
 >horatio32_5
 You might have rhymed.
 
->hamlet32_38
+>hamlet32_40
 O good Horatio, I'll take the ghost's word for a thousand
 pound! Didst perceive?
 
 >horatio32_6
 Very well, my lord.
 
->hamlet32_39
+>hamlet32_41
 Upon the talk of the poisoning?--
 
 >horatio32_7
 I did very well note him.
 
->hamlet32_40
+>hamlet32_42
 Ah, ha!--Come, some music! Come, the recorders!--
 For if the king like not the comedy,
 Why then, belike he likes it not, perdy.
@@ -3283,25 +3283,25 @@ Come, some music!
 >guildenstern32_1
 Good my lord, vouchsafe me a word with you.
 
->hamlet32_41
+>hamlet32_43
 Sir, a whole history.
 
 >guildenstern32_2
 The king, sir--
 
->hamlet32_42
+>hamlet32_44
 Ay, sir, what of him?
 
 >guildenstern32_3
 Is, in his retirement, marvellous distempered.
 
->hamlet32_43
+>hamlet32_45
 With drink, sir?
 
 >guildenstern32_4
 No, my lord; rather with choler.
 
->hamlet32_44
+>hamlet32_46
 Your wisdom should show itself more richer to signify this to
 the doctor; for me to put him to his purgation would perhaps
 plunge him into far more choler.
@@ -3310,14 +3310,14 @@ plunge him into far more choler.
 Good my lord, put your discourse into some frame, and start
 not so wildly from my affair.
 
->hamlet32_45
+>hamlet32_47
 I am tame, sir:--pronounce.
 
 >guildenstern32_6
 The queen, your mother, in most great affliction of spirit,
 hath sent me to you.
 
->hamlet32_46
+>hamlet32_48
 You are welcome.
 
 >guildenstern32_7
@@ -3326,13 +3326,13 @@ If it shall please you to make me a wholesome answer, I will do
 your mother's commandment: if not, your pardon and my return
 shall be the end of my business.
 
->hamlet32_47
+>hamlet32_49
 Sir, I cannot.
 
 >guildenstern32_8
 What, my lord?
 
->hamlet32_48
+>hamlet32_50
 Make you a wholesome answer; my wit's diseased: but, sir, such
 answer as I can make, you shall command; or rather, as you say,
 my mother: therefore no more, but to the matter: my mother, you
@@ -3342,21 +3342,21 @@ say,--
 Then thus she says: your behaviour hath struck her into
 amazement and admiration.
 
->hamlet32_49
+>hamlet32_51
 O wonderful son, that can so stonish a mother!--But is there no
 sequel at the heels of this mother's admiration?
 
 >rosencrantz32_4
 She desires to speak with you in her closet ere you go to bed.
 
->hamlet32_50
+>hamlet32_52
 We shall obey, were she ten times our mother. Have you any
 further trade with us?
 
 >rosencrantz32_5
 My lord, you once did love me.
 
->hamlet32_51
+>hamlet32_53
 And so I do still, by these pickers and stealers.
 
 >rosencrantz32_6
@@ -3364,14 +3364,14 @@ Good my lord, what is your cause of distemper? you do, surely,
 bar the door upon your own liberty if you deny your griefs to
 your friend.
 
->hamlet32_52
+>hamlet32_54
 Sir, I lack advancement.
 
 >rosencrantz32_7
 How can that be, when you have the voice of the king himself
 for your succession in Denmark?
 
->hamlet32_53
+>hamlet32_55
 Ay, sir, but 'While the grass grows'--the proverb is something
 musty.
 O, the recorders:--let me see one.--To withdraw with you:--why do
@@ -3381,25 +3381,25 @@ into a toil?
 >guildenstern32_9
 O my lord, if my duty be too bold, my love is too unmannerly.
 
->hamlet32_54
+>hamlet32_56
 I do not well understand that. Will you play upon this pipe?
 
 >guildenstern32_10
 My lord, I cannot.
 
->hamlet32_55
+>hamlet32_57
 I pray you.
 
 >guildenstern32_11
 Believe me, I cannot.
 
->hamlet32_56
+>hamlet32_58
 I do beseech you.
 
 >guildenstern32_12
 I know, no touch of it, my lord.
 
->hamlet32_57
+>hamlet32_59
 'Tis as easy as lying: govern these ventages with your
 finger and thumb, give it breath with your mouth, and it will
 discourse most eloquent music. Look you, these are the stops.
@@ -3408,7 +3408,7 @@ discourse most eloquent music. Look you, these are the stops.
 But these cannot I command to any utterance of harmony; I
 have not the skill.
 
->hamlet32_58
+>hamlet32_60
 Why, look you now, how unworthy a thing you make of me! You
 would play upon me; you would seem to know my stops; you would
 pluck out the heart of my mystery; you would sound me from my
@@ -3419,35 +3419,35 @@ pipe? Call me what instrument you will, though you can fret me,
 you cannot play upon me.
 God bless you, sir!
 
->polonius32_5
+>polonius32_6
 My lord, the queen would speak with you, and presently.
 
->hamlet32_59
+>hamlet32_61
 Do you see yonder cloud that's almost in shape of a camel?
 
->polonius32_6
+>polonius32_7
 By the mass, and 'tis like a camel indeed.
 
->hamlet32_60
+>hamlet32_62
 Methinks it is like a weasel.
 
->polonius32_7
+>polonius32_8
 It is backed like a weasel.
 
->hamlet32_61
+>hamlet32_63
 Or like a whale.
 
->polonius32_8
+>polonius32_9
 Very like a whale.
 
->hamlet32_62
+>hamlet32_64
 Then will I come to my mother by and by.--They fool me to the
 top of my bent.--I will come by and by.
 
->polonius32_9
+>polonius32_10
 I will say so.
 
->hamlet32_63
+>hamlet32_65
 By-and-by is easily said.
 --Leave me, friends.
 'Tis now the very witching time of night,
@@ -4087,7 +4087,7 @@ Now, Hamlet, where's Polonius?
 >hamlet43_1
 At supper.
 
->claudius43_4
+>claudius43_5
 At supper! where?
 
 >hamlet43_2
@@ -4098,21 +4098,21 @@ we fat ourselves for maggots: your fat king and your lean beggar
 is but variable service,--two dishes, but to one table: that's
 the end.
 
->claudius43_5
+>claudius43_6
 Alas, alas!
 
 >hamlet43_3
 A man may fish with the worm that hath eat of a king, and eat
 of the fish that hath fed of that worm.
 
->claudius43_5
+>claudius43_7
 What dost thou mean by this?
 
 >hamlet43_4
 Nothing but to show you how a king may go a progress through
 the guts of a beggar.
 
->claudius43_6
+>claudius43_8
 Where is Polonius?
 
 >hamlet43_5
@@ -4121,13 +4121,13 @@ there, seek him i' the other place yourself. But, indeed, if you
 find him not within this month, you shall nose him as you go up
 the stairs into the lobby.
 
->claudius43_7
+>claudius43_9
 Go seek him there.
 
 >hamlet43_6
 He will stay till you come.
 
->claudius43_8
+>claudius43_10
 Hamlet, this deed, for thine especial safety,--
 Which we do tender, as we dearly grieve
 For that which thou hast done,--must send thee hence
@@ -4139,27 +4139,27 @@ For England.
 >hamlet43_7
 For England!
 
->claudius43_9
+>claudius43_11
 Ay, Hamlet.
 
 >hamlet43_8
 Good.
 
->claudius43_10
+>claudius43_12
 So is it, if thou knew'st our purposes.
 
 >hamlet43_9
 I see a cherub that sees them.--But, come; for England!--
 Farewell, dear mother.
 
->claudius43_11
+>claudius43_13
 Thy loving father, Hamlet.
 
 >hamlet43_10
 My mother: father and mother is man and wife; man and wife is
 one flesh; and so, my mother.--Come, for England!
 
->claudius43_12
+>claudius43_14
 Follow him at foot; tempt him with speed aboard;
 Delay it not; I'll have him hence to-night:
 Away! for everything is seal'd and done
@@ -4417,7 +4417,7 @@ In ear and ear. O my dear Gertrude, this,
 Like to a murdering piece, in many places
 Give, me superfluous death.
 
->gertrude45_7
+>gertrude45_8
 Alack, what noise is this?
 
 >claudius45_6
@@ -4437,7 +4437,7 @@ They cry 'Choose we! Laertes shall be king!'
 Caps, hands, and tongues applaud it to the clouds,
 'Laertes shall be king! Laertes king!'
 
->gertrude45_8
+>gertrude45_9
 How cheerfully on the false trail they cry!
 O, this is counter, you false Danish dogs!
 
@@ -4460,7 +4460,7 @@ We will, we will.
 I thank you:--keep the door.--O thou vile king,
 Give me my father!
 
->gertrude45_9
+>gertrude45_10
 Calmly, good Laertes.
 
 >laertes45_4
@@ -4485,7 +4485,7 @@ Where is my father?
 >claudius45_9
 Dead.
 
->gertrude45_10
+>gertrude45_11
 But not by him.
 
 >claudius45_10
@@ -4550,7 +4550,7 @@ Nature is fine in love; and where 'tis fine,
 It sends some precious instance of itself
 After the thing it loves.
 
->ophelia45_9
+>ophelia45_10
 They bore him barefac'd on the bier
 Hey no nonny, nonny, hey nonny
 And on his grave rain'd many a tear.--
@@ -4560,7 +4560,7 @@ Fare you well, my dove!
 Hadst thou thy wits, and didst persuade revenge,
 It could not move thus.
 
->ophelia45_10
+>ophelia45_11
 You must sing 'Down a-down, an you call him a-down-a.' O,
 how the wheel becomes it! It is the false steward, that stole his
 master's daughter.
@@ -4568,14 +4568,14 @@ master's daughter.
 >laertes45_12
 This nothing's more than matter.
 
->ophelia45_11
+>ophelia45_12
 There's rosemary, that's for remembrance; pray, love,
 remember: and there is pansies, that's for thoughts.
 
 >laertes45_13
 A document in madness,--thoughts and remembrance fitted.
 
->ophelia45_12
+>ophelia45_13
 There's fennel for you, and columbines:--there's rue for you;
 and here's some for me:--we may call it herb of grace o'
 Sundays:--O, you must wear your rue with a difference.--There's a
@@ -4587,7 +4587,7 @@ For bonny sweet Robin is all my joy,--
 Thought and affliction, passion, hell itself,
 She turns to favour and to prettiness.
 
->ophelia45_13
+>ophelia45_14
 And will he not come again?
 And will he not come again?
 No, no, he is dead,
@@ -6000,13 +6000,13 @@ Part them; they are incens'd.
 >hamlet52_51
 Nay, come again!
 
->osric52_22
+>osric52_23
 Look to the queen there, ho!
 
 >horatio52_19
 They bleed on both sides.--How is it, my lord?
 
->osric52_23
+>osric52_24
 How is't, Laertes?
 
 >laertes52_13
@@ -6086,7 +6086,7 @@ And in this harsh world draw thy breath in pain,
 To tell my story.--
 What warlike noise is this?
 
->osric52_24
+>osric52_25
 Young Fortinbras, with conquest come from Poland,
 To the ambassadors of England gives
 This warlike volley.
