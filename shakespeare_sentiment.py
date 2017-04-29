@@ -16,8 +16,7 @@ from textblob import TextBlob
 
 # list with all character options
 hamlet_character_list = ['claudius', 'hamlet', 'polonius', 
-						'horatio', 'laertes', 'voltimand',
-						'rosencrantz', 'guildenstern',
+						'horatio', 'laertes', 'rosencrantz', 'guildenstern',
 						'osric', 'priest', 'marcellus', 'bernardo',
 						'francisco', 'reynaldo', 'players', 'clownone',
 						'clowntwo', 'gertrude', 'ophelia',
@@ -100,6 +99,54 @@ def seqDictPairs(header_list, sequence_list):
 	seq_gen_dict = zip(header_list, sequence_list) # combine the two lists
 	seq_gen_dict = dict(seq_gen_dict) # create new dictionary from the lists
 	return seq_gen_dict
+
+def determineFocus(character_value, act_value, scene_value):
+	if character_value is None:
+		if act_value is None:
+			print("full play")
+			generateFullPlayFullCharacters()
+		else:
+			if scene_value is None:
+				print("full act {0}".format(act_value))
+				generateFullActFullCharacters(act_value)
+			else:
+				print("act {0} for specifically scene {1}".format(act_value, scene_value))
+				generateSceneFullCharacters(act_value, scene_value)
+	else:
+		if act_value is None:
+			print("full play for {0}".format(character_value))
+			generateFullPlayForSpecificCharacter(character_value)
+		else:
+			if scene_value is None:
+				print("full act {0} for {1}".format(act_value, character_value))
+				generateFullActForSpecificCharacter(act_value, character_value)
+			else:
+				print("act {0} for specifically scene {1} for {2}".format(act_value, scene_value, character_value))
+				generateSceneForSpecificCharacter(act_value, scene_value, character_value)
+
+def generateFullPlayFullCharacters():
+	# creates the entire play for all the characters (all dictionaries)
+	print("generate full play with full cast")
+
+def generateFullActFullCharacters(act_value):
+	# creates a single act with full cast of characters
+	print("generate act {0}, for all characters".format(act_value))
+
+def generateSceneFullCharacters(act_value, scene_value):
+	# creates a single scene in an act with full cast of characters
+	print("generate scene {0}, in act {1}".format(scene_value, act_value))
+
+def generateFullPlayForSpecificCharacter(character_value):
+	# creates the entire play for a single character
+	print("generate full play for {0}".format(character_value))
+
+def generateFullActForSpecificCharacter(act_value, character_value):
+	# creates a single act with a single character
+	print("generate act {1}, for {1}".format(act_value, character_value))
+
+def generateSceneForSpecificCharacter(act_value, scene_value, character_value):
+	# creates a single scene in an act for a single character
+	print("generate scene {0}, in act {1} for {2}".format(scene_value, act_value, character_value))
 
 def partsCharacter(character_name, char_speech_dict):
 	# break apart entire (unparsed) dictionary into sub-dictionaries for each character
@@ -229,7 +276,7 @@ if __name__ == '__main__':
 				print("other scene must be between 1-7, {0} is not a valid argument".format(scene_value))
 				exit()
 
-	if scene_value not in hamlet_scene_breakdown[act_value]: # scene must be a valid number for a given act
+	if scene_value is not None and scene_value not in hamlet_scene_breakdown[act_value]: # scene must be a valid number for a given act
 		print("Act {0} has {1} scenes, {2} is not a valid argument".format(act_value, max(hamlet_scene_breakdown[act_value]), scene_value))
 		exit()
 
@@ -245,6 +292,10 @@ if __name__ == '__main__':
 
 	char_speech_dict = readingFileDict(filename)
 
+	# determine what the focus of the graph is
+	determineFocus(character_value, act_value, scene_value)
+
+	'''
 	hamlet_parts = partsCharacter('hamlet', char_speech_dict)
 	claudius_parts = partsCharacter('claudius', char_speech_dict)
 	polonius_parts = partsCharacter('polonius', char_speech_dict)
@@ -267,11 +318,11 @@ if __name__ == '__main__':
 	other_parts = partsCharacter('other', char_speech_dict)
 
 	character_parts = [hamlet_parts, claudius_parts, polonius_parts, horatio_parts,
-						laertes_parts, rosencrantz_parts,
-						guildenstern_parts, osric_parts, marcellus_parts,
-						bernardo_parts, francisco_parts, reynaldo_parts, players_parts, 
-						clownone_parts, clowntwo_parts, gertrude_parts, ophelia_parts,
-						fortinbras_parts, ghost_parts,
+						laertes_parts, rosencrantz_parts, guildenstern_parts, 
+						osric_parts, marcellus_parts, bernardo_parts, 
+						francisco_parts, reynaldo_parts, players_parts, 
+						clownone_parts, clowntwo_parts, gertrude_parts, 
+						ophelia_parts, fortinbras_parts, ghost_parts,
 						other_parts]
 	# check that the character parts cover all the parts
 	#matchSceneLengthAct(char_speech_dict, character_parts) 
@@ -338,13 +389,11 @@ if __name__ == '__main__':
 	total_scenes = act_one_scenes + act_two_scenes + act_three_scenes + act_four_scenes + act_five_scenes
 	# check that all the scenes add up to all the parts
 	#matchSceneLengthAct(char_speech_dict, total_scenes)
-
-
-
-
-	# TODO: set up conditional flow to determine which dictionary gets passed into sentiment
+	'''
 	#final_graph_list = determineSentiment(fortinbras_parts)
 
 ########################################
 	# iterate through all tokens for each speech (50 or 100 tokens in size max)
 	# store sentiment in list for each character to graph
+	# include average sentiment, when they enter and exit the play, how often they speech (frequency/total play)
+	# if user wants the sentiment for an act that a character doesn't exist, throw error (exit)
