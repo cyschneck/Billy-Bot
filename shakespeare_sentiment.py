@@ -9,8 +9,8 @@
 ###########################################################################
 import random
 import re
+import csv
 import string
-from collections import Counter
 
 from textblob import TextBlob
 
@@ -195,14 +195,15 @@ def matchSceneLengthAct(act_num, list_scenes):
 
 def determineSentiment(sent_dict):
 	# takes in a dictionary or sub-dictionary to return the sentiment in a list
-	text_H11 = TextBlob(act_one_scene_one['horatio11_12'])
-	print(text_H11.tags)
-	print(text_H11.words)
-	for sentence in text_H11.sentences:
-		print("\n")
-		print(sentence)
-		print(sentence.sentiment)
-	print(text_H11.sentiment)
+	final_sent_dict = {}
+	sentence_list = []
+	for speech in sent_dict:
+		text_sent = TextBlob(sent_dict[speech])
+		#text_tag = text_sent.tags
+		for sentence in text_sent.sentences:
+			final_sent_dict[speech] = sentence.sentiment
+	final_sent_dict["_average"] = text_sent.sentiment # beginning of an ordered dict
+	return final_sent_dict
 
 def updateSentimentifNeutral(speech_sentence):
 	# if the sentence is neutral, update to attribute sentiment based on key words
@@ -292,10 +293,11 @@ if __name__ == '__main__':
 
 	char_speech_dict = readingFileDict(filename)
 
+	# TODO: only generate the dictionaries that are required (optimization)
 	# determine what the focus of the graph is
 	determineFocus(character_value, act_value, scene_value)
 
-	'''
+
 	hamlet_parts = partsCharacter('hamlet', char_speech_dict)
 	claudius_parts = partsCharacter('claudius', char_speech_dict)
 	polonius_parts = partsCharacter('polonius', char_speech_dict)
@@ -389,11 +391,40 @@ if __name__ == '__main__':
 	total_scenes = act_one_scenes + act_two_scenes + act_three_scenes + act_four_scenes + act_five_scenes
 	# check that all the scenes add up to all the parts
 	#matchSceneLengthAct(char_speech_dict, total_scenes)
-	'''
-	#final_graph_list = determineSentiment(fortinbras_parts)
 
-########################################
-	# iterate through all tokens for each speech (50 or 100 tokens in size max)
-	# store sentiment in list for each character to graph
-	# include average sentiment, when they enter and exit the play, how often they speech (frequency/total play)
+	final_graph_dict = determineSentiment(fortinbras_parts)
+	print(final_graph_dict)
+	#ordered_final_sent = sorted(final_graph_dict.keys())
+	#print(ordered_final_sent)
+	# put dict in order: ordered_sent_list = sorted(sent_dict.keys())
+
+	# output in csv
+	output_filename = 'HAMLET_'
+	if character_value is None:
+		if act_value is None:
+			output_filename += 'full.csv'
+		else:
+			if scene_value is None:
+				output_filename += 'A{0}.csv'.format(act_value)
+			else:
+				output_filename += 'A{0}-S{1}.csv'.format(act_value, scene_value)
+	else:
+		if act_value is None:
+			output_filename += '{0}.csv'.format(character_value)
+		else:
+			if scene_value is None:
+				output_filename += '{0}-A{1}.csv'.format(character_value, act_value)
+			else:
+				output_filename += '{0}-A{1}-S{2}.csv'.format(character_value, act_value, scene_value)
+
+	with open(output_filename, 'w+') as given_sent:
+		fieldnames = ['character', 'sentiment']
+		writer = csv.DictWriter(given_sent, fieldnames=fieldnames)
+		
+		writer.writeheader() 
+		for key, value in final_graph_dict.items():
+			writer.writerow({'character': '{0}'.format(key), 'sentiment': '{0}'.format(value)})
+
+	# include when a character enters and exit the play, how often they speech (frequency/total play)
 	# if user wants the sentiment for an act that a character doesn't exist, throw error (exit)
+	# fix bug in ordered where _6 is bigger than _58
