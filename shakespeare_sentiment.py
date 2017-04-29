@@ -122,6 +122,17 @@ def findMissingName(list_character, char_dict):
 		for ch in missing_ch:
 			print("not found: {0}".format(ch))
 
+def matchSceneLengthAct(act_num, list_scenes):
+	length_act = len(act_num)
+
+	length_scenes_sum = 0
+	for scene in list_scenes:
+		length_scenes_sum += len(scene)
+	
+	print(length_act)
+	print(length_scenes_sum)
+	print("found all: {0}".format(length_act == length_scenes_sum))
+
 if __name__ == '__main__':
 	import argparse
 	parser = argparse.ArgumentParser(description="flag format given as: -F <filename>")
@@ -168,21 +179,17 @@ if __name__ == '__main__':
 	ambassadors_parts = partsCharacter('ambassadors', char_speech_dict)
 	ghost_parts = partsCharacter('ghost', char_speech_dict)
 	other_parts = partsCharacter('other', char_speech_dict)
+
+	character_parts = [hamlet_parts, claudius_parts, polonius_parts, horatio_parts,
+						laertes_parts, voltimand_parts, cornelius_parts, rosencrantz_parts,
+						guildenstern_parts, osric_parts, gentleman_parts, marcellus_parts,
+						bernardo_parts, francisco_parts, reynaldo_parts, players_parts, 
+						clownone_parts, clowntwo_parts, gertrude_parts, ophelia_parts,
+						fortinbras_parts, captain_parts, ambassadors_parts, ghost_parts,
+						other_parts]
+	# check that the character parts cover all the parts
+	#matchSceneLengthAct(char_speech_dict, character_parts) 
 	
-	'''
-	total = len(hamlet_parts) + len(claudius_parts) + len(polonius_parts) + len(horatio_parts)
-	total = total + len(laertes_parts) + len(voltimand_parts) + len(cornelius_parts)
-	total = total + len(rosencrantz_parts) + len(guildenstern_parts) + len(osric_parts)
-	total = total + len(gentleman_parts) + len(marcellus_parts) + len(bernardo_parts)
-	total = total + len(francisco_parts) + len(reynaldo_parts) + len(players_parts)
-	total = total + len(clownone_parts) + len(gertrude_parts) + len(clowntwo_parts)
-	total = total + len(ophelia_parts) + len(fortinbras_parts) + len(captain_parts)
-	total = total + len(ambassadors_parts) + len(ghost_parts) + len(other_parts)
-	print(len(char_speech_dict))
-	print("total: {0}".format(total))
-	print("Found All: {0}".format(total == len(char_speech_dict)))
-	findMissingName(character_names, char_speech_dict)
-	'''
 	#for key in sorted(char_speech_dict)[:50]:
 	#	print("{0}:{1}".format(key, char_speech_dict[key]))
 
@@ -193,27 +200,53 @@ if __name__ == '__main__':
 	act_one_scene_three = partScene(3, act_one)
 	act_one_scene_four = partScene(4, act_one)
 	act_one_scene_five= partScene(5, act_one)
-	'''
-	total = len(act_one_scene_one) + len(act_one_scene_two) + len(act_one_scene_three) + len(act_one_scene_four) + len(act_one_scene_five)
-	print("total: {0}".format(total))
-	print("Found All: {0}".format(total == len(act_one)))
-	'''
-	#TODO: break apart other acts for scenes and test that length of combined is the act
-	act_two = partAct(2, char_speech_dict)
-	act_three = partAct(3, char_speech_dict)
-	act_four = partAct(4, char_speech_dict)
-	act_five = partAct(5, char_speech_dict)
+	
+	act_one_scenes = [act_one_scene_one, act_one_scene_two, act_one_scene_three,
+					act_one_scene_four, act_one_scene_five]
+	# check that act one parts cover all the parts of the act_one
+	#matchSceneLengthAct(act_one, act_one_scenes)
 
-	'''
-	print(len(act_one))
-	print(len(act_two))
-	print(len(act_three))
-	print(len(act_four))
-	print(len(act_five))
-	total = len(act_one) + len(act_two) + len(act_three) + len(act_four) + len(act_five)
-	print("total: {0}".format(total))
-	print("Found All: {0}".format(total == len(char_speech_dict)))
-	'''
+	act_two = partAct(2, char_speech_dict)
+	act_two_scene_one = partScene(1, act_two)
+	act_two_scene_two = partScene(2, act_two)
+
+	act_two_scenes = [act_two_scene_one, act_two_scene_two]
+	# check that act two parts cover all the parts of the act_two
+	#matchSceneLengthAct(act_two, act_two_scenes)
+
+	act_three = partAct(3, char_speech_dict)
+	act_three_scene_one = partScene(1, act_three)
+	act_three_scene_two = partScene(2, act_three)
+	act_three_scene_three = partScene(3, act_three)
+	act_three_scene_four = partScene(4, act_three)
+
+	act_three_scenes = [act_three_scene_one, act_three_scene_two,
+						act_three_scene_three, act_three_scene_four]
+	# check that act three parts cover all the parts of the act_three
+	#matchSceneLengthAct(act_three, act_three_scenes)
+
+	act_four = partAct(4, char_speech_dict)
+	act_four_scene_one = partScene(1, act_four)
+	act_four_scene_two = partScene(2, act_four)
+	act_four_scene_three = partScene(3, act_four)
+	act_four_scene_four = partScene(4, act_four)
+	act_four_scene_five = partScene(5, act_four)
+	act_four_scene_six = partScene(6, act_four)
+	act_four_scene_seven = partScene(7, act_four)
+
+	act_four_scenes = [act_four_scene_one, act_four_scene_two, act_four_scene_three,
+					act_four_scene_four, act_four_scene_five, act_four_scene_six,
+					act_four_scene_seven]
+	# check that act four covers all the parts of the act_four
+	#matchSceneLengthAct(act_four, act_four_scenes)
+
+	act_five = partAct(5, char_speech_dict)
+	act_five_scene_one = partScene(1, act_five)
+	act_five_scene_two = partScene(2, act_five)
+
+	act_five_scenes = [act_five_scene_one, act_five_scene_two]
+	# check that act five covers all the parts of the act_five
+	#matchSceneLengthAct(act_five, act_five_scenes)
 
 	'''
 	words = "thus conscience does make cowards of us all"
