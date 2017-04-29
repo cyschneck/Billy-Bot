@@ -14,7 +14,7 @@ from collections import Counter
 
 from textblob import TextBlob
 
-punc = ['!', ',', '.', ':', '\'', ';', '*', '--']
+# list with all character options
 character_names = ['claudius', 'hamlet', 'polonius', 
 					'horatio', 'laertes', 'voltimand',
 					'cornelius', 'rosencrantz', 'guildenstern',
@@ -24,6 +24,9 @@ character_names = ['claudius', 'hamlet', 'polonius',
 					'clowntwo', 'gertrude', 'ophelia',
 					'fortinbras', 'captain', 'ambassadors',
 					'ghost', 'other']
+
+# dictionary with the act and the number of scenes it has
+hamlet_scene_breakdown = {1: [1, 2, 3, 4, 5], 2:[1, 2], 3:[1, 2, 3, 4], 4:[1, 2, 3, 4, 5, 6, 7], 5:[1, 2]}
 
 ########################################################################
 ## SETTING UP THE DICTIONARIES FROM THE GIVEN FILES
@@ -62,7 +65,19 @@ def readingFileDict(filename):
 
 		for i in range(len(speech_list)): # remove extra @ left behind by replace and replace n with A (n = any ATCG)
 			if '@' in speech_list[i]:
-				new_value = speech_list[i].replace("@", "")
+				new_value = speech_list[i].replace("@", " ") # keeps all spacing between paragraphs intacted
+				speech_list[i] = new_value
+			if ';' in speech_list[i]:
+				new_value = speech_list[i].replace(";", ". ") # replace semi-colon into a sentence for tokenization (creates 'more' sentences)
+				speech_list[i] = new_value
+			if "'d" in speech_list[i]:
+				new_value = speech_list[i].replace("'d", "ed") # corrrct 'old-english' to current for anaylsis
+				speech_list[i] = new_value
+			if '--' in speech_list[i]:
+				new_value = speech_list[i].replace("--", "")
+				speech_list[i] = new_value
+			if '.' in speech_list[i]:
+				new_value = speech_list[i].replace(".", ". ") # increase spacing for sentences
 				speech_list[i] = new_value
 		#print(speech_list)
 		# check that no duplicates in keys occur
@@ -70,6 +85,14 @@ def readingFileDict(filename):
 		char_speech_dict = seqDictPairs(char_list, speech_list) # tuples of a pair's list and a dictionary {seq:gen}
 		final_with_spaces_dict = addSpacestoSpeech(char_speech_dict)
 	return final_with_spaces_dict
+
+def addSpacestoSpeech(char_speech_dict):
+	# removes spaces to parse correct, but adds them back here
+	for key in char_speech_dict:
+		if "#" in char_speech_dict[key]:
+			with_spaces = char_speech_dict[key].replace("#", " ")
+			char_speech_dict[key] = with_spaces
+	return char_speech_dict
 
 def seqDictPairs(header_list, sequence_list):
 	# creates a dictionary between the sequence (header) and the associated genome {seq:genome} dictionary
@@ -79,14 +102,6 @@ def seqDictPairs(header_list, sequence_list):
 	seq_gen_dict = zip(header_list, sequence_list) # combine the two lists
 	seq_gen_dict = dict(seq_gen_dict) # create new dictionary from the lists
 	return seq_gen_dict
-
-def addSpacestoSpeech(char_speech_dict):
-	# removes spaces to parse correct, but adds them back here
-	for key in char_speech_dict:
-		if "#" in char_speech_dict[key]:
-			with_spaces = char_speech_dict[key].replace("#", " ")
-			char_speech_dict[key] = with_spaces
-	return char_speech_dict
 
 def partsCharacter(character_name, char_speech_dict):
 	# break apart entire (unparsed) dictionary into sub-dictionaries for each character
@@ -133,27 +148,88 @@ def matchSceneLengthAct(act_num, list_scenes):
 	print(length_scenes_sum)
 	print("found all: {0}".format(length_act == length_scenes_sum))
 
+def updateSentimentifNeutral(speech_sentence):
+	# if the sentence is neutral, update to attribute sentiment based on key words
+	# example: villian -> negative
+	pass
+
 if __name__ == '__main__':
 	import argparse
 	parser = argparse.ArgumentParser(description="flag format given as: -F <filename>")
 	parser.add_argument('-F', '-filename', help="filename, given as .fasta")
-	#parser.add_argument('-A', '-act', help="act to analysis")
-	#parser.add_argument('-AS', '-act_scene', help="act and specific scene")
-	#parser.add_argument('-P', '-play_to_breakdown', help="default set to hamlet")
-
+	parser.add_argument('-A', '-act', help="act to analysis") # optional argument
+	parser.add_argument('-S', '-scene', help="specific scene from act") # optional argument
+	parser.add_argument('-C', '-character', help="character to analysis") # optional argument
 
 	args = parser.parse_args()
 	filename = args.F
+	# below are optional arguments, if none are given, runs through entire play, for all characters
+	act_value = args.A # if no scene is specified, runs through the entire act
+	scene_value = args.S # must have an associated act_value
+	character_value = args.C # if no act/scene is specified, runs for the entire play
 
-	arguments = [filename]
+	arguments = [filename] # required arguments
 	if None in arguments:
 		if filename is None:
 			print("filename not given")
 			exit()
-	
+
+	if (scene_value is not None) and (act_value is None):
+		print("scene needs to be given in association with a specific act")
+		exit()
+
+	if act_value is not None:
+		if type(act_value) is str: # if the given value is a string
+			if act_value.lower() == 'one' or act_value == '1' or act_value.lower() == 'i':
+				act_value = 1
+			elif act_value.lower() == 'two' or act_value == '2'  or act_value.lower() == 'ii':
+				act_value = 2
+			elif act_value.lower() == 'three' or act_value == '3' or act_value.lower() == 'iii':
+				act_value = 3
+			elif act_value.lower() == 'four' or act_value == '4' or act_value.lower() == 'iv':
+				act_value = 4
+			elif act_value.lower() == 'five' or act_value == '5' or act_value.lower() == 'v':
+				act_value = 5
+			else:
+				print("act must be between 1-5, {0} is not a valid argument".format(act_value))
+				exit()
+		else:
+				print("act must be between 1-5, {0} is not a valid argument".format(act_value))
+				exit()
+
+	if scene_value is not None:
+		if type(scene_value) is str: # if the given value is a string
+			if scene_value.lower() == 'one' or scene_value == '1' or scene_value.lower() == 'i':
+				scene_value = 1
+			elif scene_value.lower() == 'two' or scene_value == '2'  or scene_value.lower() == 'ii':
+				scene_value = 2
+			elif scene_value.lower() == 'three' or scene_value == '3' or scene_value.lower() == 'iii':
+				scene_value = 3
+			elif scene_value.lower() == 'four' or scene_value == '4' or scene_value.lower() == 'iv':
+				scene_value = 4
+			elif scene_value.lower() == 'five' or scene_value == '5' or scene_value.lower() == 'v':
+				scene_value = 5
+			elif scene_value.lower() == 'six' or scene_value == '6' or scene_value.lower() == 'vi':
+				scene_value = 6
+			elif scene_value.lower() == 'seven' or scene_value == '7' or scene_value.lower() == 'vii':
+				scene_value = 7
+			else:
+				print("scene must be between 1-7, {0} is not a valid argument".format(scene_value))
+				exit()
+		else:
+				print("other scene must be between 1-7, {0} is not a valid argument".format(scene_value))
+				exit()
+
+	if scene_value not in hamlet_scene_breakdown[act_value]: # scene must be a valid number for a given act
+		print("Act {0} has {1} scenes, {2} is not a valid argument".format(act_value, max(hamlet_scene_breakdown[act_value]), scene_value))
+		exit()
+
+	if character_value is not None:
+		character_value = character_value.lower() # change names to lowercase for consitency
+
 	char_speech_dict = readingFileDict(filename)
 
-	# TO DO: go through and remove characters that are not being used as headers
+	# TODO: go through and remove characters that are not being used as headers
 	hamlet_parts = partsCharacter('hamlet', char_speech_dict)
 	claudius_parts = partsCharacter('claudius', char_speech_dict)
 	polonius_parts = partsCharacter('polonius', char_speech_dict)
@@ -194,6 +270,7 @@ if __name__ == '__main__':
 	#	print("{0}:{1}".format(key, char_speech_dict[key]))
 
 
+	# creates dictionaries with {characterACTSCENE_SPEECH: "speech"} and sub_dictionaries
 	act_one = partAct(1, char_speech_dict)
 	act_one_scene_one = partScene(1, act_one)
 	act_one_scene_two = partScene(2, act_one)
@@ -248,6 +325,28 @@ if __name__ == '__main__':
 	# check that act five covers all the parts of the act_five
 	#matchSceneLengthAct(act_five, act_five_scenes)
 
+	total_scenes = act_one_scenes + act_two_scenes + act_three_scenes + act_four_scenes + act_five_scenes
+	# check that all the scenes add up to all the parts
+	#matchSceneLengthAct(char_speech_dict, total_scenes)
+
+	#print(act_one_scene_one['horatio11_11'])
+	#print(act_one_scene_one['bernardo11_2'])
+	#print(act_one_scene_five['hamlet15_14'])
+	#print(act_one_scene_five['hamlet15_16'])
+
+	text_H11 = TextBlob(act_one_scene_one['horatio11_12'])
+	#print(text_H11.tags)
+	#print(text_H11.words)
+	#for sentence in text_H11.sentences:
+		#print("\n")
+		#print(sentence)
+		#print(sentence.sentiment)
+	#print(text_H11.sentiment)
+	
+	text_B11 = TextBlob(act_one_scene_one['bernardo11_2'])
+	#print(text_B11.tags)
+	#print(text_B11.words)
+	#print(text_B11.sentiment)
 	'''
 	words = "thus conscience does make cowards of us all"
 	text = TextBlob(words)
