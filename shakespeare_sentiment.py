@@ -15,15 +15,15 @@ from collections import Counter
 from textblob import TextBlob
 
 # list with all character options
-character_names = ['claudius', 'hamlet', 'polonius', 
-					'horatio', 'laertes', 'voltimand',
-					'cornelius', 'rosencrantz', 'guildenstern',
-					'osric', 'gentleman', 'priest',
-					'marcellus', 'bernardo', 'francisco',
-					'reynaldo', 'players', 'clownone',
-					'clowntwo', 'gertrude', 'ophelia',
-					'fortinbras', 'captain', 'ambassadors',
-					'ghost', 'other']
+hamlet_character_list = ['claudius', 'hamlet', 'polonius', 
+						'horatio', 'laertes', 'voltimand',
+						'rosencrantz', 'guildenstern',
+						'osric', 'gentleman', 'priest',
+						'marcellus', 'bernardo', 'francisco',
+						'reynaldo', 'players', 'clownone',
+						'clowntwo', 'gertrude', 'ophelia',
+						'fortinbras', 'captain',
+						'ghost', 'other']
 
 # dictionary with the act and the number of scenes it has
 hamlet_scene_breakdown = {1: [1, 2, 3, 4, 5], 2:[1, 2], 3:[1, 2, 3, 4], 4:[1, 2, 3, 4, 5, 6, 7], 5:[1, 2]}
@@ -106,7 +106,7 @@ def seqDictPairs(header_list, sequence_list):
 def partsCharacter(character_name, char_speech_dict):
 	# break apart entire (unparsed) dictionary into sub-dictionaries for each character
 	character_name_parts = { k:v for k, v in char_speech_dict.items() if character_name in k }
-	#print("{0} = {1}".format(character_name, len(character_name_parts)))
+	print("{0} = {1}".format(character_name, len(character_name_parts)))
 	return character_name_parts
 
 def partAct(act_num, char_speech_dict):
@@ -226,17 +226,23 @@ if __name__ == '__main__':
 
 	if character_value is not None:
 		character_value = character_value.lower() # change names to lowercase for consitency
+		if character_value not in hamlet_character_list:
+			print("{0} is not a valid argument, if not included, additional characters are listed under 'other'\n".format(character_value))
+			print("Other options include:")
+			for char in hamlet_character_list:
+				print(char)
+			exit()
 
 	char_speech_dict = readingFileDict(filename)
 
-	# TODO: go through and remove characters that are not being used as headers
+	# TODO: go through and remove characters with fewer than 14 lines
+	# combine with other, combine clowns into one character
 	hamlet_parts = partsCharacter('hamlet', char_speech_dict)
 	claudius_parts = partsCharacter('claudius', char_speech_dict)
 	polonius_parts = partsCharacter('polonius', char_speech_dict)
 	horatio_parts = partsCharacter('horatio', char_speech_dict)
 	laertes_parts = partsCharacter('laertes', char_speech_dict)
 	voltimand_parts = partsCharacter('voltimand', char_speech_dict)
-	cornelius_parts = partsCharacter('cornelius', char_speech_dict)
 	rosencrantz_parts = partsCharacter('rosencrantz', char_speech_dict)
 	guildenstern_parts = partsCharacter('guildenstern', char_speech_dict)
 	osric_parts = partsCharacter('osric', char_speech_dict)
@@ -252,16 +258,15 @@ if __name__ == '__main__':
 	ophelia_parts = partsCharacter('ophelia', char_speech_dict)
 	fortinbras_parts = partsCharacter('fortinbras', char_speech_dict)
 	captain_parts = partsCharacter('captain', char_speech_dict)
-	ambassadors_parts = partsCharacter('ambassadors', char_speech_dict)
 	ghost_parts = partsCharacter('ghost', char_speech_dict)
 	other_parts = partsCharacter('other', char_speech_dict)
 
 	character_parts = [hamlet_parts, claudius_parts, polonius_parts, horatio_parts,
-						laertes_parts, voltimand_parts, cornelius_parts, rosencrantz_parts,
+						laertes_parts, voltimand_parts, rosencrantz_parts,
 						guildenstern_parts, osric_parts, gentleman_parts, marcellus_parts,
 						bernardo_parts, francisco_parts, reynaldo_parts, players_parts, 
 						clownone_parts, clowntwo_parts, gertrude_parts, ophelia_parts,
-						fortinbras_parts, captain_parts, ambassadors_parts, ghost_parts,
+						fortinbras_parts, captain_parts, ghost_parts,
 						other_parts]
 	# check that the character parts cover all the parts
 	#matchSceneLengthAct(char_speech_dict, character_parts) 
