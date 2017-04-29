@@ -18,7 +18,7 @@ from textblob import TextBlob
 hamlet_character_list = ['claudius', 'hamlet', 'polonius', 
 						'horatio', 'laertes', 'voltimand',
 						'rosencrantz', 'guildenstern',
-						'osric', 'gentleman', 'priest',
+						'osric', 'priest',
 						'marcellus', 'bernardo', 'francisco',
 						'reynaldo', 'players', 'clownone',
 						'clowntwo', 'gertrude', 'ophelia',
@@ -81,7 +81,7 @@ def readingFileDict(filename):
 				speech_list[i] = new_value
 		#print(speech_list)
 		# check that no duplicates in keys occur
-		#duplicates = [x for n, x in enumerate(char_list) if x in char_list[:n]]
+		#print("duplicates: {0}".format([x for n, x in enumerate(char_list) if x in char_list[:n]]))
 		char_speech_dict = seqDictPairs(char_list, speech_list) # tuples of a pair's list and a dictionary {seq:gen}
 		final_with_spaces_dict = addSpacestoSpeech(char_speech_dict)
 	return final_with_spaces_dict
@@ -106,7 +106,7 @@ def seqDictPairs(header_list, sequence_list):
 def partsCharacter(character_name, char_speech_dict):
 	# break apart entire (unparsed) dictionary into sub-dictionaries for each character
 	character_name_parts = { k:v for k, v in char_speech_dict.items() if character_name in k }
-	print("{0} = {1}".format(character_name, len(character_name_parts)))
+	#print("{0} = {1}".format(character_name, len(character_name_parts)))
 	return character_name_parts
 
 def partAct(act_num, char_speech_dict):
@@ -224,6 +224,7 @@ if __name__ == '__main__':
 		print("Act {0} has {1} scenes, {2} is not a valid argument".format(act_value, max(hamlet_scene_breakdown[act_value]), scene_value))
 		exit()
 
+	# TODO: give the option for 2 characters
 	if character_value is not None:
 		character_value = character_value.lower() # change names to lowercase for consitency
 		if character_value not in hamlet_character_list:
@@ -235,18 +236,14 @@ if __name__ == '__main__':
 
 	char_speech_dict = readingFileDict(filename)
 
-	# TODO: go through and remove characters with fewer than 14 lines
-	# combine with other, combine clowns into one character
 	hamlet_parts = partsCharacter('hamlet', char_speech_dict)
 	claudius_parts = partsCharacter('claudius', char_speech_dict)
 	polonius_parts = partsCharacter('polonius', char_speech_dict)
 	horatio_parts = partsCharacter('horatio', char_speech_dict)
 	laertes_parts = partsCharacter('laertes', char_speech_dict)
-	voltimand_parts = partsCharacter('voltimand', char_speech_dict)
 	rosencrantz_parts = partsCharacter('rosencrantz', char_speech_dict)
 	guildenstern_parts = partsCharacter('guildenstern', char_speech_dict)
 	osric_parts = partsCharacter('osric', char_speech_dict)
-	gentleman_parts = partsCharacter('gentleman', char_speech_dict)
 	marcellus_parts = partsCharacter('marcellus', char_speech_dict)
 	bernardo_parts = partsCharacter('bernardo', char_speech_dict)
 	francisco_parts = partsCharacter('francisco', char_speech_dict)
@@ -262,8 +259,8 @@ if __name__ == '__main__':
 	other_parts = partsCharacter('other', char_speech_dict)
 
 	character_parts = [hamlet_parts, claudius_parts, polonius_parts, horatio_parts,
-						laertes_parts, voltimand_parts, rosencrantz_parts,
-						guildenstern_parts, osric_parts, gentleman_parts, marcellus_parts,
+						laertes_parts, rosencrantz_parts,
+						guildenstern_parts, osric_parts, marcellus_parts,
 						bernardo_parts, francisco_parts, reynaldo_parts, players_parts, 
 						clownone_parts, clowntwo_parts, gertrude_parts, ophelia_parts,
 						fortinbras_parts, captain_parts, ghost_parts,
@@ -348,17 +345,8 @@ if __name__ == '__main__':
 		#print(sentence.sentiment)
 	#print(text_H11.sentiment)
 	
-	text_B11 = TextBlob(act_one_scene_one['bernardo11_2'])
-	#print(text_B11.tags)
-	#print(text_B11.words)
-	#print(text_B11.sentiment)
-	'''
-	words = "thus conscience does make cowards of us all"
-	text = TextBlob(words)
-	print(text.tags)
-	print(text.words)
-	print(text.sentiment)
-	'''
+
+
 ########################################
 	# iterate through all tokens for each speech (50 or 100 tokens in size max)
 	# store sentiment in list for each character to graph
