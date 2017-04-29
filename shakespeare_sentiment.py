@@ -18,12 +18,10 @@ from textblob import TextBlob
 hamlet_character_list = ['claudius', 'hamlet', 'polonius', 
 						'horatio', 'laertes', 'voltimand',
 						'rosencrantz', 'guildenstern',
-						'osric', 'priest',
-						'marcellus', 'bernardo', 'francisco',
-						'reynaldo', 'players', 'clownone',
+						'osric', 'priest', 'marcellus', 'bernardo',
+						'francisco', 'reynaldo', 'players', 'clownone',
 						'clowntwo', 'gertrude', 'ophelia',
-						'fortinbras', 'captain',
-						'ghost', 'other']
+						'fortinbras', 'ghost', 'other']
 
 # dictionary with the act and the number of scenes it has
 hamlet_scene_breakdown = {1: [1, 2, 3, 4, 5], 2:[1, 2], 3:[1, 2, 3, 4], 4:[1, 2, 3, 4, 5, 6, 7], 5:[1, 2]}
@@ -148,6 +146,17 @@ def matchSceneLengthAct(act_num, list_scenes):
 	print(length_scenes_sum)
 	print("found all: {0}".format(length_act == length_scenes_sum))
 
+def determineSentiment(sent_dict):
+	# takes in a dictionary or sub-dictionary to return the sentiment in a list
+	text_H11 = TextBlob(act_one_scene_one['horatio11_12'])
+	print(text_H11.tags)
+	print(text_H11.words)
+	for sentence in text_H11.sentences:
+		print("\n")
+		print(sentence)
+		print(sentence.sentiment)
+	print(text_H11.sentiment)
+
 def updateSentimentifNeutral(speech_sentence):
 	# if the sentence is neutral, update to attribute sentiment based on key words
 	# example: villian -> negative
@@ -254,7 +263,6 @@ if __name__ == '__main__':
 	clowntwo_parts = partsCharacter('clowntwo', char_speech_dict)
 	ophelia_parts = partsCharacter('ophelia', char_speech_dict)
 	fortinbras_parts = partsCharacter('fortinbras', char_speech_dict)
-	captain_parts = partsCharacter('captain', char_speech_dict)
 	ghost_parts = partsCharacter('ghost', char_speech_dict)
 	other_parts = partsCharacter('other', char_speech_dict)
 
@@ -263,7 +271,7 @@ if __name__ == '__main__':
 						guildenstern_parts, osric_parts, marcellus_parts,
 						bernardo_parts, francisco_parts, reynaldo_parts, players_parts, 
 						clownone_parts, clowntwo_parts, gertrude_parts, ophelia_parts,
-						fortinbras_parts, captain_parts, ghost_parts,
+						fortinbras_parts, ghost_parts,
 						other_parts]
 	# check that the character parts cover all the parts
 	#matchSceneLengthAct(char_speech_dict, character_parts) 
@@ -331,21 +339,11 @@ if __name__ == '__main__':
 	# check that all the scenes add up to all the parts
 	#matchSceneLengthAct(char_speech_dict, total_scenes)
 
-	#print(act_one_scene_one['horatio11_11'])
-	#print(act_one_scene_one['bernardo11_2'])
-	#print(act_one_scene_five['hamlet15_14'])
-	#print(act_one_scene_five['hamlet15_16'])
 
-	text_H11 = TextBlob(act_one_scene_one['horatio11_12'])
-	#print(text_H11.tags)
-	#print(text_H11.words)
-	#for sentence in text_H11.sentences:
-		#print("\n")
-		#print(sentence)
-		#print(sentence.sentiment)
-	#print(text_H11.sentiment)
-	
 
+
+	# TODO: set up conditional flow to determine which dictionary gets passed into sentiment
+	#final_graph_list = determineSentiment(fortinbras_parts)
 
 ########################################
 	# iterate through all tokens for each speech (50 or 100 tokens in size max)
