@@ -11,6 +11,7 @@ import random
 import re
 import csv
 import string
+import operator
 
 from textblob import TextBlob
 
@@ -260,9 +261,15 @@ if __name__ == '__main__':
 		print("character {0} does not exist in this range".format(character_value))
 		exit()
 
-	print(focus_dict.keys())
+	# order the keys in the order they appear in the play
+	split_keys = [order.split('_') for order in focus_dict.keys()]
+	# breaks hamlet51_1 => ['hamlet51', '1']
+	sorted_lines = sorted(split_keys, key=lambda x:int(x[1])) 
+	# returns the list of character lines in order [['hamlet52', '1'], ['hamlet51, '2']]
+	sorted_keys = ['_'.join(order) for order in sorted_lines]
+	# returns to a single list: ['hamlet52_1', 'hamlet52_2'] in order
 
-	#final_graph_dict = determineSentiment(fortinbras_parts)
+	sentiment_focus_dict = determineSentiment(focus_dict)
 	#print(final_graph_dict)
 	#ordered_final_sent = sorted(final_graph_dict.keys())
 	#print(ordered_final_sent)
