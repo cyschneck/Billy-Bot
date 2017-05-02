@@ -101,70 +101,23 @@ def seqDictPairs(header_list, sequence_list):
 	return seq_gen_dict
 
 def determineFocus(character_value, act_value, scene_value):
+	# prints the focus of the play
 	if character_value is None:
 		if act_value is None:
-			print("full play")
-			generateFullPlayFullCharacters()
+			print("generate full play with full cast")
 		else:
 			if scene_value is None:
-				print("full act {0}".format(act_value))
-				generateFullActFullCharacters(act_value)
+				print("generate act {0}, for all characters".format(act_value))
 			else:
-				print("act {0} for specifically scene {1}".format(act_value, scene_value))
-				generateSceneFullCharacters(act_value, scene_value)
+				print("generate scene {0}, in act {1}".format(scene_value, act_value))
 	else:
 		if act_value is None:
-			print("full play for {0}".format(character_value))
-			generateFullPlayForSpecificCharacter(character_value)
+			print("generate full play for {0}".format(character_value))
 		else:
 			if scene_value is None:
-				print("full act {0} for {1}".format(act_value, character_value))
-				generateFullActForSpecificCharacter(act_value, character_value)
+				print("generate act {1}, for {1}".format(act_value, character_value))
 			else:
-				print("act {0} for specifically scene {1} for {2}".format(act_value, scene_value, character_value))
-				generateSceneForSpecificCharacter(act_value, scene_value, character_value)
-
-def generateFullPlayFullCharacters():
-	# creates the entire play for all the characters (all dictionaries)
-	print("generate full play with full cast")
-
-def generateFullActFullCharacters(act_value):
-	# creates a single act with full cast of characters
-	print("generate act {0}, for all characters".format(act_value))
-
-def generateSceneFullCharacters(act_value, scene_value):
-	# creates a single scene in an act with full cast of characters
-	print("generate scene {0}, in act {1}".format(scene_value, act_value))
-
-def generateFullPlayForSpecificCharacter(character_value):
-	# creates the entire play for a single character
-	print("generate full play for {0}".format(character_value))
-
-def generateFullActForSpecificCharacter(act_value, character_value):
-	# creates a single act with a single character
-	print("generate act {1}, for {1}".format(act_value, character_value))
-
-def generateSceneForSpecificCharacter(act_value, scene_value, character_value):
-	# creates a single scene in an act for a single character
-	print("generate scene {0}, in act {1} for {2}".format(scene_value, act_value, character_value))
-
-def partsCharacter(character_name, char_speech_dict):
-	# break apart entire (unparsed) dictionary into sub-dictionaries for each character
-	character_name_parts = { k:v for k, v in char_speech_dict.items() if character_name in k }
-	#print("{0} = {1}".format(character_name, len(character_name_parts)))
-	return character_name_parts
-
-def partAct(act_num, char_speech_dict):
-	# break apart entire (unparsed) dictionary into sub-dictionaries for each act
-	regex_act = re.compile(r'{0}\d_\d'.format(act_num))
-	act_parts = { k:v for k, v in char_speech_dict.items() if bool(re.search(regex_act, k)) }
-	return act_parts
-
-def partScene(scene_num, act_dict):
-	# break apart act dictionary into sub-dictionaries for each scene
-	regex_scene = re.compile(r'\d{0}_\d'.format(scene_num))
-	scene_parts = { k:v for k, v in act_dict.items() if bool(re.search(regex_scene, k)) }
-	return scene_parts
+				print("generate scene {0}, in act {1} for {2}".format(scene_value, act_value, character_value))
 
 def findMissingName(list_character, char_dict):
 	# find headers that are not being included (debugging)
@@ -181,17 +134,6 @@ def findMissingName(list_character, char_dict):
 		print("\nmissing")
 		for ch in missing_ch:
 			print("not found: {0}".format(ch))
-
-def matchSceneLengthAct(act_num, list_scenes):
-	length_act = len(act_num)
-
-	length_scenes_sum = 0
-	for scene in list_scenes:
-		length_scenes_sum += len(scene)
-	
-	print(length_act)
-	print(length_scenes_sum)
-	print("found all: {0}".format(length_act == length_scenes_sum))
 
 def determineSentiment(sent_dict):
 	# takes in a dictionary or sub-dictionary to return the sentiment in a list
@@ -293,107 +235,35 @@ if __name__ == '__main__':
 
 	char_speech_dict = readingFileDict(filename)
 
-	# TODO: only generate the dictionaries that are required (optimization)
 	# determine what the focus of the graph is
-	determineFocus(character_value, act_value, scene_value)
-
-
-	hamlet_parts = partsCharacter('hamlet', char_speech_dict)
-	claudius_parts = partsCharacter('claudius', char_speech_dict)
-	polonius_parts = partsCharacter('polonius', char_speech_dict)
-	horatio_parts = partsCharacter('horatio', char_speech_dict)
-	laertes_parts = partsCharacter('laertes', char_speech_dict)
-	rosencrantz_parts = partsCharacter('rosencrantz', char_speech_dict)
-	guildenstern_parts = partsCharacter('guildenstern', char_speech_dict)
-	osric_parts = partsCharacter('osric', char_speech_dict)
-	marcellus_parts = partsCharacter('marcellus', char_speech_dict)
-	bernardo_parts = partsCharacter('bernardo', char_speech_dict)
-	francisco_parts = partsCharacter('francisco', char_speech_dict)
-	reynaldo_parts = partsCharacter('reynaldo', char_speech_dict)
-	players_parts = partsCharacter('players', char_speech_dict)
-	clownone_parts = partsCharacter('clownone', char_speech_dict)
-	gertrude_parts = partsCharacter('gertrude', char_speech_dict)
-	clowntwo_parts = partsCharacter('clowntwo', char_speech_dict)
-	ophelia_parts = partsCharacter('ophelia', char_speech_dict)
-	fortinbras_parts = partsCharacter('fortinbras', char_speech_dict)
-	ghost_parts = partsCharacter('ghost', char_speech_dict)
-	other_parts = partsCharacter('other', char_speech_dict)
-
-	character_parts = [hamlet_parts, claudius_parts, polonius_parts, horatio_parts,
-						laertes_parts, rosencrantz_parts, guildenstern_parts, 
-						osric_parts, marcellus_parts, bernardo_parts, 
-						francisco_parts, reynaldo_parts, players_parts, 
-						clownone_parts, clowntwo_parts, gertrude_parts, 
-						ophelia_parts, fortinbras_parts, ghost_parts,
-						other_parts]
-	# check that the character parts cover all the parts
-	#matchSceneLengthAct(char_speech_dict, character_parts) 
-	
-	#for key in sorted(char_speech_dict)[:50]:
-	#	print("{0}:{1}".format(key, char_speech_dict[key]))
-
+	#determineFocus(character_value, act_value, scene_value)
 
 	# creates dictionaries with {characterACTSCENE_SPEECH: "speech"} and sub_dictionaries
-	act_one = partAct(1, char_speech_dict)
-	act_one_scene_one = partScene(1, act_one)
-	act_one_scene_two = partScene(2, act_one)
-	act_one_scene_three = partScene(3, act_one)
-	act_one_scene_four = partScene(4, act_one)
-	act_one_scene_five= partScene(5, act_one)
-	
-	act_one_scenes = [act_one_scene_one, act_one_scene_two, act_one_scene_three,
-					act_one_scene_four, act_one_scene_five]
-	# check that act one parts cover all the parts of the act_one
-	#matchSceneLengthAct(act_one, act_one_scenes)
+	if character_value is not None:
+		if act_value is not None:
+			if scene_value is not None:
+				regex_total = re.compile(r'{0}{1}{2}_\d'.format(character_value, act_value, scene_value))
+			else:
+				regex_total = re.compile(r'{0}{1}\d_\d'.format(character_value, act_value))
+		else:
+			regex_total = re.compile(r'{0}\d_\d'.format(character_value))
+	else:
+		if act_value is not None:
+			if scene_value is not None:
+				regex_total = re.compile(r'{0}{1}_\d'.format(act_value, scene_value))
+			else:
+				regex_total = re.compile(r'{0}\d_\d'.format(act_value))
 
-	act_two = partAct(2, char_speech_dict)
-	act_two_scene_one = partScene(1, act_two)
-	act_two_scene_two = partScene(2, act_two)
+	focus_dict = { k:v for k, v in char_speech_dict.items() if bool(re.search(regex_total, k)) } # dictionary that should have been generated
 
-	act_two_scenes = [act_two_scene_one, act_two_scene_two]
-	# check that act two parts cover all the parts of the act_two
-	#matchSceneLengthAct(act_two, act_two_scenes)
+	if len(focus_dict) == 0: # character does not exist in the scene they are called for (exit)
+		print("character {0} does not exist in this range".format(character_value))
+		exit()
 
-	act_three = partAct(3, char_speech_dict)
-	act_three_scene_one = partScene(1, act_three)
-	act_three_scene_two = partScene(2, act_three)
-	act_three_scene_three = partScene(3, act_three)
-	act_three_scene_four = partScene(4, act_three)
+	print(focus_dict.keys())
 
-	act_three_scenes = [act_three_scene_one, act_three_scene_two,
-						act_three_scene_three, act_three_scene_four]
-	# check that act three parts cover all the parts of the act_three
-	#matchSceneLengthAct(act_three, act_three_scenes)
-
-	act_four = partAct(4, char_speech_dict)
-	act_four_scene_one = partScene(1, act_four)
-	act_four_scene_two = partScene(2, act_four)
-	act_four_scene_three = partScene(3, act_four)
-	act_four_scene_four = partScene(4, act_four)
-	act_four_scene_five = partScene(5, act_four)
-	act_four_scene_six = partScene(6, act_four)
-	act_four_scene_seven = partScene(7, act_four)
-
-	act_four_scenes = [act_four_scene_one, act_four_scene_two, act_four_scene_three,
-					act_four_scene_four, act_four_scene_five, act_four_scene_six,
-					act_four_scene_seven]
-	# check that act four covers all the parts of the act_four
-	#matchSceneLengthAct(act_four, act_four_scenes)
-
-	act_five = partAct(5, char_speech_dict)
-	act_five_scene_one = partScene(1, act_five)
-	act_five_scene_two = partScene(2, act_five)
-
-	act_five_scenes = [act_five_scene_one, act_five_scene_two]
-	# check that act five covers all the parts of the act_five
-	#matchSceneLengthAct(act_five, act_five_scenes)
-
-	total_scenes = act_one_scenes + act_two_scenes + act_three_scenes + act_four_scenes + act_five_scenes
-	# check that all the scenes add up to all the parts
-	#matchSceneLengthAct(char_speech_dict, total_scenes)
-
-	final_graph_dict = determineSentiment(fortinbras_parts)
-	print(final_graph_dict)
+	#final_graph_dict = determineSentiment(fortinbras_parts)
+	#print(final_graph_dict)
 	#ordered_final_sent = sorted(final_graph_dict.keys())
 	#print(ordered_final_sent)
 	# put dict in order: ordered_sent_list = sorted(sent_dict.keys())
@@ -417,6 +287,8 @@ if __name__ == '__main__':
 			else:
 				output_filename += '{0}-A{1}-S{2}.csv'.format(character_value, act_value, scene_value)
 
+	print(output_filename)
+	'''
 	with open(output_filename, 'w+') as given_sent:
 		fieldnames = ['character', 'sentiment']
 		writer = csv.DictWriter(given_sent, fieldnames=fieldnames)
@@ -424,7 +296,8 @@ if __name__ == '__main__':
 		writer.writeheader() 
 		for key, value in final_graph_dict.items():
 			writer.writerow({'character': '{0}'.format(key), 'sentiment': '{0}'.format(value)})
-
+	'''
+	
 	# include when a character enters and exit the play, how often they speech (frequency/total play)
 	# if user wants the sentiment for an act that a character doesn't exist, throw error (exit)
 	# fix bug in ordered where _6 is bigger than _58
