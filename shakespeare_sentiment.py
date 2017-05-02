@@ -143,14 +143,17 @@ def determineSentiment(sent_dict):
 	for speech in sent_dict:
 		text_sent = TextBlob(sent_dict[speech])
 		#text_tag = text_sent.tags
+		counter = 1
 		for sentence in text_sent.sentences:
-			final_sent_dict[speech] = sentence.sentiment
+			final_sent_dict[speech + '_' + str(counter)] = (sentence.sentiment, sentence)
+			counter += 1 # each sub-sentence in a speech has it's own dictionary key
 	final_sent_dict["_average"] = text_sent.sentiment # beginning of an ordered dict
 	return final_sent_dict
 
 def updateSentimentifNeutral(speech_sentence):
 	# if the sentence is neutral, update to attribute sentiment based on key words
-	# example: villian -> negative
+	# example: villian -> negative, dying -> negative, etc...
+	# https://textblob.readthedocs.io/en/dev/classifiers.html#classifiers
 	pass
 
 if __name__ == '__main__':
@@ -270,6 +273,12 @@ if __name__ == '__main__':
 	# returns to a single list: ['hamlet52_1', 'hamlet52_2'] in order
 
 	sentiment_focus_dict = determineSentiment(focus_dict)
+	#print(sentiment_focus_dict)
+	counter = 0
+	for sent in sentiment_focus_dict:
+		if sorted_keys[counter] in sent:
+			print(sent)
+			print(sentiment_focus_dict[sent])
 	#print(final_graph_dict)
 	#ordered_final_sent = sorted(final_graph_dict.keys())
 	#print(ordered_final_sent)
@@ -306,5 +315,4 @@ if __name__ == '__main__':
 	'''
 	
 	# include when a character enters and exit the play, how often they speech (frequency/total play)
-	# if user wants the sentiment for an act that a character doesn't exist, throw error (exit)
-	# fix bug in ordered where _6 is bigger than _58
+	# fix spacing after ; and with carriage returns (needs space)
