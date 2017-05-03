@@ -14,6 +14,7 @@ import string
 import operator
 
 from textblob import TextBlob
+from textblob.classifiers import NaiveBayesClassifier # update sentiment, if textblob returns neutral
 import matplotlib.pyplot as plt # graphing
 
 # list with all character options
@@ -73,11 +74,18 @@ def readingFileDict(filename):
 				new_value = speech_list[i].replace("'d", "ed") # corrrct 'old-english' to current for anaylsis
 				speech_list[i] = new_value
 			if '--' in speech_list[i]:
-				new_value = speech_list[i].replace("--", "")
+				new_value = speech_list[i].replace("--", " ")
 				speech_list[i] = new_value
 			if '.' in speech_list[i]:
 				new_value = speech_list[i].replace(".", ". ") # increase spacing for sentences
 				speech_list[i] = new_value
+			if ',' in speech_list[i]:
+				new_value = speech_list[i].replace(",", ", ") # increase spacing for commas
+				speech_list[i] = new_value
+			if '?' in speech_list[i]:
+				new_value = speech_list[i].replace("?", "? ") # increase spacing for ?'s
+				speech_list[i] = new_value
+
 		#print(speech_list)
 		# check that no duplicates in keys occur
 		#print("duplicates: {0}".format([x for n, x in enumerate(char_list) if x in char_list[:n]]))
@@ -166,11 +174,67 @@ def determineSentiment(sent_dict):
 	final_sent_dict["_average"] = text_sent.sentiment # beginning of an ordered dict
 	return final_sent_dict
 
-def updateSentimentifNeutral(speech_sentence):
+def trainSentiment():
 	# if the sentence is neutral, update to attribute sentiment based on key words
 	# example: villian -> negative, dying -> negative, etc...
 	# https://textblob.readthedocs.io/en/dev/classifiers.html#classifiers
-	pass
+	print(speech_dict[sentence][1])
+
+	# train classifers on actual hamlet data
+	hamlet_train = [
+	# act 1
+		('this dreaded sight', 'neg'),
+		('o god!', 'neg'),
+		('o fie!', 'neg'),
+		('break my heart,  for i must hold my tongue!', 'neg'),
+		('funeral', 'neg'),
+		('he was a man,  take him for all in all, i shall not look upon his like again', 'neg'),
+		('i doubt some foul play would the night were come!', 'neg'),
+		('foul deeds will rise', 'neg'),
+		('pooh!', 'neg'),
+		('angels and ministers of grace defend us!', 'neg'),
+		('you shall not go', 'neg'),
+		('hold off your hands', 'neg'),
+		('my fate cries out' , 'neg'),
+		("i'll make a ghost of him that lets me" , 'neg'),
+		('something is rotten in the state of denmark', 'neg'),
+		('harrow up thy soul', 'neg'),
+		('revenge', 'neg'),
+		('incest', 'neg'),
+		('adulterate', 'neg'),
+		('beast', 'neg'),
+		('lust', 'neg'),
+		('a serpent stung me', 'neg'),
+		('villain', 'neg'),
+		('perturbed spirit!', 'neg')
+	]
+
+	hamlet_test = [
+	# act 2
+		('dishonour', 'neg'),
+		('taints of liberty', 'neg'),
+		('flash and outbreak of a fiery mind', 'neg'),
+		('falsehood', 'neg'),
+		('fouled', 'neg'),
+		('piteous', 'neg'),
+		('i do not know', 'neg'),
+		('i do fear it', 'neg'),
+		('madness wherein now he raves', 'neg'),
+		('madness', 'neg'),
+		('indifferent children of the earth', 'neg'),
+		('beggars bodies', 'neg'),
+		('murder', 'neg'),
+		('that he should weep for her?', 'neg'),
+		('am i a coward?', 'neg'),
+		('who calls me villain?', 'neg'),
+	]
+	cl = NaiveBayesClassifier(train)
+	return cl
+
+def updateSentimentifNeutral(sentence, speech_dict, speech_neutral):
+	# update sentiment based on training data
+	cl = trainSentiment()
+	print(sentence)
 
 if __name__ == '__main__':
 	import argparse
@@ -264,50 +328,93 @@ if __name__ == '__main__':
 	if character_value is not None:
 		if act_value is not None:
 			if scene_value is not None:
-				regex_total = re.compile(r'^{0}{1}{2}_\d'.format(character_value, act_value, scene_value))
+				regex_total = re.compile(r'{0}{1}{2}_\d'.format(character_value, act_value, scene_value))
 			else:
-				regex_total = re.compile(r'^{0}{1}\d_\d'.format(character_value, act_value))
+				regex_total = re.compile(r'{0}{1}\d_\d'.format(character_value, act_value))
 		else:
-			regex_total = re.compile(r'^{0}\d_\d'.format(character_value))
+			regex_total = re.compile(r'{0}\d_\d'.format(character_value))
 	else:
 		if act_value is not None:
 			if scene_value is not None:
-				regex_total = re.compile(r'^{0}{1}_\d'.format(act_value, scene_value))
+				regex_total = re.compile(r'[a-z]+{0}{1}_\d'.format(act_value, scene_value))
 			else:
-				regex_total = re.compile(r'^{0}\d_\d'.format(act_value))
+				regex_total = re.compile(r'[a-z]+{0}\d_\d'.format(act_value))
 
 	focus_dict = { k:v for k, v in char_speech_dict.items() if bool(re.search(regex_total, k)) } # dictionary that should have been generated
+	#print(focus_dict)
 
 	if len(focus_dict) == 0: # character does not exist in the scene they are called for (exit)
 		print("character {0} does not exist in this range".format(character_value))
-		# TODO: bug where hamlet does not exist for entire play
+		# TODO: show a character for the entire play
 		exit()
 
-	# return the list of speaking roles in order
-	sorted_speaking = sortedSpeakingInOrder(focus_dict.keys(), 1) # based on 'hamlet15_2' where 2 is the second time they spoke
+	if character_value is not None:
+		# return the list of speaking roles in order
+		#print(focus_dict.keys())
+		sorted_speaking = sortedSpeakingInOrder(focus_dict.keys(), 1) # based on 'hamlet15_2' where 2 is the second time they spoke
 
-	sentiment_focus_dict = determineSentiment(focus_dict) # dictionary for sentence: polarity (includes the given speech as a tuple)
+		sentiment_focus_dict = determineSentiment(focus_dict) # dictionary for sentence: polarity (includes the given speech as a tuple)
 
-	sent_sentences_dict = {} 
-	# creates a dictionary that stores the sub-sentences for each speaking time {hamlet15_24:['hamlet15_24_1', 'hamlet15_24_2', 'hamlet15_24_3']}
-	lst_speaking = []
-	total = []
-	for speaking_num in sorted_speaking:
-		for key, value in sentiment_focus_dict.iteritems():
-			regex_header = re.compile(r'{0}_\d+'.format(speaking_num))
-			total.append(key)
-			if bool(re.search(regex_header, key)): # create a dictionary that associates a speech with its sentences
-				lst_speaking.append(key)
-		sent_sentences_dict[speaking_num] = lst_speaking
+		sent_sentences_dict = {} 
+		# creates a dictionary that stores the sub-sentences for each speaking time {hamlet15_24:['hamlet15_24_1', 'hamlet15_24_2', 'hamlet15_24_3']}
 		lst_speaking = []
-	#print("\n")
-	for key, value, in sent_sentences_dict.iteritems():
-		sorted_speaking_sentences = sortedSpeakingInOrder(value, 2)
-		#print(key)
-		#print(sorted_speaking_sentences)
-		#print(sent_sentences_dict[key])
-		sent_sentences_dict[key] = sorted_speaking_sentences # returns the order of the setences for a speech in order they appear
-		# example: 'hamlet15_2_4', where 4 is the fourth sentence in the second time they spoke
+		total = []
+		for speaking_num in sorted_speaking:
+			for key, value in sentiment_focus_dict.iteritems():
+				regex_header = re.compile(r'{0}_\d+'.format(speaking_num))
+				total.append(key)
+				if bool(re.search(regex_header, key)): # create a dictionary that associates a speech with its sentences
+					lst_speaking.append(key)
+			sent_sentences_dict[speaking_num] = lst_speaking
+			lst_speaking = []
+		#print("\n")
+		for key, value, in sent_sentences_dict.iteritems():
+			sorted_speaking_sentences = sortedSpeakingInOrder(value, 2)
+			#print(key)
+			#print(sorted_speaking_sentences)
+			#print(sent_sentences_dict[key])
+			sent_sentences_dict[key] = sorted_speaking_sentences # returns the order of the setences for a speech in order they appear
+			# example: 'hamlet15_2_4', where 4 is the fourth sentence in the second time they spoke
+	else: # specific character is not included
+		# ordered_headers_list hold the values in order that they appear for the whole play
+		#print(focus_dict.keys())
+		sorted_speaking = []
+		for order_head in ordered_headers_list:
+			if order_head in focus_dict:
+				sorted_speaking.append(order_head)
+		#print(sorted_speaking)
+		sentiment_focus_dict = determineSentiment(focus_dict) # dictionary for sentence: polarity (includes the given speech as a tuple)
+
+		sent_sentences_dict = {} 
+		# creates a dictionary that stores the sub-sentences for each speaking time {hamlet15_24:['hamlet15_24_1', 'hamlet15_24_2', 'hamlet15_24_3']}
+		lst_speaking = []
+		total = []
+		for speaking_num in sorted_speaking:
+			for key, value in sentiment_focus_dict.iteritems():
+				regex_header = re.compile(r'{0}_\d+'.format(speaking_num))
+				total.append(key)
+				if bool(re.search(regex_header, key)): # create a dictionary that associates a speech with its sentences
+					lst_speaking.append(key)
+			sent_sentences_dict[speaking_num] = lst_speaking
+			lst_speaking = []
+		#print("\n")
+		for key, value, in sent_sentences_dict.iteritems():
+			sorted_speaking_sentences = sortedSpeakingInOrder(value, 2)
+			#print(key)
+			#print(sorted_speaking_sentences)
+			#print(sent_sentences_dict[key])
+			sent_sentences_dict[key] = sorted_speaking_sentences # returns the order of the setences for a speech in order they appear
+			# example: 'hamlet15_2_4', where 4 is the fourth sentence in the second time they spoke
+		#sentiment_focus_dict = determineSentiment(focus_dict) # dictionary for sentence: polarity (includes the given speech as a tuple)
+
+	# update any sentiment values that are considered nuetral
+	for overall_speech in sorted_speaking:
+		#print(overall_speech)
+		for sentence in sent_sentences_dict[overall_speech]:
+			if (sentiment_focus_dict[sentence][0].polarity == 0.0) and (sentiment_focus_dict[sentence][0].subjectivity == 0.0):
+				updated_sentiment = updateSentimentifNeutral(sentence, sentiment_focus_dict, sentiment_focus_dict[sentence][0])
+				sent_sentences_dict[overall_speech] = updated_sentiment
+
 
 	# output in csv
 	output_filename = 'HAMLET_'
@@ -334,23 +441,12 @@ if __name__ == '__main__':
 	# with the sentiment for each sentence (sentiment_focus_dict), the order they appear (sorted_speaking for overall, and sent_sentences_dict for sentences), print to a graph
 
 	'''
-	time = 0
-	for overall_speech in sorted_speaking:
-		print(overall_speech)
-		for sentence in sent_sentences_dict[overall_speech]:
-			print(sentence)
-			print(sentiment_focus_dict[sentence][0])
-			print(sentiment_focus_dict[sentence][0].polarity)
-			print(sentiment_focus_dict[sentence][0].subjectivity)
-			time += 1
-		print("\n")
-	#print(sentiment_focus_dict.keys())
-	'''
 	with open(output_filename, 'w+') as given_sent:
-		fieldnames = ['location', 'polarity', 'subjectivity']
+		fieldnames = ['id', 'location', 'polarity', 'subjectivity']
 		writer = csv.DictWriter(given_sent, fieldnames=fieldnames)
 		
 		writer.writeheader() 
+		id_value = 1
 		for overall_speech in sorted_speaking:
 			#print(overall_speech)
 			for sentence in sent_sentences_dict[overall_speech]:
@@ -358,8 +454,10 @@ if __name__ == '__main__':
 				polarity = sentiment_focus_dict[sentence][0].polarity
 				subjectivity = sentiment_focus_dict[sentence][0].subjectivity
 				#if polarity != 0.0 and subjectivity != 0.0:
-				writer.writerow({'location': '{0}'.format(sentence), 'polarity': '{0}'.format(polarity), 'subjectivity': '{0}'.format(subjectivity)})
+				writer.writerow({'id': '{0}'.format(id_value), 'location': '{0}'.format(sentence), 'polarity': '{0}'.format(polarity), 'subjectivity': '{0}'.format(subjectivity)})
+				id_value += 1
 	#print(sent_sentences_dict)
+	'''
 	
 	
 	# include when a character enters and exit the play, how often they speech (frequency/total play)
