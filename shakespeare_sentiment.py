@@ -14,6 +14,7 @@ import string
 import operator
 
 from textblob import TextBlob
+import matplotlib.pyplot as plt # graphing
 
 # list with all character options
 hamlet_character_list = ['claudius', 'hamlet', 'polonius', 
@@ -82,7 +83,8 @@ def readingFileDict(filename):
 		#print("duplicates: {0}".format([x for n, x in enumerate(char_list) if x in char_list[:n]]))
 		char_speech_dict = seqDictPairs(char_list, speech_list) # tuples of a pair's list and a dictionary {seq:gen}
 		final_with_spaces_dict = addSpacestoSpeech(char_speech_dict)
-	return final_with_spaces_dict
+	# returns the final dictionary with the header and the speech associated, also return the headers in the order they first appeared
+	return (final_with_spaces_dict, char_list)
 
 def addSpacestoSpeech(char_speech_dict):
 	# removes spaces to parse correct, but adds them back here
@@ -136,6 +138,19 @@ def findMissingName(list_character, char_dict):
 		for ch in missing_ch:
 			print("not found: {0}".format(ch))
 
+def sortedSpeakingInOrder(given_list, deli_num):
+	# return the list of speaking roles in order
+
+	# order the keys in the order they appear in the play
+	split_keys = [order.split('_') for order in given_list]
+	# breaks hamlet51_1 => ['hamlet51', '1']
+	sorted_lines = sorted(split_keys, key=lambda x:int(x[deli_num])) 
+	# returns the list of character lines in order [['hamlet52', '1'], ['hamlet51, '2']]
+	sorted_keys = ['_'.join(order) for order in sorted_lines]
+	
+	# returns to a single list: ['hamlet52_1', 'hamlet52_2'] in order
+	return sorted_keys
+
 def determineSentiment(sent_dict):
 	# takes in a dictionary or sub-dictionary to return the sentiment in a list
 	final_sent_dict = {}
@@ -145,6 +160,7 @@ def determineSentiment(sent_dict):
 		#text_tag = text_sent.tags
 		counter = 1
 		for sentence in text_sent.sentences:
+			#print(speech)
 			final_sent_dict[speech + '_' + str(counter)] = (sentence.sentiment, sentence)
 			counter += 1 # each sub-sentence in a speech has it's own dictionary key
 	final_sent_dict["_average"] = text_sent.sentiment # beginning of an ordered dict
@@ -237,52 +253,61 @@ if __name__ == '__main__':
 				print(char)
 			exit()
 
-	char_speech_dict = readingFileDict(filename)
+	fileFastaRead = readingFileDict(filename)
+	char_speech_dict = fileFastaRead[0] # full dictionary
+	ordered_headers_list = fileFastaRead[1] # headers in the order they appear (used if no character is speficially called for)
 
-	# determine what the focus of the graph is
+	# determine what the focus of the graph is (print statements)
 	#determineFocus(character_value, act_value, scene_value)
 
 	# creates dictionaries with {characterACTSCENE_SPEECH: "speech"} and sub_dictionaries
 	if character_value is not None:
 		if act_value is not None:
 			if scene_value is not None:
-				regex_total = re.compile(r'{0}{1}{2}_\d'.format(character_value, act_value, scene_value))
+				regex_total = re.compile(r'^{0}{1}{2}_\d'.format(character_value, act_value, scene_value))
 			else:
-				regex_total = re.compile(r'{0}{1}\d_\d'.format(character_value, act_value))
+				regex_total = re.compile(r'^{0}{1}\d_\d'.format(character_value, act_value))
 		else:
-			regex_total = re.compile(r'{0}\d_\d'.format(character_value))
+			regex_total = re.compile(r'^{0}\d_\d'.format(character_value))
 	else:
 		if act_value is not None:
 			if scene_value is not None:
-				regex_total = re.compile(r'{0}{1}_\d'.format(act_value, scene_value))
+				regex_total = re.compile(r'^{0}{1}_\d'.format(act_value, scene_value))
 			else:
-				regex_total = re.compile(r'{0}\d_\d'.format(act_value))
+				regex_total = re.compile(r'^{0}\d_\d'.format(act_value))
 
 	focus_dict = { k:v for k, v in char_speech_dict.items() if bool(re.search(regex_total, k)) } # dictionary that should have been generated
 
 	if len(focus_dict) == 0: # character does not exist in the scene they are called for (exit)
 		print("character {0} does not exist in this range".format(character_value))
+		# TODO: bug where hamlet does not exist for entire play
 		exit()
 
-	# order the keys in the order they appear in the play
-	split_keys = [order.split('_') for order in focus_dict.keys()]
-	# breaks hamlet51_1 => ['hamlet51', '1']
-	sorted_lines = sorted(split_keys, key=lambda x:int(x[1])) 
-	# returns the list of character lines in order [['hamlet52', '1'], ['hamlet51, '2']]
-	sorted_keys = ['_'.join(order) for order in sorted_lines]
-	# returns to a single list: ['hamlet52_1', 'hamlet52_2'] in order
+	# return the list of speaking roles in order
+	sorted_speaking = sortedSpeakingInOrder(focus_dict.keys(), 1) # based on 'hamlet15_2' where 2 is the second time they spoke
 
-	sentiment_focus_dict = determineSentiment(focus_dict)
-	#print(sentiment_focus_dict)
-	counter = 0
-	for sent in sentiment_focus_dict:
-		if sorted_keys[counter] in sent:
-			print(sent)
-			print(sentiment_focus_dict[sent])
-	#print(final_graph_dict)
-	#ordered_final_sent = sorted(final_graph_dict.keys())
-	#print(ordered_final_sent)
-	# put dict in order: ordered_sent_list = sorted(sent_dict.keys())
+	sentiment_focus_dict = determineSentiment(focus_dict) # dictionary for sentence: polarity (includes the given speech as a tuple)
+
+	sent_sentences_dict = {} 
+	# creates a dictionary that stores the sub-sentences for each speaking time {hamlet15_24:['hamlet15_24_1', 'hamlet15_24_2', 'hamlet15_24_3']}
+	lst_speaking = []
+	total = []
+	for speaking_num in sorted_speaking:
+		for key, value in sentiment_focus_dict.iteritems():
+			regex_header = re.compile(r'{0}_\d+'.format(speaking_num))
+			total.append(key)
+			if bool(re.search(regex_header, key)): # create a dictionary that associates a speech with its sentences
+				lst_speaking.append(key)
+		sent_sentences_dict[speaking_num] = lst_speaking
+		lst_speaking = []
+	#print("\n")
+	for key, value, in sent_sentences_dict.iteritems():
+		sorted_speaking_sentences = sortedSpeakingInOrder(value, 2)
+		#print(key)
+		#print(sorted_speaking_sentences)
+		#print(sent_sentences_dict[key])
+		sent_sentences_dict[key] = sorted_speaking_sentences # returns the order of the setences for a speech in order they appear
+		# example: 'hamlet15_2_4', where 4 is the fourth sentence in the second time they spoke
 
 	# output in csv
 	output_filename = 'HAMLET_'
@@ -304,15 +329,38 @@ if __name__ == '__main__':
 				output_filename += '{0}-A{1}-S{2}.csv'.format(character_value, act_value, scene_value)
 
 	print(output_filename)
+
+	print("\n")
+	# with the sentiment for each sentence (sentiment_focus_dict), the order they appear (sorted_speaking for overall, and sent_sentences_dict for sentences), print to a graph
+
+	'''
+	time = 0
+	for overall_speech in sorted_speaking:
+		print(overall_speech)
+		for sentence in sent_sentences_dict[overall_speech]:
+			print(sentence)
+			print(sentiment_focus_dict[sentence][0])
+			print(sentiment_focus_dict[sentence][0].polarity)
+			print(sentiment_focus_dict[sentence][0].subjectivity)
+			time += 1
+		print("\n")
+	#print(sentiment_focus_dict.keys())
 	'''
 	with open(output_filename, 'w+') as given_sent:
-		fieldnames = ['character', 'sentiment']
+		fieldnames = ['location', 'polarity', 'subjectivity']
 		writer = csv.DictWriter(given_sent, fieldnames=fieldnames)
 		
 		writer.writeheader() 
-		for key, value in final_graph_dict.items():
-			writer.writerow({'character': '{0}'.format(key), 'sentiment': '{0}'.format(value)})
-	'''
+		for overall_speech in sorted_speaking:
+			#print(overall_speech)
+			for sentence in sent_sentences_dict[overall_speech]:
+				#print('internal senetence {0}'.format(sentence))
+				polarity = sentiment_focus_dict[sentence][0].polarity
+				subjectivity = sentiment_focus_dict[sentence][0].subjectivity
+				#if polarity != 0.0 and subjectivity != 0.0:
+				writer.writerow({'location': '{0}'.format(sentence), 'polarity': '{0}'.format(polarity), 'subjectivity': '{0}'.format(subjectivity)})
+	#print(sent_sentences_dict)
+	
 	
 	# include when a character enters and exit the play, how often they speech (frequency/total play)
 	# fix spacing after ; and with carriage returns (needs space)
