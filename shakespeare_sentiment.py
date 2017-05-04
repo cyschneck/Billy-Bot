@@ -469,6 +469,25 @@ if __name__ == '__main__':
 					writer.writerow({'id': '{0}'.format(id_value), 'speaker_header': '{0}'.format(sentence), 'polarity': '{0}'.format(updated_polarity), 'subjectivity': '{0}'.format(subjectivity)})
 					id_value += 1
 
+
+	chart_title = ''
+	if character_value is None:
+		if act_value is None:
+			chart_title += 'full play'
+		else:
+			if scene_value is None:
+				chart_title += 'Act {0}'.format(act_value)
+			else:
+				chart_title += 'Act {0} Scene {1}'.format(act_value, scene_value)
+	else:
+		if act_value is None:
+			chart_title += 'full play of {0}'.format(character_value.title()) # captilze the first letter of the same
+		else:
+			if scene_value is None:
+				chart_title += 'Act {0} for {1}'.format(act_value, character_value.title())
+			else:
+				chart_title += 'Act {0} Scene {1} for {2}'.format(act_value, scene_value, character_value.title())
+
 	time_stamp = []
 	sent_polarity = []
 	with open(output_filename) as results:
@@ -477,13 +496,16 @@ if __name__ == '__main__':
 			time_stamp.append(row['id'])
 			sent_polarity.append(row['polarity'])
 	plt.figure("Polarity over Time")
+	plt.title("{0}".format(chart_title))
 	plt.ylabel("Polarity [-1.0, 1.0]")
 	plt.xlabel("Time")
-	
+
+	avg_line = [(float(a)+float(b))/2 for a, b in zip(sent_polarity[:], sent_polarity[1:])]
+	avg_line.append((float(sent_polarity[-2])+float(sent_polarity[-1]))/2)
+
 	pos_pol = []
 	neg_pol = []
 	for value in sent_polarity:
-		print(float(value) <= 0.0)
 		if float(value) <= 0:
 			pos_pol.append(np.nan)
 			neg_pol.append(value)
@@ -492,6 +514,9 @@ if __name__ == '__main__':
 			neg_pol.append(np.nan)
 	#print(pos_pol)
 	#print(neg_pol)
+	#line, plt.plot([0]*len(sent_polarity), '-')
+	#plt.plot([0]*len(sent_polarity), linestyle=':', color='black')
+	plt.plot(time_stamp, avg_line, color='k', linestyle=':') # average line
 	plt.scatter(time_stamp, pos_pol, color = 'r')
 	plt.scatter(time_stamp, neg_pol,  color = 'b')
 	plt.show()
