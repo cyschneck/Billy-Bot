@@ -356,8 +356,13 @@ if __name__ == '__main__':
 				regex_total = re.compile(r'[a-z]+{0}{1}_\d'.format(act_value, scene_value))
 			else:
 				regex_total = re.compile(r'[a-z]+{0}\d_\d'.format(act_value))
+		#else:
+			#regex_total = re.compile(r'[a-z]+\d_\d')
 
-	focus_dict = { k:v for k, v in char_speech_dict.items() if bool(re.search(regex_total, k)) } # dictionary that should have been generated
+	if character_value is None and scene_value is None and act_value is None:
+		focus_dict = char_speech_dict
+	else:
+		focus_dict = { k:v for k, v in char_speech_dict.items() if bool(re.search(regex_total, k)) } # dictionary that should have been generated
 	#print(focus_dict)
 
 	if len(focus_dict) == 0: # character does not exist in the scene they are called for (exit)
@@ -466,6 +471,7 @@ if __name__ == '__main__':
 				# update any sentiment values that are considered nuetral
 				if polarity == 0.0:
 					updated_polarity = updateSentimentifNeutral(sentence, sentiment_focus_dict, sentiment_focus_dict[sentence][0])
+					updated_polarity = 0.0
 					writer.writerow({'id': '{0}'.format(id_value), 'speaker_header': '{0}'.format(sentence), 'polarity': '{0}'.format(updated_polarity), 'subjectivity': '{0}'.format(subjectivity)})
 					id_value += 1
 
@@ -473,7 +479,7 @@ if __name__ == '__main__':
 	chart_title = ''
 	if character_value is None:
 		if act_value is None:
-			chart_title += 'full play'
+			chart_title += 'Full Play'
 		else:
 			if scene_value is None:
 				chart_title += 'Act {0}'.format(act_value)
