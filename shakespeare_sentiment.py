@@ -16,6 +16,7 @@ import operator
 from textblob import TextBlob
 from textblob.classifiers import NaiveBayesClassifier # update sentiment, if textblob returns neutral
 import matplotlib.pyplot as plt # graphing
+import numpy as np # for np.nan = 'nan' to graph in color
 
 # list with all character options
 hamlet_character_list = ['claudius', 'hamlet', 'polonius', 
@@ -159,6 +160,10 @@ def sortedSpeakingInOrder(given_list, deli_num):
 	# returns to a single list: ['hamlet52_1', 'hamlet52_2'] in order
 	return sorted_keys
 
+def characterInfo(character_name, full_play_dictionary):
+	# include when a character enters and exit the play, how often they speech (frequency/total play)
+	pass
+
 def determineSentiment(sent_dict):
 	# takes in a dictionary or sub-dictionary to return the sentiment in a list
 	final_sent_dict = {}
@@ -178,7 +183,6 @@ def trainSentiment():
 	# if the sentence is neutral, update to attribute sentiment based on key words
 	# example: villian -> negative, dying -> negative, etc...
 	# https://textblob.readthedocs.io/en/dev/classifiers.html#classifiers
-	print(speech_dict[sentence][1])
 
 	# train classifers on actual hamlet data
 	hamlet_train = [
@@ -228,13 +232,26 @@ def trainSentiment():
 		('am i a coward?', 'neg'),
 		('who calls me villain?', 'neg'),
 	]
-	cl = NaiveBayesClassifier(train)
+	cl = NaiveBayesClassifier(hamlet_train)
 	return cl
 
 def updateSentimentifNeutral(sentence, speech_dict, speech_neutral):
 	# update sentiment based on training data
 	cl = trainSentiment()
-	print(sentence)
+	updated_polarity = 0.0
+	negative_sent = -0.2
+	postive_sent = 0.2
+	#print(speech_dict[sentence][1])
+	
+	classifed_value = cl.classify(sentence)
+	#print(classifed_value)
+	if classifed_value == 'neg':
+		updated_polarity = negative_sent
+	else:
+		updated_polarity = postive_sent
+	#'Sentiment(polarity=0.0, subjectivity=0.0)'
+	#print(updated_polarity)
+	return updated_polarity
 
 if __name__ == '__main__':
 	import argparse
@@ -407,15 +424,6 @@ if __name__ == '__main__':
 			# example: 'hamlet15_2_4', where 4 is the fourth sentence in the second time they spoke
 		#sentiment_focus_dict = determineSentiment(focus_dict) # dictionary for sentence: polarity (includes the given speech as a tuple)
 
-	# update any sentiment values that are considered nuetral
-	for overall_speech in sorted_speaking:
-		#print(overall_speech)
-		for sentence in sent_sentences_dict[overall_speech]:
-			if (sentiment_focus_dict[sentence][0].polarity == 0.0) and (sentiment_focus_dict[sentence][0].subjectivity == 0.0):
-				updated_sentiment = updateSentimentifNeutral(sentence, sentiment_focus_dict, sentiment_focus_dict[sentence][0])
-				sent_sentences_dict[overall_speech] = updated_sentiment
-
-
 	# output in csv
 	output_filename = 'HAMLET_'
 	if character_value is None:
@@ -440,25 +448,53 @@ if __name__ == '__main__':
 	print("\n")
 	# with the sentiment for each sentence (sentiment_focus_dict), the order they appear (sorted_speaking for overall, and sent_sentences_dict for sentences), print to a graph
 
-	'''
+
 	with open(output_filename, 'w+') as given_sent:
-		fieldnames = ['id', 'location', 'polarity', 'subjectivity']
+		fieldnames = ['id', 'speaker_header', 'polarity', 'subjectivity']
 		writer = csv.DictWriter(given_sent, fieldnames=fieldnames)
 		
 		writer.writeheader() 
 		id_value = 1
 		for overall_speech in sorted_speaking:
-			#print(overall_speech)
 			for sentence in sent_sentences_dict[overall_speech]:
 				#print('internal senetence {0}'.format(sentence))
 				polarity = sentiment_focus_dict[sentence][0].polarity
 				subjectivity = sentiment_focus_dict[sentence][0].subjectivity
-				#if polarity != 0.0 and subjectivity != 0.0:
-				writer.writerow({'id': '{0}'.format(id_value), 'location': '{0}'.format(sentence), 'polarity': '{0}'.format(polarity), 'subjectivity': '{0}'.format(subjectivity)})
-				id_value += 1
-	#print(sent_sentences_dict)
-	'''
+				if polarity != 0.0 and subjectivity != 0.0:
+					writer.writerow({'id': '{0}'.format(id_value), 'speaker_header': '{0}'.format(sentence), 'polarity': '{0}'.format(polarity), 'subjectivity': '{0}'.format(subjectivity)})
+					id_value += 1
+				# update any sentiment values that are considered nuetral
+				if polarity == 0.0:
+					updated_polarity = updateSentimentifNeutral(sentence, sentiment_focus_dict, sentiment_focus_dict[sentence][0])
+					writer.writerow({'id': '{0}'.format(id_value), 'speaker_header': '{0}'.format(sentence), 'polarity': '{0}'.format(updated_polarity), 'subjectivity': '{0}'.format(subjectivity)})
+					id_value += 1
+
+	time_stamp = []
+	sent_polarity = []
+	with open(output_filename) as results:
+		reader = csv.DictReader(results, delimiter=',')
+		for row in reader:
+			time_stamp.append(row['id'])
+			sent_polarity.append(row['polarity'])
+	plt.figure("Polarity over Time")
+	plt.ylabel("Polarity [-1.0, 1.0]")
+	plt.xlabel("Time")
 	
-	
+	pos_pol = []
+	neg_pol = []
+	for value in sent_polarity:
+		print(float(value) <= 0.0)
+		if float(value) <= 0:
+			pos_pol.append(np.nan)
+			neg_pol.append(value)
+		else:
+			pos_pol.append(value)
+			neg_pol.append(np.nan)
+	#print(pos_pol)
+	#print(neg_pol)
+	plt.scatter(time_stamp, pos_pol, color = 'r')
+	plt.scatter(time_stamp, neg_pol,  color = 'b')
+	plt.show()
+
 	# include when a character enters and exit the play, how often they speech (frequency/total play)
 	# fix spacing after ; and with carriage returns (needs space)
