@@ -324,7 +324,6 @@ if __name__ == '__main__':
 		print("Act {0} has {1} scenes, {2} is not a valid argument".format(act_value, max(hamlet_scene_breakdown[act_value]), scene_value))
 		exit()
 
-	# TODO: give the option for 2 characters
 	if character_value is not None:
 		character_value = character_value.lower() # change names to lowercase for consitency
 		if character_value not in hamlet_character_list:
@@ -349,7 +348,7 @@ if __name__ == '__main__':
 			else:
 				regex_total = re.compile(r'{0}{1}\d_\d'.format(character_value, act_value))
 		else:
-			regex_total = re.compile(r'{0}\d_\d'.format(character_value))
+			regex_total = re.compile(r'{0}\d\d_\d'.format(character_value))
 	else:
 		if act_value is not None:
 			if scene_value is not None:
@@ -357,7 +356,7 @@ if __name__ == '__main__':
 			else:
 				regex_total = re.compile(r'[a-z]+{0}\d_\d'.format(act_value))
 		#else:
-			#regex_total = re.compile(r'[a-z]+\d_\d')
+		#	regex_total = re.compile(r'[a-z]+\d_\d')
 
 	if character_value is None and scene_value is None and act_value is None:
 		focus_dict = char_speech_dict
@@ -367,7 +366,6 @@ if __name__ == '__main__':
 
 	if len(focus_dict) == 0: # character does not exist in the scene they are called for (exit)
 		print("character {0} does not exist in this range".format(character_value))
-		# TODO: show a character for the entire play
 		exit()
 
 	if character_value is not None:
@@ -441,7 +439,7 @@ if __name__ == '__main__':
 				output_filename += 'A{0}-S{1}.csv'.format(act_value, scene_value)
 	else:
 		if act_value is None:
-			output_filename += '{0}.csv'.format(character_value)
+			output_filename += 'full_{0}.csv'.format(character_value)
 		else:
 			if scene_value is None:
 				output_filename += '{0}-A{1}.csv'.format(character_value, act_value)
@@ -487,7 +485,7 @@ if __name__ == '__main__':
 				chart_title += 'Act {0} Scene {1}'.format(act_value, scene_value)
 	else:
 		if act_value is None:
-			chart_title += 'full play of {0}'.format(character_value.title()) # captilze the first letter of the same
+			chart_title += 'Full Play for {0}'.format(character_value.title()) # captilze the first letter of the same
 		else:
 			if scene_value is None:
 				chart_title += 'Act {0} for {1}'.format(act_value, character_value.title())
