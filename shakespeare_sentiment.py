@@ -488,17 +488,17 @@ if __name__ == '__main__':
 			else:
 				chart_title += 'Act {0} Scene {1} for {2}'.format(act_value, scene_value, character_value.title())
 
-	time_stamp = []
+	line_stamp = []
 	sent_polarity = []
 	with open(output_filename) as results:
 		reader = csv.DictReader(results, delimiter=',')
 		for row in reader:
-			time_stamp.append(row['id'])
+			line_stamp.append(row['id'])
 			sent_polarity.append(row['polarity'])
 	plt.figure("Polarity over Time")
 	plt.title("{0}".format(chart_title))
 	plt.ylabel("Polarity [-1.0, 1.0]")
-	plt.xlabel("Time")
+	plt.xlabel("Lines")
 
 	avg_line = [(float(a)+float(b))/2 for a, b in zip(sent_polarity[:], sent_polarity[1:])]
 	avg_line.append((float(sent_polarity[-2])+float(sent_polarity[-1]))/2)
@@ -516,9 +516,9 @@ if __name__ == '__main__':
 	#print(neg_pol)
 	#line, plt.plot([0]*len(sent_polarity), '-')
 	#plt.plot([0]*len(sent_polarity), linestyle=':', color='black')
-	plt.plot(time_stamp, avg_line, color='k', linestyle=':') # average line
-	plt.scatter(time_stamp, pos_pol, color = 'r')
-	plt.scatter(time_stamp, neg_pol,  color = 'b')
+	plt.plot(line_stamp, avg_line, color='k', linestyle=':') # average line
+	plt.scatter(line_stamp, pos_pol, color = 'r')
+	plt.scatter(line_stamp, neg_pol,  color = 'b')
 	plt.show()
 
 	# include when a character enters and exit the play, how often they speech (frequency/total play)
