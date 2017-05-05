@@ -1,0 +1,16 @@
+id,speaker_header,polarity,subjectivity
+1,fortinbras52_1_1,0.0,0.0
+2,fortinbras44_1_1,0.0,0.0
+3,fortinbras44_1_2,0.0,0.0
+4,fortinbras44_1_3,0.0,0.0
+5,fortinbras44_1_4,0.0,0.0
+6,fortinbras52_2_1,0.0,0.0
+7,fortinbras52_2_2,0.166666666667,0.8
+8,fortinbras44_2_1,0.1,0.35
+9,fortinbras52_3_1,0.0,0.0
+10,fortinbras52_3_2,0.0,0.0
+11,fortinbras52_4_1,0.0,0.0
+12,fortinbras52_4_2,0.2,0.766666666667
+13,fortinbras52_4_3,0.0,0.0
+14,fortinbras52_4_4,0.1,0.35
+15,fortinbras52_4_5,0.0,0.0

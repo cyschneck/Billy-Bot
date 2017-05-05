@@ -499,6 +499,11 @@ if __name__ == '__main__':
 		for row in reader:
 			line_stamp.append(row['id'])
 			sent_polarity.append(row['polarity'])
+
+	overall_avg = [float(n) for n in sent_polarity if n != 0]
+	overall_avg = sum(overall_avg)/len(overall_avg)
+	print(overall_avg)
+	
 	plt.figure("Polarity over Time")
 	plt.title("{0}".format(chart_title))
 	plt.ylabel("Polarity [-1.0, 1.0]")
@@ -509,6 +514,7 @@ if __name__ == '__main__':
 
 	pos_pol = []
 	neg_pol = []
+	# color classify values (red = postive, blue = negative)
 	for value in sent_polarity:
 		if float(value) <= 0:
 			pos_pol.append(np.nan)
