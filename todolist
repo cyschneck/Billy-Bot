@@ -11,3 +11,5 @@ LITTLE GOALS:
 
 -Add interactive points that allow you to see the line that correlates with extreme points when you hover/click on them
 -parse or differentiate the zeroes?
+-more user-friendly command-line call
+-print/save jpegs of produced plots at the end of the call
