@@ -14,4 +14,9 @@ LITTLE GOALS:
 -Add interactive points that allow you to see the line that correlates with extreme points when you hover/click on them
 -parse or differentiate the zeroes--perhaps these will most vanish with more training of the ai?
 -more user-friendly command-line call
+-Add when a character enters/dies (on the plot)
+  *special symbol for death (eg grey out the part of the plot following their death?)
+
+
+IN PROGRESS...
 -print/save jpegs of produced plots at the end of the call
