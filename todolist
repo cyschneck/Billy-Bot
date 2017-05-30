@@ -3,6 +3,8 @@ Stuff to do:
 BIG GOALS:
 
 -Generalize text to other shakespearean plays and sonnets
+-Add a sense for how relationships between characters changes over the text
+-Is it possible to teach a machine dramatic irony through context clues?
 
 
 
@@ -10,6 +12,6 @@ BIG GOALS:
 LITTLE GOALS:
 
 -Add interactive points that allow you to see the line that correlates with extreme points when you hover/click on them
--parse or differentiate the zeroes?
+-parse or differentiate the zeroes--perhaps these will most vanish with more training of the ai?
 -more user-friendly command-line call
 -print/save jpegs of produced plots at the end of the call
