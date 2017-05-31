@@ -538,5 +538,5 @@ if __name__ == '__main__':
 				  
 	# include when a character enters and exit the play, how often they speech (frequency/total play)
 	# fix spacing after ; and with carriage returns (needs space)
-				  #
+				  
 
