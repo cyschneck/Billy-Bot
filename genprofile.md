@@ -24,7 +24,7 @@ __OPHELIA__
 
 __LAERTES__
 
-*total cast as mentioned by Gutenberg text file*
+*total cast as mentioned by Gutenberg text file*<br/>
 Claudius, King of Denmark.
 Hamlet, Son to the former, and Nephew to the present King.
 Polonius, Lord Chamberlain.
