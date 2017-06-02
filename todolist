@@ -6,12 +6,11 @@ BIG GOALS:
 -Add a sense for how relationships between characters changes over the text
 -Is it possible to teach a machine dramatic irony through context clues?
 -blood counter (measurement of violence throughout the text)
-
-
+-Add general profile of the characters (name, entrance/exit in play) as a command line prompt
+- Relationship tree (related to, married to, kills, killed)
 
 LITTLE GOALS:
 
--Add general profile of the characters (name, entrance/exit in play)
 -Add interactive points that allow you to see the line that correlates with extreme points when you hover/click on them
 -parse or differentiate the zeroes--perhaps these will most vanish with more training of the ai?
 -more user-friendly command-line call
