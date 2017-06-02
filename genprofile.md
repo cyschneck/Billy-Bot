@@ -1,4 +1,4 @@
-#General Character Profile
+# General Character Profile
 
 *NAME*<br/>
 *ENTRANCE*<br/>
