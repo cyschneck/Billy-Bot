@@ -514,14 +514,22 @@ if __name__ == '__main__':
 
 	pos_pol = []
 	neg_pol = []
-	# color classify values (red = postive, blue = negative)
+	zed_pol = []
+	# color classify values (red = postive, blue = negative, grey = zero)
 	for value in sent_polarity:
-		if float(value) <= 0:
-			pos_pol.append(np.nan)
+		if float(value) < 0:
 			neg_pol.append(value)
-		else:
+			pos_pol.append(np.nan)
+			zed_pol.append(np.nan)
+		elif float(value) > 0:
 			pos_pol.append(value)
 			neg_pol.append(np.nan)
+			zed_pol.append(np.nan)
+		else:
+			zed_pol.append(value)
+			neg_pol.append(np.nan)
+			pos_pol.append(np.nan)
+
 	#print(pos_pol)
 	#print(neg_pol)
 	#line, plt.plot([0]*len(sent_polarity), '-')
@@ -529,6 +537,7 @@ if __name__ == '__main__':
 	plt.plot(line_stamp, avg_line, color='k', linestyle=':') # average line
 	plt.scatter(line_stamp, pos_pol, color = 'r')
 	plt.scatter(line_stamp, neg_pol,  color = 'b')
+	plt.scatter(line_stamp, zed_pol, color = '0.75')
 	plt.show()
 
 	# include when a character enters and exit the play, how often they speech (frequency/total play)
