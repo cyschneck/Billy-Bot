@@ -9,7 +9,7 @@ Fasta files are edited files from gutenberg files. Edits made for readable for t
 >charcter<ACT><SCENCE>_<# of times they have spoken this act/scene>
 ```
 ## Existing Code
-Currently, code is specific for *Hamlet*, but can be eventaully generalized to take in any .fasta formatted Shakespeare play. This progress is ongoing.
+Currently, code is specific for *Hamlet*, but can be eventually generalized to take in any .fasta formatted Shakespeare play. This progress is ongoing.
 
 ## Running Code
 
@@ -43,7 +43,7 @@ To run any combination of acts and scenes for a specific character add the -C co
 ```python shakespeare_sentiment.py -f hamlet.fasta -A 3 -S 1 -C hamlet```
 
 ## Future Work
-The existing code has been classifed based on the sentiment results of textblob. Textblob was trained on modern movie views and isn't optimized for Old English. Future work will train the classifers on Shakespeare text (e.g. sonnets). . The program was initially trained on contemporary movie reviews so the line of blue dots on the 0 mark represent sentences in a speech that the program considered to be neutral statements. Neutral statements are false positive results and artificially pull up the average polarity of the entire play. Among lines that the program was unable to parse were either due to the antiquity language (“o fie!” 1.2.6) or because the program was not properly trained on Old English word choice (“He was a man, take him for all in all, I shall not look upon his like again” 1.2.14). This process will include labelling specific words in Hamlet with stronger negative associations that are common in Shakespeare’s plays (e.g serpent, foul, fate, ghost, rotten, harrow, villain). Once trained, I expect the overall trend to decline toward largely negative emotions and polairty
+The existing code has been classifed based on the sentiment results of textblob. Textblob was trained on modern movie views and isn't optimized for Old English. Future work will train the classifers on Shakespeare text (e.g. sonnets). . The program was initially trained on contemporary movie reviews so the line of blue dots on the 0 mark represent sentences in a speech that the program considered to be neutral statements. Neutral statements are false positive results and artificially pull up the average polarity of the entire play. Among lines that the program was unable to parse were either due to the antiquity language (“o fie!” 1.2.6) or because the program was not properly trained on Old English word choice (“He was a man, take him for all in all, I shall not look upon his like again” 1.2.14). This process will include labelling specific words in Hamlet with stronger negative associations that are common in Shakespeare’s plays (e.g serpent, foul, fate, ghost, rotten, harrow, villain). Once trained, I expect the overall trend to decline toward largely negative emotions and polarity
 
 ## *Hamlet*: Results
 ### All Characters Across the Play
