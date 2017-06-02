@@ -1,6 +1,7 @@
 # General Character Profile
 
 *NAME*<br/>
+*STATUS*<br/>
 *ENTRANCE*<br/>
 *EXIT*<br/>
 *CAUSE OF DEATH*<br/>
