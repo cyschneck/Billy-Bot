@@ -11,6 +11,7 @@ BIG GOALS:
 
 LITTLE GOALS:
 
+-Add general profile of the characters (name, entrance/exit in play)
 -Add interactive points that allow you to see the line that correlates with extreme points when you hover/click on them
 -parse or differentiate the zeroes--perhaps these will most vanish with more training of the ai?
 -more user-friendly command-line call
