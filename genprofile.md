@@ -1,18 +1,18 @@
 #General Character Profile
 
-*NAME*
-*ENTRANCE*
-*EXIT*
-*CAUSE OF DEATH*
-*WORD COUNT*
-*AVERAGE SENTIMENT*
-*MOST NEGATIVE SENTIMENT (when in play)*
-*MOST POSITIVE SENTIMENT (when in play)*
-*KILLS*
-*IS KILLED BY*
-*FIRST WORDS*
-*LAST WORDS*
-*LONGEST SPEECH*
+*NAME*<br/>
+*ENTRANCE*<br/>
+*EXIT*<br/>
+*CAUSE OF DEATH*<br/>
+*WORD COUNT*<br/>
+*AVERAGE SENTIMENT*<br/>
+*MOST NEGATIVE SENTIMENT (when in play)*<br/>
+*MOST POSITIVE SENTIMENT (when in play)*<br/>
+*KILLS*<br/>
+*IS KILLED BY*<br/>
+*FIRST WORDS*<br/>
+*LAST WORDS*<br/>
+*LONGEST SPEECH*<br/>
 
 __HAMLET__
 
