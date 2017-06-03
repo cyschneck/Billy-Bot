@@ -1,12 +1,20 @@
+
+###########################################################################################################################################################
+# Hamlet Character Profiles
 # DESCRIPTION: Creates a general profile of the characters in Hamlet
 # Created June 2, 2017 
 
+###########################################################################################################################################################
 
 # Stuff to do:
 # Finish incorporating characters
 # Parse the text instead of hard-coding the answer (more a test of concept right now)
 
+###########################################################################################################################################################
+
 import argparse
+import numpy as np
+import matplotlib.pyplot as plt
 
 def info(name):
     # input: name
@@ -55,32 +63,51 @@ def info(name):
 
 def Main():
 
+    # fetches information from the command line for character to analyze
     parser = argparse.ArgumentParser()
     parser.add_argument("char_name",help='the name of the character in hamlet you wish to profile',type=str)
     args = parser.parse_args()
-    
-    
-    profile = info(args.char_name)
-    
-    char_name = args.char_name
-    
-    status = profile[1]
-    
-    parents = profile[2]
-    father = parents[0]
-    mother = parents[1]
-
-    ent = profile[3]
-
-    ex = profile[4]
-
-    cod = profile[5]
+   
 
 
-    print('The character ' + char_name + ', ' + status + ' is the son of ' + father + ' and ' + mother)
-    print('He enters the play in Act '+ str(ent[0]) + ', Scene ' + str(ent[1]))
-    print('He exits the play in Act ' + str(ex[0]) + ', Scene ' + str(ent[1]))
+    hamlet_character_list = ['claudius', 
+            'hamlet', 'polonius',
+            'horatio', 'laertes', 
+            'rosencrantz', 'guildenstern',
+            'osric', 'priest', 'marcellus',
+            'bernardo',	'francisco',
+            'reynaldo', 'players', 
+            'clownone',	'clowntwo',
+            'gertrude', 'ophelia',
+            'fortinbras', 'ghost', 'other']
+
+    if char_name not in hamlet_character_list:
+        print "This character is not in Hamlet"
+    else:
+
+
     
+        profile = info(args.char_name)
+        
+        char_name = args.char_name
+        
+        status = profile[1]
+        
+        parents = profile[2]
+        father = parents[0]
+        mother = parents[1]
+
+        ent = profile[3]
+
+        ex = profile[4]
+
+        cod = profile[5]
+
+
+        print('The character ' + char_name + ', ' + status + ' is the son of ' + father + ' and ' + mother)
+        print('He enters the play in Act '+ str(ent[0]) + ', Scene ' + str(ent[1]))
+        print('He exits the play in Act ' + str(ex[0]) + ', Scene ' + str(ent[1]))
+        
 
 if __name__ == '__main__':
     Main()
