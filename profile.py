@@ -10,7 +10,9 @@ import argparse
 
 def info(name):
     # input: name
-    # output: name, status, family, entrance, exit, cause of death, word count, average sentiment, most negative moment, most positive moment, killed by, first word, last word, longest speechOB
+    # output: name, status, family, entrance, exit, cause of death,
+    #         word count, average sentiment, most negative moment, 
+    #         most positive moment, killed by, first word, last word, longest speech
 
     # Hamlet
     if name == 'Hamlet':
@@ -52,9 +54,11 @@ def info(name):
     return profile
 
 def Main():
+
     parser = argparse.ArgumentParser()
     parser.add_argument("char_name",help='the name of the character in hamlet you wish to profile',type=str)
     args = parser.parse_args()
+    
     
     profile = info(args.char_name)
     
@@ -73,7 +77,7 @@ def Main():
     cod = profile[5]
 
 
-    print('The character ' + char_name + ', ' + status + 'is the son of ' + father + ' and ' + mother)
+    print('The character ' + char_name + ', ' + status + ' is the son of ' + father + ' and ' + mother)
     print('He enters the play in Act '+ str(ent[0]) + ', Scene ' + str(ent[1]))
     print('He exits the play in Act ' + str(ex[0]) + ', Scene ' + str(ent[1]))
     
