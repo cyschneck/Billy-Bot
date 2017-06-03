@@ -59,7 +59,9 @@ def Main():
     profile = info(args.char_name)
     
     char_name = args.char_name
-
+    
+    status = profile[1]
+    
     parents = profile[2]
     father = parents[0]
     mother = parents[1]
