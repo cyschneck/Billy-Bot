@@ -1,4 +1,5 @@
 # General Character Profile
+Outline for the profile.py code
 
 *NAME*<br/>
 *STATUS*<br/>
