@@ -23,7 +23,7 @@ def info(name):
     #         most positive moment, killed by, first word, last word, longest speech
 
     # Hamlet
-    if name == 'Hamlet':
+    if name == 'hamlet':
         
         status = 'Prince Of Denmark'
         
@@ -65,7 +65,7 @@ def Main():
 
     # fetches information from the command line for character to analyze
     parser = argparse.ArgumentParser()
-    parser.add_argument("char_name",help='the name of the character in hamlet you wish to profile',type=str)
+    parser.add_argument("char_name",help='the name of the character (no caps) in hamlet you wish to profile',type=str)
     args = parser.parse_args()
    
 
@@ -83,9 +83,8 @@ def Main():
 
     if char_name not in hamlet_character_list:
         print "This character is not in Hamlet"
+    
     else:
-
-
     
         profile = info(args.char_name)
         
