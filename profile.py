@@ -69,6 +69,7 @@ def Main():
     args = parser.parse_args()
    
 
+    char_name = args.char_name
 
     hamlet_character_list = ['claudius', 
             'hamlet', 'polonius',
@@ -82,13 +83,12 @@ def Main():
             'fortinbras', 'ghost', 'other']
 
     if char_name not in hamlet_character_list:
-        print "This character is not in Hamlet"
-    
+        print("This character is not in Hamlet")
+     # making this case insensitive?   
     else:
-    
+
         profile = info(args.char_name)
         
-        char_name = args.char_name
         
         status = profile[1]
         
