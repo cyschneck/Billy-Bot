@@ -37,7 +37,7 @@ def info(name):
 
         ex_act = 5
         ex_scene = 2
-        exit = [ex_act,ex_scene]
+        play_exit = [ex_act,ex_scene]
 
         cod = 'Poisoned by a sword in a duel with Laeretes'
 
@@ -57,8 +57,8 @@ def info(name):
         
         most_neg = 10
         most_pos = 10
-
-    profile = [name,status,family,entrance,exit,cod,wrdcnt,avg_sent,most_neg,most_pos,kills,killed_by,first_wrd,last_wrd,longest_speech]
+    # make this a dictionary instead? cleaner I think
+    profile = [name,status,family,entrance,play_exit,cod,wrdcnt,avg_sent,most_neg,most_pos,kills,killed_by,first_wrd,last_wrd,longest_speech]
     return profile
 
 def Main():
@@ -86,10 +86,13 @@ def Main():
         print("This character is not in Hamlet")
      # making this case insensitive?   
     else:
-
+    
+        # create a routine here for reading t
+        # collect the information (from the text)
         profile = info(args.char_name)
-        
-        
+
+
+        # for printing the information
         status = profile[1]
         
         parents = profile[2]
