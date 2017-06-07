@@ -539,6 +539,13 @@ if __name__ == '__main__':
 	plt.scatter(line_stamp, neg_pol,  color = 'b')
 	plt.scatter(line_stamp, zed_pol, color = '0.75')
 	plt.show()
-
+	
+	# Save the figure as a jpeg (first as a png and converted to jeg)
+	fig_name = "{0}".format(chart_title) # file name will have the same name as the chart title
+    	plt.savefig(fig_name, format='png') # savefig doesn't directly support jpeg format
+	Image.open(fig_name).save(fig_name','JPEG') # conversion to supported jpeg
+				  
 	# include when a character enters and exit the play, how often they speech (frequency/total play)
 	# fix spacing after ; and with carriage returns (needs space)
+				  
+
